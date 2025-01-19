@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.0.0/dist/ethers.umd.min.js"></script>
+    <title>Grassland Forest</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlace al archivo CSS -->
+    <script src="Funcion.js" defer></script>
+</head>
+<body>
+        <!-- Menú de navegación -->
+    <div id="formContainer"></div>
+    <div class="imagh">
+        <img src="imag/Logo1.png" alt="Logo" class="logo">
+        <label class="label-overlay">Grassland Forest</label>
+        <button class="button" id="preRegisterBtn">Pre-registro</button>
+    </div>
+
+    <nav>
+        <label class="labelx">GRASSLAND FOREST</label>
+        <label class="labelx1" id="accountLabel"></label>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button> <!-- Botón de menú -->
+        <div class="line"></div>
+        <ul>
+            <li><a id="id_inicio" href="#inicio">start menu</a></li>
+            <li><a id="id_Jugar" href="Bin/game.html">play</a></li>
+        </ul>
+        <button id="metamaskButton" class="metamask-btn">LOG IN</button>
+    </nav>
+
+    <div class="image-container">
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModal">&times;</span>
+                <h2>Pre-registro</h2>
+                <button class="buttonx" id="sendBtn">Enviar</button>
+                <input type="text" id="username" class="input-field" placeholder="Usuario">
+                <input type="email" id="email" class="input-field" placeholder="Correo">
+            </div>
+        </div>
+    </div>
+    <main>
+        <section id="inicio">
+            <div class="fondo-negro">
+                <h2 class="fondo_negro_trabsparente">Unidades únicas</h2>
+                <div class="divs">
+                    <img src="imag/pers0.png" alt="pers1" class="Pers1">
+                    <p>
+                        Este es el contenido de la sección de unidades.
+                        <n></n>
+                    </p>
+                </div>
+                <div class="divs">
+                    <img src="imag/pers1.png" alt="pers1" class="Pers1">
+                    <p>
+                        Este es el contenido de la sección de unidades.
+                        <n></n>
+                    </p>
+                </div>
+                <div class="divs">
+                    <img src="imag/pers2.png" alt="pers1" class="Pers1">
+                    <p>
+                        Este es el contenido de la sección de unidades.
+                        <n></n>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="sobre-nosotros">
+            <div class="fondo-negro">
+                <h2>¡Colección NFT!</h2>
+                <div class="divs">
+                    <p>Este es el contenido de la sección de unidades.".</p>
+                </div>
+                <div class="divs">
+                    <p>Este es el contenido de la sección de unidades.".</p>
+                </div>
+                <div class="divs">
+                    <p>Este es el contenido de la sección de unidades.".</p>
+                </div>
+            </div>
+
+        </section>
+        <section id="servicios">
+            <h2>Sobre Nosotros</h2>
+            <div class="Sobre_nosotrosx">
+                <p>Descripción de servicios aquí.</p>
+            </div>
+    </main>
+    <div class="PanelPriv">
+        <label class="Empresa">© 2025 GRASSLAND FOREST - All Rights Reserved.</label>
+        <div class="botonesRedes">
+            <a href="https://x.com/codeup201918017" target="_blank">
+                <img class="botonXxx" src="imag/Twitter.svg" alt="Twitter">
+            </a>
+            <a href="https://discord.gg/KQeNJtPY6h" target="_blank">
+                <img class="botonXxx" src="imag/Discord.svg" alt="Discord">
+            </a>
+        </div>
+        <div class="contenedorx">
+            <a href="" class="botonXx">Whitepaper</a>
+            <a href="" class="botonXx">Terms of Service</a>
+            <a href="privacy-policy.html" class="botonXx">Privacy Policy</a>
+        </div>
+    </div>  
+</body>
+</html>
