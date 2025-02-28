@@ -1,0 +1,349 @@
+@font-face {
+    font-family: 'PermanentMarker'; /* Nombre que usarás en CSS */
+    src: url('fonts/PermanentMarker-Regular.ttf') format('truetype');
+}
+
+/* Estilo general del cuerpo */
+body, html {
+    margin: 0; /* Quita el margen por defecto del body y html */
+    padding: 0; /* Quita el padding por defecto */
+    width: 100%; /* Asegura que el body y html ocupen todo el ancho */
+    height: 100%; /* Asegura que el body y html ocupen toda la altura */
+    box-sizing: border-box; /* Para un cálculo más consistente de los tamaños */
+    font-family: 'PermanentMarker', sans-serif;
+    background:  #000000b6; 
+}
+
+/* Estilo del menú de navegación */
+nav {
+    position: fixed; /* Fija el menú en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: #0000007f; /* Color de fondo */
+    color: white;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    padding: 10px 0;
+}
+
+/* Lista del menú */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end; /* Alinea los elementos hacia la derecha */
+    gap: 20px; /* Espaciado entre los elementos del menú */
+    padding-right: 150px; /* Espacio entre el borde derecho y los elementos */
+
+}
+
+/* Elementos individuales del menú */
+nav ul li {
+    margin: 0;
+}
+
+/* Estilo de los enlaces */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+    padding: 15px 12px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #00ddfa;
+    color: white; /* Cambia el color al pasar el mouse */
+    box-shadow: 0 0 10px 2px #00ddfa;
+}
+
+
+/* Secciones de contenido */
+section {
+    padding: 40px 20px;
+}
+
+h2 {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 42px;
+    color: white;
+    margin-bottom: 50px;
+}
+
+/* Estilo del label */
+.labelx {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    z-index: 1000;
+    padding: 20px 0;
+    display: flex;
+    margin-left: 2%;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.labelx1 {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    z-index: 1000;
+    padding: 20px 0;
+    display: flex;
+    margin-left: 20%;
+}
+
+/* Estilo de la imagen para cubrir todo el contenedor */
+.logo {
+    width: 100%; /* La imagen se ajusta al ancho del contenedor */
+    height: 100%; /* La imagen se ajusta al alto del contenedor */
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio del div sin distorsionarse */
+    opacity: 0.9;
+}
+
+
+        /* Label centrado sobre la imagen */
+.label-overlay {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el label en la imagen */
+    color: white;
+    font-weight: bold;
+    font-size: 120px;
+    text-shadow: 2px 2px 50px rgba(0, 0, 0, 0.6); /* Sombra para mejorar la visibilidad */
+    pointer-events: none; /* Evita que el label interfiera con la interacción de la imagen */
+    white-space: nowrap; /* Previene el salto de línea */
+}
+
+.label-overlay2 {
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el label en la imagen */
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    text-shadow: 2px 2px 50px rgba(0, 0, 0, 0.6); /* Sombra para mejorar la visibilidad */
+    pointer-events: none; /* Evita que el label interfiera con la interacción de la imagen */
+    white-space: nowrap; /* Previene el salto de línea */
+}
+
+
+.label-overlay3 {
+    background-color: #333;
+    font-family: sans-serif;
+    position: absolute;
+    top: 45%;
+    left: 0%;
+    color: white;
+    max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
+    word-wrap: break-word; /* Permite cortar las palabras largas */
+    word-break: break-word; /* Fuerza el corte si es necesario */
+    overflow-wrap: break-word; /* Refuerza los ajustes */
+    white-space: normal; /* Permite saltos de línea */
+    line-height: 1.5; /* Mejora la legibilidad del texto */
+    font-family: Arial, sans-serif; /* Define una fuente legible */
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Opcional: bordes para visualización */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.section-title {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+
+.menu-btn {
+    display: none; /* Oculto por defecto */
+    background-color: #333;
+    color: white;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+
+    /* Posicionamiento */
+    position: fixed; /* Fija el botón en la esquina superior derecha */
+    right: 20px; /* Espaciado desde el borde derecho */
+    z-index: 1001; /* Asegura que esté encima de otros elementos */
+}
+
+.metamask-btn {
+    background-color: #f6851b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    right: 10px; /* Ajusta el margen derecho */
+    top: 20px; /* Ajusta el margen superior */
+    z-index: 1001;
+    transition: background-color 0.3s;
+}
+
+.metamask-btn:hover {
+    background-color: #e0761b;
+    box-shadow: 0 0 10px 2px #e0761b;
+}
+
+.line {
+    background-color: #97979777;
+    width: 200px;
+    height: 10px;
+    border-top: 20px;
+    border-color: black;
+    border-style: hidden;
+    border-radius: 5px;
+    position: fixed;
+    padding: 20px 20px;
+    margin-left: 8px;
+}
+
+.button {
+    background-color: #4ecb5d;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #19661d;
+}
+
+.buttonx {
+    background-color: #4ecb5d;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 61%;
+    left: 50%;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.buttonx:hover {
+    background-color: #19661d;
+}
+
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 1000px) {
+    /* Mostrar el botón de menú */
+    .menu-btn {
+        display: block; /* Muestra el botón en pantallas pequeñas */
+
+    }
+
+    header {
+        height: 40px;
+    }
+
+
+    /* Asegurar que el nav tenga la misma altura */
+    nav {
+        height: 20px; /* Asegura que la altura del menú sea constante */
+        padding: 10px 20px; /* Ajustar el padding si es necesario */
+    }
+
+    /* Ocultar el menú de navegación por defecto */
+    nav ul {
+        display: none; /* Esconde los enlaces del menú */
+        flex-direction: column; /* Hace que los elementos se apilen verticalmente */
+        align-items: center; /* Centra los elementos */
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    /* Mostrar el menú cuando está activo */
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Espacio entre los elementos */
+    }
+
+    nav ul li a {
+        font-size: 16px; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+        padding: 10px; /* Añade más espacio a los enlaces */
+    }
+        /* Ajustes para el label */
+    .labelx {
+        font-size: 16px; /* Reducir el tamaño del texto */
+        padding: 10px 0; /* Reducir el padding */
+    }
+
+    .label-overlay {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        font-weight: bold;
+        font-size: 40px;
+        transform: translate(-50%, -50%); /* Centra el label en la imagen */
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra para mejorar la visibilidad */
+        pointer-events: none;
+    }
+
+    .metamask-btn {
+        background-color: #f6851b;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        position: absolute;
+        right: 100px; /* Ajusta el margen derecho */
+        top: 5px; /* Ajusta el margen superior */
+        z-index: 1001;
+        transition: background-color 0.3s;
+    }
+
+    .line {
+        top: 9px;
+        left: 0;
+        background-color: #4b4a4a;
+        width: 138px;
+        height: 10px;
+        border-radius: 5px;
+        position: fixed;
+        padding: 8px 18px;
+        
+    }
+    .labelx1 {
+        display: none;
+
+    }
+}

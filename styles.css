@@ -1,0 +1,1268 @@
+@font-face {
+    font-family: 'PermanentMarker'; /* Nombre que usarás en CSS */
+    src: url('fonts/PermanentMarker-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Daimon'; /* Nombre que usarás en CSS */
+    src: url('fonts/Oswald-Regular.ttf') format('truetype');
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Estilo general del cuerpo */
+body, html {
+    margin: 0; /* Quita el margen por defecto del body y html */
+    padding: 0; /* Quita el padding por defecto */
+    width: 100%; /* Asegura que el body y html ocupen todo el ancho */
+    height: 100%; /* Asegura que el body y html ocupen toda la altura */
+    box-sizing: border-box; /* Para un cálculo más consistente de los tamaños */
+    font-family: 'PermanentMarker', sans-serif;
+    background:  #3a027e; 
+
+    touch-action: pan-x pan-y;
+    overscroll-behavior: none;
+    touch-action: none;
+}
+
+/* Estilo del menú de navegación */
+nav {
+    position: fixed; /* Fija el menú en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: #0000007f; /* Color de fondo */
+    color: white;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    /*padding: 10px 0;*/
+}
+
+/* Lista del menú */
+nav ul {
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end; /* Alinea los elementos hacia la derecha */
+    gap: 20px; /* Espaciado entre los elementos del menú */
+    padding-right: 150px; /* Espacio entre el borde derecho y los elementos */
+
+}
+
+/* Elementos individuales del menú */
+nav ul li {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* Estilo de los enlaces */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+    padding: 15px 12px;
+    display: inline-block;
+    border-radius: 10px;
+}
+
+nav ul li a:hover {
+    background-color: #00ddfa;
+    color: white; /* Cambia el color al pasar el mouse */
+    box-shadow: 0 0 10px 2px #00ddfa;
+}
+
+
+/* Secciones de contenido */
+section {
+    padding: 40px 20px;
+}
+
+h2 {
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 42px;
+    color: white;
+    margin-left: 40px;
+    text-shadow: 2px 2px 20px rgb(83, 83, 83);
+}
+
+/* Estilo del label */
+.labelx {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    z-index: 1000;
+    padding: 20px 0;
+    display: flex;
+    margin-left: 2%;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.labelx1 {
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: white;
+    z-index: 1000;
+    padding: 20px 0;
+    display: flex;
+    margin-left: 20%;
+}
+
+/* Contenedor de la imagen y el label */
+.image-container {
+    position: relative;
+    display: inline-block; /* Hace que la imagen y el label estén en línea */
+    width: 100%;
+}    
+
+.imagh {
+    position: relative;  /* Mantiene la imagen dentro del contenedor */
+    width: 100%;  /* Ocupa todo el ancho disponible */
+    height: 100vh;  /* Ocupa toda la altura de la pantalla */
+    overflow: hidden;  /* Evita que la imagen se salga del contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Imagen que cubre el contenedor sin deformarse */
+.logo {
+    position: absolute; /* Permite que la imagen se expanda más allá de los bordes */
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que cubra todo el contenedor sin distorsión */
+    transform: translate(-50%, -50%); /* Centra la imagen perfectamente */
+    opacity: 0.9;
+}
+
+
+        /* Label centrado sobre la imagen */
+.label-overlay {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el label en la imagen */
+    color: white;
+    font-weight: bold;
+    font-size: 120px;
+    text-shadow: 2px 2px 50px rgba(0, 0, 0, 0.6); /* Sombra para mejorar la visibilidad */
+    pointer-events: none; /* Evita que el label interfiera con la interacción de la imagen */
+    white-space: nowrap; /* Previene el salto de línea */
+}
+
+.label-overlay2 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra el label en la imagen */
+    color: white;
+    font-weight: bold;
+    font-size: 50px;
+    text-shadow: 2px 2px 50px rgba(0, 0, 0, 0.6); /* Sombra para mejorar la visibilidad */
+    pointer-events: none; /* Evita que el label interfiera con la interacción de la imagen */
+    white-space: nowrap; /* Previene el salto de línea */
+}
+
+
+.label-overlay3 {
+    font-family: sans-serif;
+    position: absolute;
+    top: 45%;
+    left: 0%;
+    color: white;
+    max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
+    word-wrap: break-word; /* Permite cortar las palabras largas */
+    word-break: break-word; /* Fuerza el corte si es necesario */
+    overflow-wrap: break-word; /* Refuerza los ajustes */
+    white-space: normal; /* Permite saltos de línea */
+    line-height: 1.5; /* Mejora la legibilidad del texto */
+    font-family: Arial, sans-serif; /* Define una fuente legible */
+    font-size: 14px; /* Ajusta el tamaño del texto */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Opcional: bordes para visualización */
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.section-title {
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.fondo-negro {
+    background-color: #0a1f29c3;
+    padding: 10px 20px;
+    border-radius: 10px;
+    min-height: 70vh;
+    height: 20%;
+    box-shadow: 0 0 20px rgba(155, 15, 255, 0.8);
+}
+
+
+.sobre-nfts {
+    background-color: #0a1f29c3;
+    padding: 10px 20px;
+    border-radius: 10px;
+    min-height: 70vh;
+    height: 20%;
+    box-shadow: 0 0 20px rgba(155, 15, 255, 0.8);
+}
+
+.fondo-negro1 {
+    background-color: #0a1f29c3;
+    padding: 10px 20px;
+    border-radius: 10px;
+    min-height: 70vh;
+    height: 20%;
+    box-shadow: 0 0 20px rgba(155, 15, 255, 0.8);
+
+}
+
+
+.Pers1 {
+    position: absolute;
+    top: 0%; /* Mueve la imagen hacia arriba */
+    left: 0%;  /* Centra horizontalmente */
+    width: 100%;
+    height: 100%;
+}
+
+
+.Sobre_nosotrosx {
+
+    background-color: #0a1f29c3;
+    color: #f3f3f3;
+    border-radius: 10px;
+    padding: 50px; /* Espaciado interno más razonable */
+    text-align: left; /* Alinea el texto a la izquierda */
+    box-shadow: 0 0 20px rgba(155, 15, 255, 0.8);
+}
+
+
+.Sobre_nosotrosx1 {
+    display: flex;
+    align-items: center; /* Alinear elementos verticalmente */
+    justify-content: space-between; /* Espaciado entre imagen y formulario */
+    gap: 20px; /* Espacio entre los elementos */
+
+    border-radius: 10px;
+    padding: 50px; /* Espaciado interno más razonable */
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+
+.menu-btn {
+    display: none; /* Oculto por defecto */
+    background-color: #333;
+    color: white;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+
+    /* Posicionamiento */
+    position: fixed; /* Fija el botón en la esquina superior derecha */
+    right: 20px; /* Espaciado desde el borde derecho */
+    z-index: 1001; /* Asegura que esté encima de otros elementos */
+}
+
+.metamask-btn {
+    background-color: #f6851b;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    right: 10px; /* Ajusta el margen derecho */
+    top: 15px; /* Ajusta el margen superior */
+    z-index: 1001;
+    transition: background-color 0.3s;
+}
+
+.metamask-btn:hover {
+    background-color: #e0761b;
+    box-shadow: 0 0 10px 2px #e0761b;
+}
+
+.line {
+    background-color: #97979777;
+    width: 200px;
+    height: 10px;
+    border-top: 20px;
+    border-color: black;
+    border-style: hidden;
+    border-radius: 5px;
+    position: fixed;
+    padding: 20px 20px;
+    margin-left: 8px;
+    margin-top: 10px;
+}
+
+.buttonx {
+    background-color: #4ecb5d;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 61%;
+    left: 50%;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.buttonx:hover {
+    background-color: #19661d;
+}
+
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 70px;
+    border-radius: 8px;
+    width: 30%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+    position: absolute;
+    top: 35.5%;
+    left: 42%;
+    margin-top: 0;
+    text-align: center;
+    z-index: 1001;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.close {
+    position: absolute;
+    top: 5%;
+    left: 90%;
+    text-align: right;
+    cursor: pointer;
+    font-size: 16px;
+    color: #888;
+    z-index: 1001;
+}
+
+.close:hover {
+    color: #000;
+}
+
+.PanelPriv {
+    width: 100%;
+    height: 100px;
+    background-color: #00000071;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+/* Texto de derechos de autor (Primero) */
+.Empresa {
+    background-color: #0000003c;
+    color: #f1f1f1;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #f1f1f1;
+    white-space: nowrap;
+    text-align: center;
+    order: 1;
+    flex-shrink: 0; /* Evita que se reduzca */
+}
+
+/* Botones de términos y políticas (Segundo, más a la izquierda) */
+.contenedorx {
+    display: flex;
+    gap: 15px;
+    order: 2;
+    position: relative; /* Permite usar left */
+    left: -5%; /* Mueve los botones más a la izquierda */
+}
+
+.botonXx {
+    background-color: #0000003c;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.botonXx:hover {
+    background-color: #00bcd4;
+    box-shadow: 0 0 10px 2px #00bcd4;
+}
+
+/* Botones de redes sociales (Tercero, fijos en su posición) */
+.botonesRedes {
+    display: flex;
+    gap: 20px;
+    order: 3;
+    position: relative; /* Evita que se muevan con .contenedorx */
+    left: -10%; /* Asegura que no se muevan */
+}
+
+.botonXxx {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.botonXxx:hover {
+    background-color: #00bcd4;
+    box-shadow: 0 0 10px 2px #00bcd4;
+}
+
+
+/* Botón de pre-registro */
+#preRegisterBtn {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px; /* Ancho fijo */
+    height: 50px; /* Altura fija */
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    padding: 0; /* Evitar cambios dinámicos por padding */
+}
+
+/* Botón deshabilitado (gris) */
+#preRegisterBtn:disabled {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* Contenedor del formulario */
+#formContainer {
+    position: absolute;
+    top: 40%;
+    left: 35%;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+    z-index: 1001;
+    
+    position: fixed;
+}
+
+#formContainer div {
+    margin-bottom: 10px;
+    margin-right: 200px;
+}
+
+#formContainer label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#formContainer input {
+    width: 190%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#submitForm {
+    margin-left: 10px;
+    width: 190%;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Botón habilitado (verde) */
+.greenButton {
+    background-color: green;
+    color: white;
+    animation: greenPulse 1.5s infinite;
+}
+
+.pregunta-container {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.pregunta {
+    display: flex;
+    font-family: 'Daimon', serif;
+    justify-content: space-between;
+    font-size: 18px;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ddddddbf;
+    border-radius: 8px;
+    background: #ffffff;
+    transition: background 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+  }
+
+  .pregunta:hover {
+    background: #a370fb;
+    transform: translateY(-2px);
+  }
+
+  .descripcion {
+    display: none;
+    font-family: 'Daimon', serif;
+    padding: 15px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    color: #555;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+  }
+
+  .boton-toggle {
+    background: #005eff;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .boton-toggle:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+  }
+
+.contenedor {
+    display: grid;
+    grid-gap: 5px;
+    max-width: 500px;
+    margin-left: 10px;
+}
+
+.video-container {
+    position: absolute;
+    display: flex;
+    justify-content: space-between; /* Separa preguntas a la izquierda y video a la derecha */
+    align-items: flex-start; /* Alinea elementos al inicio */
+    gap: 20px; /* Espacio entre elementos */
+    padding: 20px;
+
+    left: 46%;
+    width: 47%;  /* Establecer un tamaño fijo */
+    height: 50%; /* Establecer un tamaño fijo */
+    background: #000;
+    border-radius: 8px;
+  }
+
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 8px;
+  }
+
+strong {
+    color: rgb(0, 0, 0);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+.form-group label {
+    display: block;
+    margin-left: 25%;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ffffff;
+}
+.form-group input,
+.form-group textarea {
+    margin-left: 25%;
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.form-group textarea {
+    resize: vertical;
+    height: 100px;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+.submit-btn {
+    display: block;
+    margin-left: 27%;
+    width: 70%;
+    padding: 15px;
+    background-color: #007BFF;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.comnttte{
+    position: relative;
+    top: 380%;
+    left: 0%;
+    max-width: 40%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.formulariosc {
+    position: relative;
+    top: 370%;
+    left: 0%;
+    width: 70%;
+
+}
+
+
+
+
+.carrusel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 100vh;
+}
+
+.imagenes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+}
+
+.img{
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.85);
+    height: 576px;
+    width: 1134px;
+    border-radius: 15px ;
+    margin: 5px;
+    object-fit: cover;
+    filter: saturate(175%);
+}
+
+.texto{
+    font-family: 'Daimon', sans-serif;
+    overflow: hidden;
+    position: absolute;
+    flex-direction: column;
+    transform: translateY(0px);
+    margin-bottom: 9px;
+    backdrop-filter: blur(20px);
+    background-color: rgba(63, 106, 138, 0.21);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+}
+
+.texto h3{
+    text-shadow: 0px 0px 15px black;
+    padding-top: 40px;
+    color: white;
+    font-weight: 300;
+    font-size: 27px;
+}
+
+.texto p{
+    align-items: center;
+    padding: 20px;
+    color:white;
+    font-size: 0px;
+    font-weight: 300;
+}
+
+.imagenes .texto{
+    width: 50%;
+    height: 100px;
+    transition: 1s;
+}
+
+.imagenes:hover .texto{
+    transition: height 1s, transform 1s, background-color 1s;
+    transform: translateY(-150px);
+    height: 300px;
+    background-color: rgba(63, 106, 138, 0.71);
+}
+
+.imagenes:hover .texto p{
+    transition: font-size 0s .2s linear;
+    font-size: 23px;
+    font-weight: 300;
+
+    text-shadow: 0px 0px 10px #000000;
+}
+
+.puntos{
+    font-family: 'Daimon', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.puntos p{
+    font-size: 100px;
+    font-weight: 500;
+    margin-top: -50px;
+    color: black;
+}
+
+.puntos .bold{
+    font-weight: 700;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #5E17EB ;
+}
+
+.adelante {
+    position: absolute;
+    top: 280%;
+    left: 93%;
+    width: 30%;
+    height: 100px;
+    z-index: 2;
+}
+
+.atras {
+    position: absolute;
+    top: 280%;
+    left: 4%;
+    width: 30%;
+    height: 100px;
+    z-index: 2;
+}
+
+
+
+
+.containerholp {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.card-content {
+    padding: 15px;
+}
+.card h3 {
+    font-family: "Daimon";
+    margin: 10px 0;
+    font-size: 2em;
+    color: #333;
+}
+.card p {
+    font-family: "Daimon";
+    font-size: 1em;
+    color: #4b4b4b;
+}
+
+.text-sm {
+    font-family: "Daimon";
+    color: rgb(32, 230, 25);
+    font-size: 20px;
+    
+
+}
+
+
+/* Animación para botón verde */
+@keyframes greenPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px; /* Ancho fijo */
+        height: 50px; /* Altura fija */
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        padding: 0; /* Evitar cambios dinámicos por padding */
+    }
+    50% {
+        transform: scale(1.05); /* Escalado menor para mantener proporción */
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.8);
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px; /* Ancho fijo */
+        height: 50px; /* Altura fija */
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        padding: 0; /* Evitar cambios dinámicos por padding */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 200px; /* Ancho fijo */
+        height: 50px; /* Altura fija */
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-align: center;
+        padding: 0; /* Evitar cambios dinámicos por padding */
+    }
+}
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 1224px) {
+
+
+    .slider-container {
+        width: 100%;
+    }
+    .slide {
+        height: 300px;
+    }
+    .arrow {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .fondo-negro, 
+    .sobre-nfts, 
+    .fondo-negro1 {
+        padding: 10px; /* Reduce el padding para ahorrar espacio */
+        border-radius: 5px; /* Reduce el redondeo en pantallas pequeñas */
+        min-height: 50vh; /* Ajusta la altura mínima para mejor adaptación */
+        height: auto; /* Permite que crezca según el contenido */
+        box-shadow: 0 0 10px rgba(155, 15, 255, 0.6); /* Reduce la intensidad de la sombra */
+    }
+
+    h2 {
+        font-family: 'Arial', sans-serif;
+        font-weight: bold;
+        font-size: 30px;
+        color: white;
+        margin-left: 40px;
+        text-shadow: 2px 2px 20px rgb(83, 83, 83);
+    }
+
+    #preRegisterBtn {
+        top: 55%;
+    }
+    
+
+    #inicio { 
+        width: 95%;
+        height: 100%;
+        margin-right: 2%;
+    }
+
+    #sobre-nfts {
+        width: 95%;
+        height: 100%;
+    }
+
+    #sobre-nosotros1 {
+        width: 95%;
+        height: 100%;
+    }
+
+    #servicios {
+        width: 95%;
+        height: 100%;
+    }
+
+
+    .imagh {
+        width: 110%;
+        height: 50vh;  /* Reduce la altura en dispositivos móviles */
+    }
+
+    .logo {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Asegura que la imagen no se deforme */
+    }
+        
+    
+    /* Mostrar el botón de menú */
+    .menu-btn {
+        display: block; /* Muestra el botón en pantallas pequeñas */
+
+    }
+
+    header {
+        height: 40px;
+    }
+
+
+    /* Asegurar que el nav tenga la misma altura */
+    nav {
+        height: 28px; /* Asegura que la altura del menú sea constante */
+        padding: 10px 20px; /* Ajustar el padding si es necesario */
+    }
+
+    /* Ocultar el menú de navegación por defecto */
+    nav ul {
+        display: none; /* Esconde los enlaces del menú */
+        flex-direction: column; /* Hace que los elementos se apilen verticalmente */
+        align-items: center; /* Centra los elementos */
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        padding: 10px 0;
+    }
+
+    /* Mostrar el menú cuando está activo */
+    nav ul.show {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Espacio entre los elementos */
+    }
+
+    nav ul li a {
+        font-size: 16px; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+        padding: 10px; /* Añade más espacio a los enlaces */
+    }
+        /* Ajustes para el label */
+    .labelx {
+        font-size: 20px; /* Reducir el tamaño del texto */
+        padding: 10px 0; /* Reducir el padding */
+    }
+
+    .label-overlay {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        font-weight: bold;
+        font-size: 40px;
+        transform: translate(-50%, -50%); /* Centra el label en la imagen */
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra para mejorar la visibilidad */
+        pointer-events: none;
+    }
+
+    .metamask-btn {
+        background-color: #f6851b;
+        color: white;
+        border: none;
+        padding: 5px 15px;
+        font-size: 15px;
+        cursor: pointer;
+        border-radius: 5px;
+        position: absolute;
+        right: 100px; /* Ajusta el margen derecho */
+        top: 10px; /* Ajusta el margen superior */
+        z-index: 1001;
+        transition: background-color 0.3s;
+    }
+
+    .line {
+        position: absolute;
+        top: 0.50%;
+        left: 0.50%;
+        background-color: #97979777;
+        width: 200px;
+        height: 0;
+        border-color: black;
+        border-style: hidden;
+        border-radius: 5px;
+        position: fixed;
+        margin-left: 0;
+        margin-top: 0px;
+    }
+    
+    .labelx1 {
+        display: none;
+
+    }
+
+    .comnttte {
+        position: relative;
+        top: 330%;
+        left: 5%;
+        max-width: 40%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+
+    .PanelPriv {
+        flex-direction: column; /* Cambia la dirección del contenedor a columna */
+        align-items: center; /* Centra los elementos */
+        height: auto; /* Deja que la altura se ajuste automáticamente */
+        padding: 20px 10px; /* Espaciado adicional */
+    }
+
+    .Empresa {
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+        margin-bottom: 10px; /* Separación entre los elementos */
+        order: 1; /* Sigue siendo primero */
+    }
+
+    .contenedorx {
+        left: 0; /* Ajusta la posición a la izquierda sin necesidad de left negativo */
+        margin-bottom: 10px; /* Separación entre los botones */
+        gap: 10px; /* Reduce el espacio entre los botones */
+        justify-content: center; /* Centra los botones */
+    }
+
+    .botonXx {
+        font-size: 14px; /* Reducir tamaño de la fuente para móviles */
+        padding: 8px 16px; /* Reducir tamaño de los botones */
+    }
+
+    .botonesRedes {
+        left: 0; /* Asegura que los botones de redes no se muevan */
+        justify-content: center; /* Centra los botones de redes sociales */
+        gap: 15px; /* Ajuste del espacio entre botones */
+    }
+
+    .botonXxx {
+        width: 35px; /* Reduce el tamaño de los iconos */
+        height: 35px;
+    }
+
+
+
+
+    /*    
+    .botonXxx {
+        position: absolute;
+        top: 50px; 
+        left: -200px;
+    }
+
+
+    .botonXxx1 {
+        position: relative;
+        top: 50px; 
+        left: -150px;
+    }
+
+    */
+
+        
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-left: 35%;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+    .form-group input,
+    .form-group textarea {
+        margin-left: 35%;
+        width: 70%;
+        padding: 10px;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+    .form-group textarea {
+        resize: vertical;
+        height: 100px;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+        border-color: #007BFF;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    }
+    .submit-btn {
+        display: block;
+        margin-left: 37%;
+        width: 70%;
+        padding: 15px;
+        background-color: #007BFF;
+        color: #ffffff;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+        background-color: #0056b3;
+    }
+
+    .contenedor {
+        position: relative;
+        width: 30%;
+    }
+
+    .video-container {
+        position: absolute;
+        display: flex;
+        justify-content: space-between; /* Separa preguntas a la izquierda y video a la derecha */
+        align-items: flex-start; /* Alinea elementos al inicio */
+        gap: 20px; /* Espacio entre elementos */
+        padding: 20px;
+    
+        left: 150%;
+        width: 140%;  /* Establecer un tamaño fijo */
+        height: 50%; /* Establecer un tamaño fijo */
+        background: #000;
+        border-radius: 8px;
+    }
+
+    
+    .pregunta {
+        display: flex;
+        font-family: 'Daimon', serif;
+        justify-content: space-between;
+        font-size: 10px;
+        align-items: center;
+        padding: 15px;
+        margin-bottom: 10px;
+        border: 1px solid #ddddddbf;
+        border-radius: 8px;
+        background: #ffffff;
+        transition: background 0.3s ease, transform 0.2s ease;
+        cursor: pointer;
+    }
+
+
+    .adelante {
+        position: absolute;
+        top: 220%;
+        left: 93%;
+        width: 30%;
+        height: 100px;
+        z-index: 2;
+    }
+    
+    .atras {
+        position: absolute;
+        top: 220%;
+        left: 4%;
+        width: 30%;
+        height: 100px;
+        z-index: 2;
+    }
+
+    .containerholp {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    
+
+
+
+
+
+
+}
