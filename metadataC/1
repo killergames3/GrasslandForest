@@ -1,8 +1,8 @@
 {
-  "name": "Mavis #0001",
+  "name": "stitch #1",
   "description": "Step into the world of birds and join Mavis.",
-  "external_url": "https://marketplace.skymavis.com/mavis/birdDetail/?birdId=0001",
-  "image": "https://marketplace.skymavis.com/birds/Mavis_0_1.jpg",
+  "external_url": "https://marketplace.skymavis.com/mavis/Grassland-forest-character/?chdId=1",
+  "image": "https://www.shutterstock.com/image-photo/stitch-disney-character-cartoon-vector-260nw-2500037779.jpg",
   "attributes": [
     {
       "display_type": "string",
