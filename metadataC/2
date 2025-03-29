@@ -1,0 +1,58 @@
+{
+  "name": "Mavis #0001",
+  "description": "Step into the world of birds and join Mavis.",
+  "external_url": "https://marketplace.skymavis.com/mavis/birdDetail/?birdId=0001",
+  "image": "https://marketplace.skymavis.com/birds/Mavis_0_1.jpg",
+  "attributes": [
+    {
+      "display_type": "string",
+      "trait_type": "Planet Class",
+      "value": "the fury"
+    },
+    {
+      "display_type": "string",
+      "trait_type": "Planet Type",
+      "value": "forestry"
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Conjunction Count",
+      "value": 2
+    },
+    {
+      "display_type": "date",
+      "trait_type": "Born Time",
+      "value": 1679938000
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Element-Air",
+      "value": 42
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Element-Earth",
+      "value": 31
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Element-Fire",
+      "value": 0
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Element-Water",
+      "value": 27
+    },
+    {
+      "display_type": "string",
+      "trait_type": "Bloodline",
+      "value": "tri"
+    },
+    {
+      "display_type": "number",
+      "trait_type": "Generation",
+      "value": 1
+    }
+  ]
+}
