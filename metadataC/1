@@ -1,0 +1,14 @@
+{
+  "name": "Grassland Forest #1",
+  "description": "Accede al mundo exclusivo de Grassland Forest con esta membresía NFT en [grasslandforest.xyz]. Cada nivel de rareza desbloquea ventajas únicas, coleccionables y secretos ocultos solo para verdaderos pioneros.",
+  "image": "https://grasslandforest.xyz/CharacterNFT/1.png",
+  "external_url": "https://grasslandforest.xyz/metadataC/1",
+  "properties": {
+    "traits": [
+      {
+        "trait_type": "Tier",
+        "value": "Uncommon"
+      }
+    ]
+  }
+}
