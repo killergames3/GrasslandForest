@@ -99,6 +99,14 @@
     }
     @keyframes pulse { 0%,100% { transform: scale(1);} 50% { transform: scale(1.05);} }
 
+    .hero-button:disabled {
+      background: #666;        /* tono más apagado */
+      cursor: not-allowed;     /* puntero de “no permitido” */
+      animation: none;         /* quita la animación */
+      opacity: 0.6;            /* un poco transparente */
+    }
+
+
     /* About Section */
     .about {
       display: flex;
@@ -132,11 +140,11 @@
     .carousel-slide img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      /*object-fit: cover;*/
     }
     .slide-caption {
       position: absolute;
-      bottom: 1rem;
+      bottom: 0.1rem;
       left: 50%;
       transform: translateX(-50%);
       background: rgba(0,0,0,0.6);
@@ -243,17 +251,19 @@
     <nav>
       <ul>
         <li><a href="#hero">START MENU</li>
-        <li><a href="#about">PLAY</a></li>
+        <li><a href="#about" style="pointer-events: none; color: gray; text-decoration: none; cursor: default;">PLAY</a></li>
+
+        <!-- <li><a href="#about">PLAY</a></li> -->
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <section id="hero" class="hero" style="background: #141414; width: 100%;">
-    <img class="hero-logo" src="image/Logo1.png" alt="Grassland Forest Logo">
+    <img class="hero-logo" src="image/logo1.png" alt="Grassland Forest Logo">
     <div class="hero-content">
       <div class="hero-title">GRASSLAND FOREST</div>
-      <button class="hero-button" id="preRegisterBtn">Pre-Register</button>
+      <button class="hero-button" id="preRegisterBtn" disabled>Pre-Register</button>
     </div>
   </section>
 
@@ -277,15 +287,15 @@
     <div class="carousel-track">
       <div class="carousel-slide">
         <img src="image/1.png" alt="Epic forest exploration">
-        <div class="slide-caption">Epic forest exploration</div>
+        <div class="slide-caption">Farming resources</div>
       </div>
       <div class="carousel-slide">
         <img src="image/2.png" alt="Battle for resources">
-        <div class="slide-caption">Battle for resources</div>
+        <div class="slide-caption">resource and materials store</div>
       </div>
       <div class="carousel-slide">
         <img src="image/3.png" alt="Join the crypto quest">
-        <div class="slide-caption">Join the crypto quest</div>
+        <div class="slide-caption">coming soon ...</div>
       </div>
     </div>
     <button class="carousel-button prev" aria-label="Anterior">&#10094;</button>
@@ -345,21 +355,33 @@
       <img src="image/equip0.jpg" alt="Miembro 1">
       <div class="card-content">
         <h3>Builder, CTO and Engineer</h3>
-        <p>Creator of Grassland Forest. Product and game designer, security expert, architect and solutions engineer, founding engineer, UX expert, and specialist.</p>
+        <h4>Name : Jean Larreal</h4>
+        <p>
+          <br>
+          Creator of Grassland Forest. Product and game designer, security expert, architect and solutions engineer, founding engineer, UX expert, and specialist.
+        </p>
       </div>
     </div>
     <div class="card">
       <img src="image/epuip2.jpg" alt="Miembro 2">
       <div class="card-content">
         <h3>Head of Design and Community</h3>
-        <p>Pixel Artist, Community Manager and Design Vision, Technical Support Manager, Community Usage and Development</p>
+        <h4>Name : Dagoberto Patiño</h4>
+        <p>
+          <br>
+          Pixel Artist, Community Manager and Design Vision, Technical Support Manager, Community Usage and Development
+        </p>
       </div>
     </div>
     <div class="card">
       <img src="image/equip1.jpg" alt="Miembro 3">
       <div class="card-content">
         <h3>Artist and Support</h3>
-        <p>Pixel Artist, Animator & Designer, Technical Support, Props & Community Development</p>
+        <h4>Name : Milena Medrano</h4>
+        <p>
+          <br>
+          Pixel Artist, Animator & Designer, Technical Support, Props & Community Development
+        </p>
       </div>
     </div>
   </section>
@@ -383,9 +405,9 @@
     <div class="footer-content">
       <p>&copy; 2025 Grassland Forest. - All Rights Reserved.</p>
       <div class="social-buttons">
-        <a href="#">Whitepaper</a>
+        <a href="https://artsgames.gitbook.io/grassland-forest">Litepaper</a>
         <a href="#">Terms of service</a>
-        <a href="#">Privacy Policy</a>
+        <a href="./privacy-policy.html">Privacy Policy</a>
         <a href="https://x.com/GrasslandForest" target="_blank" rel="noopener">Twitter</a>
         <a href="https://discord.gg/cyA4Pcum7r" target="_blank" rel="noopener">Discord</a>
       </div>
