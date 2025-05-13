@@ -390,19 +390,25 @@
     </div>
   </section>
 
+  
   <!-- Contact Section -->
   <section id="contacto" class="contact" style="padding: 40px 20px; background: #3a027e; width: 100%;">
     <h2 class="section-title">CONTACT US</h2>
-    <form class="contact-form" action="#" method="post" novalidate>
+    <form class="contact-form" action="https://formspree.io/f/xvgavzqe" method="POST">
       <input type="text" name="nombre" placeholder="Enter your name" required>
       <input type="email" name="email" placeholder="Enter your email" required>
       <input type="text" name="company" placeholder="Enter your company name" required>
       <input type="text" name="telegram" placeholder="Enter your Telegram username" required>
       <input type="text" name="discord" placeholder="Enter your Discord username" required>
       <textarea name="mensaje" rows="5" placeholder="Write your message here" required></textarea>
+
+      <!-- Honeypot field to prevent spam bots -->
+      <input type="text" name="_gotcha" style="display:none">
+
       <button type="submit">Enviar</button>
     </form>
   </section>
+
 
   <!-- Footer -->
   <footer>
