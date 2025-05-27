@@ -1,0 +1,52 @@
+/* styles.css */
+@font-face {
+    font-family: 'PermanentMarker'; /* Nombre que usarás en CSS */
+    src: url('../fonts/PermanentMarker-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'PressStart2P';
+    src: url('./fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+
+
+canvas {
+    image-rendering: pixelated; /* Modo pixelado */
+    image-rendering: crisp-edges; /* Alternativa para navegadores que no soporten pixelated */
+}
+
+html , body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'PermanentMarker', sans-serif;
+    background: rgb(0, 4, 119);
+    width: 100vw;
+    height: 100vh; /* Asegúrate de que el body ocupe toda la altura de la ventana */
+    -webkit-user-select: none; /* Safari y Chrome */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE/Edge */
+    user-select: none;         /* Estándar */
+}
+
+#container {
+    position: absolute; /* Fija el menú en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+}
+
+/* Estilo del canvas dentro del contenedor */
+canvas {
+    width: 100vw;
+    height: 100vh;
+    image-rendering: pixelated;
+    display: block;
+    margin: auto;
+}
+
