@@ -1,0 +1,1268 @@
+/* styles.css */
+@font-face {
+    font-family: 'PermanentMarker'; /* Nombre que usarás en CSS */
+    src: url('../fonts/PermanentMarker-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'PressStart2P';
+    src: url('./fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+
+/* Aplica un estilo base sin márgenes ni scroll */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(0, 4, 119);
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* Fix para iOS (eliminar rebotes y bugs visuales) */
+    touch-action: none;
+}
+
+/* Contenedor general (opcional si usas un menú) */
+#container {
+    position: relative; /* usa fixed en vez de absolute para evitar scroll en móviles */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    z-index: 0;
+    overflow: hidden;
+}
+
+/* Estilo del canvas */
+canvas {
+    width: 100vw !important;
+    height: 100vh !important;
+    display: block;
+    margin: 0 auto;
+
+    image-rendering: pixelated; /* para estilo retro */
+    image-rendering: crisp-edges;
+}
+
+
+
+
+.hud-panel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 600px;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 20px;
+  z-index: 1000;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.letrainv {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+}
+
+.hud-panel h2 {
+  text-align: center;
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.hud-personaje {
+  background-color: #222;
+  padding: 10px;
+  border: 1px solid #444;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+}
+
+.hud-personaje img {
+  width: 40px;
+  height: 40px;
+}
+
+.hud-personaje span {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.yellow {
+  color: yellow;
+}
+.cerrar-hud {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.cerrar-hud:hover {
+  color: red;
+}
+
+.lista-reputacion {
+  max-height: 390px; /* Ajusta según el alto de una fila */
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 6px;
+}
+
+/* Opcional: scrollbar bonito */
+.lista-reputacion::-webkit-scrollbar {
+  width: 8px;
+}
+.lista-reputacion::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+
+.lista-estadisticas {
+  max-height: 390px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-right: 6px;
+}
+
+/* Scrollbar opcional */
+.lista-estadisticas::-webkit-scrollbar {
+  width: 8px;
+}
+.lista-estadisticas::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+
+    /* ───────────────────────────────────────────────────────── */
+    /* QUICK SLOTS: 7 casillas siempre visibles, bottom-center */
+    #quick-slots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 2px;
+      z-index: 100;
+      pointer-events: none;
+    }
+    .quick-slot {
+        display: none;
+      width: 48px;
+      height: 48px;
+      background-color: #2a2a2ad1;
+      border: 2px solid white;
+      border-radius: 4px;
+      box-sizing: border-box;
+      pointer-events: auto;
+      position: relative;
+    }
+    .quick-slot.highlight {
+      border-color: red;
+    }
+    .quick-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+    }
+    .quick-slot .item-count {
+      position: absolute;
+      bottom: 2px;
+      right: 4px;
+      font-size: 12px;
+      color: yellow;
+      pointer-events: none;
+    }
+
+    /* ───────────────────────────────────────────────────────── */
+    /* PANEL DE INVENTARIO (oculto por defecto) */
+    #inventory-panel {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, 0.9);
+      border: 2px solid white;
+      border-radius: 8px;
+      padding: 20px;
+      z-index: 200;
+      display: none;
+      box-sizing: border-box;
+    }
+    #inventory-panel h2 {
+      margin: 0 0 10px;
+      text-align: center;
+      color: white;
+      user-select: none;
+    }
+    #inventory-panel .cerrar-hud {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+    #inventory-panel .cerrar-hud:hover {
+      color: red;
+    }
+
+    /* ───────────────────────────────────────────────────────── */
+    /* Contenedor de las 40 casillas dentro del panel */
+    #inventory-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-auto-rows: 64px;
+      gap: 2px;
+      max-height: calc(64px * 5 + 10px * 4);
+      overflow-y: auto;
+      padding: 10px 5px;
+      box-sizing: border-box;
+    }
+    .inv-slot {
+      width: 100%;
+      height: 100%;
+      background-color: #2a2a2ad1;
+      border: 2px solid white;
+      border-radius: 4px;
+      box-sizing: border-box;
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+    }
+    .inv-slot.highlight {
+      border-color: red;
+    }
+    .inv-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      pointer-events: none;
+      user-select: none;
+    }
+    .inv-slot .item-count {
+      position: absolute;
+      bottom: 2px;
+      right: 4px;
+      font-size: 12px;
+      color: yellow;
+      pointer-events: none;
+    }
+    /* Scrollbar opcional */
+    #inventory-grid::-webkit-scrollbar {
+      width: 8px;
+    }
+    #inventory-grid::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
+    /* ───────────────────────────────────────────────────────── */
+    /* Ítem “en mano” (drag) que sigue al cursor */
+    #drag-item {
+      position: absolute;
+      pointer-events: none;
+      display: none;
+      width: 48px;
+      height: 48px;
+      z-index: 300;
+      top: -100px; /* Fuera de pantalla al inicio */
+      left: -100px;
+    }
+    #drag-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      user-select: none;
+    }
+
+#quest-button.Hud_quests__DaLW5 {
+  display: none;
+  position: fixed;                   /* Lo fija en la pantalla */
+  bottom: 20px;                      /* Separación desde abajo */
+  right: 2px;                       /* Separación desde la derecha */
+  width: 50px;
+  height: 50px;
+  background-image: url('./Game/Source/bota.png');  /* Tu imagen */
+  /*background-size: cover;*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 1000;
+}
+
+/* Texto en la esquina inferior derecha */
+#quest-button .quest-text {
+  position: absolute;
+  bottom: 2px;
+  right: 4px;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1px 3px;
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+
+#yellow-bar-container {
+  display: none;
+  position: fixed;
+  bottom: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 10px; /* MÁS PLANA */
+  background-color: #777;
+  border: 1px solid #000; /* LÍNEA MÁS DELGADA */
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+#yellow-bar-fill {
+  height: 100%;
+  width: 100%;
+  background-color: yellow;
+  transition: width 0.3s ease;
+}
+
+
+    /* Hub container */
+    #hub {
+      position: fixed;
+      top: 22px;
+      left: 7px;
+      display: flex;
+      align-items: center;
+      background: rgba(30, 30, 30, 0.8);
+      padding: 8px 12px;
+      border-radius: 8px;
+      width: 280px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #eee;
+      user-select: none;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Ocultar con display none */
+    .hidden {
+      display: none !important;
+    }
+
+    /* Imagen a la izquierda */
+    #hub-image img {
+      width: 68px;
+      height: 68px;
+      border-radius: 30%;
+      object-fit: cover;
+    }
+
+    /* Info a la derecha */
+    #hub-info {
+      flex-grow: 1;
+      margin-left: 12px;
+    }
+
+    /* Nombre usuario */
+    #username {
+      font-weight: 700;
+      font-size: 1.1em;
+      margin-bottom: 8px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Barras de estado */
+    .status-bar {
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 6px;
+      height: 20px;
+      position: relative;
+    }
+
+    .status-fill {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.85em;
+      white-space: nowrap;
+      transition: width 0.3s ease;
+    }
+
+    .status-text {
+      position: relative;
+      z-index: 2;
+      pointer-events: none;
+    }
+/* General: evita selección y tab */
+.corner-box,
+.corner-box *,
+.round-buttons,
+.round-buttons * {
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none;     /* IE10+ */
+  pointer-events: auto;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Estilos existentes */
+.corner-box {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: #2a2a2ad1;
+  border-radius: 20px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.219);
+  z-index: 1000;
+}
+
+.main-img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+#info-text {
+  color: white;
+  font-size: 20px;
+  flex-grow: 1;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.inner-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.inner-btn img {
+  width: 30px;
+  height: 30px;
+}
+
+.round-buttons {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.round-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #2a2a2ad1;
+  border: 2px solid #000000b9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.2s;
+}
+
+.round-btn:hover {
+  background: #555;
+}
+
+.round-btn img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Oculta por defecto */
+.hud-hidden {
+  display: none;
+}
+
+/* Para mostrarlo desde Phaser */
+.hud-visible {
+  display: block;
+}
+
+
+
+
+/* Botón en esquina inferior izquierda */
+.chat-open-btn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #00000085;
+  border: 2px solid #00ff00;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: background 0.2s;
+}
+.chat-open-btn:hover {
+  background: #003300;
+  
+}
+.chat-open-btn img {
+  
+  width: 24px;
+  height: 24px;
+}
+
+/* Panel del chat estilo hacker */
+#chat-panel {
+
+  position: fixed;
+  bottom: 80px;
+  left: 20px;
+  width: 300px;
+  max-height: 300px;
+  background: rgba(0, 0, 0, 0.85);
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  border: 2px solid #00ff00;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 1000;
+  padding: 10px;
+  box-shadow: 0 0 10px #00ff00;
+  animation: fadeIn 0.3s ease-out;
+}
+
+#chat-panel.chat-hidden {
+  display: none;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+#chat-input {
+  border: none;
+  background: transparent;
+  border-top: 1px solid #00ff00;
+  color: #00ff00;
+  padding: 5px;
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+/* Fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Contenedor del HUD */
+.hud-containerx2 {
+  display: none;
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(82%);
+  width: 200px; /* ajusta según el tamaño de tu imagen base */
+  height: auto;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+/* Imagen base */
+.hud-basex2 {
+  width: 35%;
+  height: auto;
+  display: block;
+}
+
+/* Imagen encima, en la esquina inferior derecha */
+.hud-iconx2 {
+  position: absolute;
+  bottom: 5px;
+  left: 45px;
+  width: 25px;
+  height: auto;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+
+#game-ui-text {
+  display: none;
+  position: fixed;
+  top: -6px;
+  left: 1px;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 5px;
+  z-index: 1; /* Bajo índice para que esté por debajo de otras capas */
+}
+
+
+    /* ===== Contenedor de la tienda (menú deslizable) ===== */
+    .shop-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 320px; /* un poco más ancho para cabecera */
+      height: 100vh;
+      background-color: #ecf0f1;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Cuando la tienda está abierta */
+    .shop-container.open {
+      transform: translateX(0);
+    }
+
+    /* ===== Cabecera de la tienda ===== */
+    .shop-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background-color: #34495e;
+      color: #fff;
+    }
+    .shop-header h2 {
+      margin: 0;
+      font-size: 18px;
+    }
+    /* Separador vertical */
+    .header-separator {
+      width: 1px;
+      height: 24px;
+      background-color: #7f8c8d;
+      margin: 0 12px;
+    }
+    /* Contenedor de la moneda (imagen + texto) */
+    .balance-container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .balance-container img {
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+    }
+    .balance-container .balance-text {
+      font-size: 15px;
+    }
+
+    /* ===== Input de búsqueda ===== */
+    .search-input {
+      margin: 12px 16px;
+      padding: 8px;
+      border: 1px solid #bdc3c7;
+      border-radius: 4px;
+      width: calc(100% - 32px);
+      font-size: 14px;
+    }
+
+    /* ===== Lista de ítems ===== */
+    .items-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 0;
+    }
+    .shop-item {
+      display: flex;
+      align-items: center;
+      padding: 8px 16px;
+      border-bottom: 1px solid #bdc3c7;
+    }
+    .item-image {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-right: 12px;
+      background-color: #fff;
+    }
+    .shop-item .item-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .shop-item .item-name {
+      font-weight: bold;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+    .shop-item .item-price {
+      font-size: 13px;
+      color: #7f8c8d;
+    }
+    .shop-item .item-actions {
+      display: flex;
+      gap: 8px;
+      margin-left: 8px;
+    }
+    .shop-item button {
+      padding: 4px 8px;
+      font-size: 13px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .shop-item .buy-btn {
+      background-color: #27ae60;
+      color: #fff;
+    }
+    .shop-item .sell-btn {
+      background-color: #e74c3c;
+      color: #fff;
+    }
+
+    /* ===== Mini-menú (modal) ===== */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1100;
+    }
+    .overlay.active {
+      display: flex;
+    }
+    .mini-menu {
+      background-color: #fff;
+      width: 280px;
+      border-radius: 8px;
+      position: relative;
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    /* Botón “X” de cierre */
+    .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    /* Imagen del ítem en el mini-menú */
+    .item-image-container {
+      width: 100%;
+      height: 140px;
+      background-color: #ecf0f1;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .item-image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 4px;
+    }
+    /* Controles de cantidad */
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .quantity-controls button {
+      width: 28px;
+      height: 28px;
+      border: none;
+      background-color: #bdc3c7;
+      color: #2c3e50;
+      font-size: 18px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .quantity-controls .quantity-text {
+      min-width: 32px;
+      text-align: center;
+      font-size: 16px;
+    }
+    /* Info de costo/ganancia */
+    .total-info {
+      font-size: 14px;
+      color: #2c3e50;
+      text-align: center;
+    }
+    .total-info.insufficient {
+      color: #e74c3c; /* rojo si no hay dinero suficiente */
+    }
+    /* Botón de acción (Comprar o Vender) */
+    .action-btn {
+      width: 100%;
+      padding: 8px;
+      font-size: 15px;
+      border: none;
+      border-radius: 4px;
+      background-color: #2980b9;
+      color: #fff;
+      cursor: pointer;
+    }
+    .action-btn.disabled {
+      background-color: #7f8c8d;
+      cursor: not-allowed;
+    }
+
+    /* ===== Estilos para la “X” de cerrar balance ===== */
+.close-balance-btn {
+  background: none;
+  border: none;
+  color: #e74c3c;      /* rojo */
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 6px;    /* un pequeño margen a la izquierda del número */
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.close-balance-btn:hover {
+  color: #c0392b;      /* rojo un poco más oscuro al pasar el mouse */
+}
+
+
+
+
+/* ===== Panel principal de subastas (menú deslizable) ===== */
+.auction-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 360px;
+  height: 100vh;
+  background-color: #f5f7fa;
+  box-shadow: -3px 0 8px rgba(0, 0, 0, 0.25);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Mostrar panel */
+.auction-panel.open {
+  transform: translateX(0);
+}
+
+/* ===== Cabecera ===== */
+.auction-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background-color: #2e3b4e;
+  color: #ffffff;
+}
+.header-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+.header-line {
+  flex: 1;
+  height: 2px;
+  background-color: #556482;
+  margin: 0 12px;
+}
+.wallet-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.coin-icon {
+  width: 26px;
+  height: 26px;
+}
+.wallet-balance {
+  font-size: 16px;
+  font-weight: 500;
+}
+.btn-close-wallet {
+  background: none;
+  border: none;
+  color: #ff5c5c;
+  font-size: 18px;
+  cursor: pointer;
+}
+.btn-close-wallet:hover {
+  color: #e04343;
+}
+
+/* ===== Selector de categoría ===== */
+.category-selector {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  gap: 6px;
+}
+.category-btn {
+  padding: 6px 10px;
+  font-size: 13px;
+  border: none;
+  border-radius: 4px;
+  background-color: #556482;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.category-btn:hover,
+.category-btn.active {
+  background-color: #2e3b4e;
+}
+
+/* ===== Campo de búsqueda ===== */
+.search-field {
+  margin: 10px 12px;
+  padding: 8px 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  width: calc(100% - 24px);
+  font-size: 14px;
+}
+
+/* ===== Lista de ítems agrupada por tipo ===== */
+.auction-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 6px 0;
+}
+
+/* Cada sección de tipo */
+.item-section {
+  margin-bottom: 14px;
+}
+.section-title {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 6px 14px;
+  background-color: #e1e5eb;
+  color: #2e3b4e;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+/* Contenedor individual de ítem */
+.auction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  border-bottom: 1px solid #cfd2d7;
+}
+.item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.item-thumb {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+.item-info {
+  display: flex;
+  flex-direction: column;
+}
+.item-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #2e3b4e;
+}
+.item-price {
+  font-size: 13px;
+  color: #556482;
+  margin-top: 2px;
+}
+.item-actions {
+  display: flex;
+  gap: 6px;
+}
+.btn-view {
+  padding: 4px 8px;
+  font-size: 13px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2980b9;
+  color: #ffffff;
+  cursor: pointer;
+}
+.btn-view:hover {
+  background-color: #1f6391;
+}
+.btn-buy {
+  padding: 4px 8px;
+  font-size: 13px;
+  border: none;
+  border-radius: 4px;
+  background-color: #27ae60;
+  color: #ffffff;
+  cursor: pointer;
+}
+.btn-buy:hover {
+  background-color: #1f8e4e;
+}
+
+/* ===== Botón para mostrar/ocultar “Publicar ítem” ===== */
+.btn-toggle-post {
+  margin: 12px 16px;
+  padding: 8px 12px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #8e44ad;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+}
+.btn-toggle-post:hover {
+  background-color: #732d91;
+}
+
+/* ===== Formulario de POSTEO de ítem (desplegable) ===== */
+.post-item-form {
+  padding: 12px 16px;
+  background-color: #ffffff;
+  border-top: 1px solid #cfd2d7;
+  display: none; /* Oculto por defecto */
+}
+.post-item-form.open {
+  display: block;
+}
+.form-title {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2e3b4e;
+}
+.label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  color: #2e3b4e;
+}
+.input {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  font-size: 14px;
+}
+.commission-info {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #e74c3c;
+}
+.btn-post-item {
+  margin-top: 12px;
+  width: 100%;
+  padding: 8px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #27ae60;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.btn-post-item:hover {
+  background-color: #1f8e4e;
+}
+
+/* ===== Overlay / Detalle de subasta (modal) ===== */
+.overlay-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1100;
+}
+.overlay-modal.active {
+  display: flex;
+}
+.modal-content {
+  background-color: #ffffff;
+  width: 320px;
+  border-radius: 8px;
+  padding: 16px 14px 18px 14px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+  position: relative;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.btn-close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #e74c3c;
+  cursor: pointer;
+}
+.btn-close-modal:hover {
+  color: #c0392b;
+}
+.modal-header {
+  margin-bottom: 10px;
+}
+.modal-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  color: #2e3b4e;
+}
+.modal-body {
+  font-size: 14px;
+  color: #2e3b4e;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.modal-item-img {
+  width: 100%;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  background-color: #f0f2f5;
+}
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+.btn-cancel {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #7f8c8d;
+  color: #ffffff;
+  cursor: pointer;
+}
+.btn-cancel:hover {
+  background-color: #606b75;
+}
+.btn-delete {
+  padding: 6px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #e74c3c;
+  color: #ffffff;
+  cursor: pointer;
+}
+.btn-delete:hover {
+  background-color: #c0392b;
+}
