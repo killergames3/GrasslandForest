@@ -3,7 +3,7 @@ class LoadingScenegame extends Phaser.Scene {
     super({ key: 'LoadingScenegame' });
 
     // Backend connection
-    this.serverclient = 'http://192.168.100.221:3000';
+    this.serverclient = 'https://bgrassland-production.up.railway.app';
     this.playerName   = null;
     this.token        = null;
 

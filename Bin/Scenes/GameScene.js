@@ -9,7 +9,7 @@ class GameScene extends Phaser.Scene {
     
     this.ii = 1;
 
-    this.elipeticiones = 0; 
+    this.elipeticiones = 1; 
 
     if (this.elipeticiones === 0) {
         

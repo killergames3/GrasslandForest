@@ -6,7 +6,7 @@ class tiendajuego extends Phaser.Scene {
   
     preload() {
 
-      this.elipeticiones = 0; 
+      this.elipeticiones = 1; 
 
       if (this.elipeticiones === 0) {
           
