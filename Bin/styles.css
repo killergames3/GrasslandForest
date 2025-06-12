@@ -25,7 +25,7 @@ html, body {
     user-select: none;
 
     /* Fix para iOS (eliminar rebotes y bugs visuales) */
-    touch-action: none;
+    /*touch-action: none;*/
 }
 
 /* Contenedor general (opcional si usas un menú) */
@@ -74,6 +74,7 @@ canvas {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  cursor: move;
 }
 
 .letrainv {
@@ -225,6 +226,7 @@ canvas {
       z-index: 200;
       display: none;
       box-sizing: border-box;
+      cursor: default;
     }
     #inventory-panel h2 {
       margin: 0 0 10px;
@@ -377,80 +379,102 @@ canvas {
 }
 
 
-    /* Hub container */
-    #hub {
-      position: fixed;
-      top: 22px;
-      left: 7px;
-      display: flex;
-      align-items: center;
-      background: rgba(30, 30, 30, 0.8);
-      padding: 8px 12px;
-      border-radius: 8px;
-      width: 280px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #eee;
-      user-select: none;
-      z-index: 9999;
-      transition: opacity 0.3s ease;
-    }
+/* Hub container */
 
-    /* Ocultar con display none */
-    .hidden {
-      display: none !important;
-    }
+#cajahub {
+  display: none;
+}
 
-    /* Imagen a la izquierda */
-    #hub-image img {
-      width: 68px;
-      height: 68px;
-      border-radius: 30%;
-      object-fit: cover;
-    }
+#hub {
+  position: fixed;
+  top: 22px;
+  left: 7px;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(30, 30, 30, 0.8);
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #eee;
+  user-select: none;
+  z-index: 9999;
+  transition: all 0.5s ease;
+}
 
-    /* Info a la derecha */
-    #hub-info {
-      flex-grow: 1;
-      margin-left: 12px;
-    }
+/* Imagen perfil */
+#hub-image img {
+  width: 68px;
+  height: 68px;
+  border-radius: 30%;
+  object-fit: cover;
+  cursor: pointer;
+  
+}
 
-    /* Nombre usuario */
-    #username {
-      font-weight: 700;
-      font-size: 1.1em;
-      margin-bottom: 8px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+/* Info a la derecha */
+#hub-info {
+  overflow: hidden;
+  transition: max-width 0.5s ease, opacity 0.5s ease, margin-left 0.5s ease;
+  max-width: 220px;
+  opacity: 1;
+  margin-left: 12px;
+}
 
-    /* Barras de estado */
-    .status-bar {
-      background: #222;
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 6px;
-      height: 20px;
-      position: relative;
-    }
+#hub-info.collapsed {
+  max-width: 0;
+  max-height: 0;
+  opacity: 0;
+  margin-left: 0;
+}
 
-    .status-fill {
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 600;
-      font-size: 0.85em;
-      white-space: nowrap;
-      transition: width 0.3s ease;
-    }
+/* Nombre usuario */
+#username {
+  font-weight: 700;
+  font-size: 1.1em;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-    .status-text {
-      position: relative;
-      z-index: 2;
-      pointer-events: none;
-    }
+/* Barras de estado */
+.status-bar {
+  background: #222;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 6px;
+  height: 20px;
+  position: relative;
+}
+
+.status-fill {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85em;
+  white-space: nowrap;
+  transition: width 0.3s ease;
+}
+
+.status-text {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+#hub, #hub, #hub-image, #hub-info, #hub-info.collapsed, #username {
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  -webkit-touch-callout: none !important; /* para evitar menú contextual en iOS */
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
 /* General: evita selección y tab */
 .corner-box,
 .corner-box *,
@@ -661,7 +685,6 @@ button:focus {
   left: 45px;
   width: 25px;
   height: auto;
-  pointer-events: auto;
   cursor: pointer;
 }
 
