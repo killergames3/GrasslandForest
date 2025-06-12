@@ -280,8 +280,8 @@ class tiendajuego extends Phaser.Scene {
 
         // mostrando hub de vida,agua y comida
 
+        document.getElementById('cajahub').style.display = 'block';
 
-        document.getElementById('hub').classList.remove('hidden');
 
         this.actualizarImagenJugador('./Game/Sprites/Perfil/Perfil.png');
 
@@ -1325,7 +1325,7 @@ if (closeBtn) {
           2
         )} = ${gananciaNetUnit.toFixed(
           2
-        )}  ⇒  Ganancia x ${qty}: ${gananciaTotal.toFixed(2)}`;
+        )}  ⇒  Total x ${qty}: ${gananciaTotal.toFixed(2)}`;
 
         // ¿Hay stock en el jugador para vender?
         if (qty > this.currentItem.stock) {
@@ -1436,6 +1436,10 @@ if (closeBtn) {
             }
           }
 
+          if (this.elipeticiones === 1) {
+            this.savegg();
+          }
+
         } else {
           // Venta
           const comisionUnit = precioUnit * this.comisionVenta;
@@ -1457,7 +1461,7 @@ if (closeBtn) {
           console.log(
             `Vendiendo ${qty}×${this.currentItem.name}.\nPrecio unitario: ${precioUnit}, comisión: ${comisionUnit.toFixed(
               2
-            )}, ganancia neta total: ${gananciaTotal.toFixed(
+            )}, total: ${gananciaTotal.toFixed(
               2
             )}.\nSaldo actualizado: ${this.moneda.toFixed(2)}`
           );
@@ -1480,6 +1484,11 @@ if (closeBtn) {
             if (!this.removeItemWithCheck("Tijerasx", qty)) {
               console.log(`No había suficientes para quitar ${qty} unidades`);
             }
+          }
+
+          
+          if (this.elipeticiones === 1) {
+            this.savegg();
           }
 
 
@@ -1614,11 +1623,178 @@ if (closeBtn) {
 
 
 
+  this.makeDraggable(document.getElementById('hudReputacion'));
+  this.makeDraggable(document.getElementById('hudEstadisticas'));
+  this.makeElementDraggable("inventory-panel");
+
+
+  
+
+
+
+
+    this.profileImage = document.getElementById("player-image");
+    this.hubInfo = document.getElementById("hub-info");
+
+    // Atamos el método para que funcione bien con add/removeEventListener
+    this.toggleHubInfo = this.toggleHubInfo.bind(this);
+
+    // Cargar estado guardado
+    this.loadState();
+
+    // Añadir listener
+    this.profileImage.addEventListener("click", this.toggleHubInfo);
+
+
+
+
+
+
+
 }
 
 
 
+  toggleHubInfo() {
+    this.hubInfo.classList.toggle("collapsed");
+    const estado = this.hubInfo.classList.contains("collapsed");
+    localStorage.setItem("hubInfoCollapsed", estado.toString());
+    console.log("Estado guardado:", estado);
+  }
 
+  loadState() {
+    const estadoGuardado = localStorage.getItem("hubInfoCollapsed");
+    if (estadoGuardado === "true") {
+      this.hubInfo.classList.add("collapsed");
+    } else {
+      this.hubInfo.classList.remove("collapsed");
+    }
+  }
+
+  removeListener() {
+    this.profileImage.removeEventListener("click", this.toggleHubInfo);
+  }
+
+
+
+  
+makeElementDraggable(elementId) {
+  const inventoryPanel = document.getElementById(elementId);
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+
+  const startDrag = (clientX, clientY) => {
+    isDragging = true;
+    offsetX = clientX - inventoryPanel.offsetLeft;
+    offsetY = clientY - inventoryPanel.offsetTop;
+    document.body.style.cursor = "default";
+    document.body.style.userSelect = "none"; // evitar selección
+  };
+
+  const drag = (clientX, clientY) => {
+    if (isDragging) {
+      inventoryPanel.style.left = `${clientX - offsetX}px`;
+      inventoryPanel.style.top = `${clientY - offsetY}px`;
+    }
+  };
+
+  const endDrag = () => {
+    isDragging = false;
+    document.body.style.userSelect = "";
+  };
+
+  // Mouse events
+  inventoryPanel.addEventListener("mousedown", (e) => {
+    startDrag(e.clientX, e.clientY);
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    drag(e.clientX, e.clientY);
+  });
+
+  document.addEventListener("mouseup", endDrag);
+
+  // Touch events
+  inventoryPanel.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 1) {
+      const touch = e.touches[0];
+      startDrag(touch.clientX, touch.clientY);
+      e.preventDefault(); // evitar scroll mientras arrastra
+    }
+  }, { passive: false });
+
+  document.addEventListener("touchmove", (e) => {
+    if (isDragging && e.touches.length === 1) {
+      const touch = e.touches[0];
+      drag(touch.clientX, touch.clientY);
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  document.addEventListener("touchend", endDrag);
+  document.addEventListener("touchcancel", endDrag);
+}
+
+
+makeDraggable(element) {
+  let isDragging = false;
+  let offsetX = 0;
+  let offsetY = 0;
+
+  element.style.position = 'absolute';  // Necesario para mover
+  element.style.cursor = 'default';     // Mantener siempre flecha normal
+
+  const startDrag = (clientX, clientY) => {
+    isDragging = true;
+    offsetX = clientX - element.offsetLeft;
+    offsetY = clientY - element.offsetTop;
+    document.body.style.userSelect = 'none'; // Previene seleccionar texto
+  };
+
+  const drag = (clientX, clientY) => {
+    if (isDragging) {
+      element.style.left = (clientX - offsetX) + 'px';
+      element.style.top = (clientY - offsetY) + 'px';
+    }
+  };
+
+  const endDrag = () => {
+    isDragging = false;
+    document.body.style.userSelect = '';
+  };
+
+  // Eventos mouse
+  element.addEventListener('mousedown', (e) => {
+    startDrag(e.clientX, e.clientY);
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    drag(e.clientX, e.clientY);
+  });
+
+  document.addEventListener('mouseup', endDrag);
+
+  // Eventos touch
+  element.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) { // Solo un dedo
+      const touch = e.touches[0];
+      startDrag(touch.clientX, touch.clientY);
+      e.preventDefault(); // Evitar scroll mientras arrastra
+    }
+  }, { passive: false });
+
+  document.addEventListener('touchmove', (e) => {
+    if (isDragging && e.touches.length === 1) {
+      const touch = e.touches[0];
+      drag(touch.clientX, touch.clientY);
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  document.addEventListener('touchend', endDrag);
+  document.addEventListener('touchcancel', endDrag);
+}
 
 
 
@@ -2204,6 +2380,11 @@ async _handlePostItem() {
       this._initialLoad()
       this.refreshAll();
 
+      
+    if (this.elipeticiones === 1) {
+      this.savegg();
+    }
+
 
 
 
@@ -2477,6 +2658,11 @@ async _handleBuy(item) {
           this._initialLoad()
           this.refreshAll();
 
+          
+          if (this.elipeticiones === 1) {
+            this.savegg();
+          }
+
 
     /*
     alert(
@@ -2721,6 +2907,11 @@ async _handleDeleteListing(listingId) {
 
           this._initialLoad()
           this.refreshAll();
+
+          
+          if (this.elipeticiones === 1) {
+            this.savegg();
+          }
 
 
       // Cerrar modal/UI y recargar
@@ -4113,7 +4304,8 @@ actualizarBarraComida(porcentaje) {
           document.getElementById('quest-button').style.display = 'none';
 
           // Ocultar hub de vida, agua y comida
-          document.getElementById('hub').classList.add('hidden');
+          document.getElementById('cajahub').style.display = 'none';
+          this.removeListener();
 
           // Opcional: ocultar la imagen del jugador si quieres
           this.actualizarImagenJugador(''); // o puedes ocultar el elemento directamente con `display: 'none'`
@@ -4206,7 +4398,7 @@ actualizarBarraComida(porcentaje) {
 
 
 
-      this.usuariox.setText(this.usuarioxx);
+      this.usuariox.setText(this.Username);
       this.usuariox.setPosition(this.player.x, this.player.y - 60);
   
 
