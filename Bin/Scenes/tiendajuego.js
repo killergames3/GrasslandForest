@@ -2252,90 +2252,113 @@ _updateCommission() {
  * y reautenticación automática si el token ha expirado.
  */
 async _handlePostItem() {
-  // 1) Validar selección
-  const select     = this.dom.selectItem;
-  const selectedId = select.value;
-  if (!selectedId) {
-    //alert("Selecciona primero un ítem válido.");
-    console.log("Selecciona primero un ítem válido.");
+  // Si ya hay una publicación en curso, no hacer nada
+  if (this.isPosting) {
+    console.log("Ya se está procesando una publicación. Espera a que termine.");
     return;
   }
+  this.isPosting = true;
 
-  const opt       = select.selectedOptions[0];
-  const itemType  = opt.dataset.type;
-  const unitPrice = parseFloat(this.dom.inputUnitPrice.value);
-  const maxQty    = parseInt(opt.dataset.maxQty, 10);
-  const qtyToSell = parseInt(this.dom.inputQty.value, 10);
-
-  if (isNaN(unitPrice) || unitPrice < 0) {
-    //alert("Ingresa un precio unitario válido (>= 0).");
-    console.log("Ingresa un precio unitario válido (>= 0).");
-    return;
-  }
-  if (isNaN(qtyToSell) || qtyToSell < 1 || qtyToSell > maxQty) {
-    //alert(`La cantidad debe estar entre 1 y ${maxQty}.`);
-    console.log(`La cantidad debe estar entre 1 y ${maxQty}.`);
-    return;
+  // Deshabilitar botón para evitar múltiples clics
+  if (this.dom.btnPost) {
+    this.dom.btnPost.disabled = true;
+    // Opcional: cambiar texto o estilo para indicar proceso en curso
+    this.dom.btnPost.innerText = "Publicando...";
   }
 
-  // 2) Extraer baseName e imagen
-  const rawName = opt.innerText.split(" ")[0];
-  const baseName = rawName;
-  let imageUrl = this.itemImageMap[baseName] || "";
-  if (!imageUrl) {
-    console.warn(`No se encontró imagen para "${baseName}" en itemImageMap.`);
-  }
-
-  // 3) Determinar nombre legible (tipex)
-  const tipoMap = { Semilla: "Semilla", Regadera: "Regadera", Tijeras: "Tijeras" };
-  this.tipex = tipoMap[baseName] || baseName;
-
-  // 4) Construir payload
-  const bodyPayload = {
-    inventoryId: selectedId,
-    name:        `${this.tipex} (x${qtyToSell})`,
-    type:        this.tipex,
-    qty:         qtyToSell,
-    price:       unitPrice,
-    imageUrl:    imageUrl
-  };
-
-  // 5) Asegurar token válido / re-autenticar si es necesario
-  if (!this.token || !this.tokenValido(this.token)) {
-    await this.authenticate();
-    if (!this.token) {
-      console.error("No se pudo obtener token válido. Abortando publicación.");
+  try {
+    // 1) Validar selección
+    const select = this.dom.selectItem;
+    const selectedId = select.value;
+    if (!selectedId) {
+      console.log("Selecciona primero un ítem válido.");
       return;
     }
-  }
+    // 2) Extraer datos y validar unitPrice, qtyToSell
+    const opt = select.selectedOptions[0];
+    const itemType = opt.dataset.type;
+    const unitPrice = parseFloat(this.dom.inputUnitPrice.value);
+    const maxQty = parseInt(opt.dataset.maxQty, 10);
+    const qtyToSell = parseInt(this.dom.inputQty.value, 10);
+    if (isNaN(unitPrice) || unitPrice < 0) {
+      console.log("Ingresa un precio unitario válido (>= 0).");
+      return;
+    }
+    if (isNaN(qtyToSell) || qtyToSell < 1 || qtyToSell > maxQty) {
+      console.log(`La cantidad debe estar entre 1 y ${maxQty}.`);
+      return;
+    }
+    // 3) Construir payload (igual que antes)
+    const rawName = opt.innerText.split(" ")[0];
+    const baseName = rawName;
+    let imageUrl = this.itemImageMap[baseName] || "";
+    if (!imageUrl) {
+      console.warn(`No se encontró imagen para "${baseName}" en itemImageMap.`);
+    }
+    const tipoMap = { Semilla: "Semilla", Regadera: "Regadera", Tijeras: "Tijeras" };
+    this.tipex = tipoMap[baseName] || baseName;
+    const bodyPayload = {
+      inventoryId: selectedId,
+      name:        `${this.tipex} (x${qtyToSell})`,
+      type:        this.tipex,
+      qty:         qtyToSell,
+      price:       unitPrice,
+      imageUrl:    imageUrl
+    };
+    // 4) Validar token
+    if (!this.token || !this.tokenValido(this.token)) {
+      await this.authenticate();
+      if (!this.token) {
+        console.error("No se pudo obtener token válido. Abortando publicación.");
+        return;
+      }
+    }
 
-  // 6) Enviar petición al servidor
-  try {
-    const resp = await fetch(`${this.serverclient}/listingsx/${encodeURIComponent(this.playerName)}`, {
-      method: 'POST',
-      credentials: 'include', // para cookie HttpOnly
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.token}`
-      },
-      body: JSON.stringify(bodyPayload)
-    });
-    const data = await resp.json();
+    // 5) Enviar petición al servidor
+    let resp, data;
+    try {
+      resp = await fetch(
+        `${this.serverclient}/listingsx/${encodeURIComponent(this.playerName)}`,
+        {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.token}`
+          },
+          body: JSON.stringify(bodyPayload)
+        }
+      );
+    } catch (networkErr) {
+      console.error("Error de red al publicar ítem:", networkErr);
+      // Aquí puedes mostrar mensaje al usuario de error de red
+      return;
+    }
 
+    // 6) Procesar respuesta
+    try {
+      data = await resp.json();
+    } catch (parseErr) {
+      console.warn("No se pudo parsear JSON de respuesta al publicar:", parseErr);
+      // Dependiendo, podrías decidir no recargar listados
+      return;
+    }
     if (!resp.ok) {
-      console.error("Error al publicar ítem:", data);
-      // Si token expiró, reintentar automáticamente
+      // Si expiró token, reintentar una vez
       if (data.error?.includes("Token inválido") || data.error?.includes("expirado")) {
         this.token = null;
+        // Re-habilitar botón antes de recursión
         return this._handlePostItem();
       }
-      
+      // Otro error de negocio: informar y no recargar listados ni crear duplicados
       console.log("Error al publicar ítem: " + (data.error || "desconocido"));
-      //alert("Error al publicar ítem: " + (data.error || "desconocido"));
+      // Opcional: mostrar alerta amigable
+      // alert("Error al publicar ítem: " + (data.error || "desconocido"));
       return;
     }
 
-    // 7) Actualizar inventario local
+    // 7) Éxito: actualizar inventario local y UI
+    // Reducir qty en playerInventory
     const idx = this.playerInventory.findIndex(itm => itm.id === selectedId);
     if (idx >= 0) {
       this.playerInventory[idx].qty -= qtyToSell;
@@ -2345,67 +2368,50 @@ async _handlePostItem() {
     }
     this._populateInventorySelect();
 
+    // Mostrar resumen de comisión, ganancia, etc. (si lo deseas)
+    // const totalPrice = unitPrice * qtyToSell;
+    // ...
 
-    
-
-
-    // 8) Mostrar resumen de comisión
-    const totalPrice = unitPrice * qtyToSell;
-    const rate       = this.commissionRates[itemType] ?? this.commissionRates.default;
-    const commission = totalPrice * rate;
-    const netGain    = totalPrice - commission;
-
-
-
-
-
+    // Opcional: actualizar items en inventario interno (addItemWithCheck/removeItemWithCheck)
     if (this.tipex == "Semilla") {
       if (!this.removeItemWithCheck("Semillax", qtyToSell)) {
         console.log(`No había suficientes para quitar ${qtyToSell} unidades`);
       }
     }
-    
     if (this.tipex == "Regadera") {
       if (!this.removeItemWithCheck("Regaderax", qtyToSell)) {
         console.log(`No había suficientes para quitar ${qtyToSell} unidades`);
       }
     }
-    
     if (this.tipex == "Tijeras") {
       if (!this.removeItemWithCheck("Tijerasx", qtyToSell)) {
         console.log(`No había suficientes para quitar ${qtyToSell} unidades`);
       }
     }
 
-      this._initialLoad()
-      this.refreshAll();
-
-      
     if (this.elipeticiones === 1) {
       this.savegg();
     }
 
-
-
-
-    /*
-    alert(
-      `Ítem publicado correctamente.\n` +
-      `Precio unitario: ₿ ${unitPrice.toFixed(2)}\n` +
-      `Cantidad: ${qtyToSell}\n` +
-      `Comisión (${(rate * 100).toFixed(1)}%): ₿ ${commission.toFixed(2)}\n` +
-      `Ganancia neta potencial: ₿ ${netGain.toFixed(2)}`
-    );
-    */
-
-    // 9) Recargar listings
+    // 8) Finalmente, recargar listados desde servidor
+    // Esto se hace sólo una vez, tras éxito
     await this._loadListingsFromServer();
+    
 
   } catch (err) {
-    console.error("Error en _handlePostItem():", err);
-    //alert("Error de red al publicar ítem.");
+    // Captura errores inesperados dentro de la lógica
+    console.error("Error inesperado en _handlePostItem():", err);
+    // Aquí puedes mostrar mensaje al usuario
+  } finally {
+    // Siempre en el finally: reactivar botón y resetear flag
+    this.isPosting = false;
+    if (this.dom.btnPost) {
+      this.dom.btnPost.disabled = false;
+      this.dom.btnPost.innerText = "Publicar ítem"; // o el texto original
+    }
   }
 }
+
 
   _filterAndSortListings() {
     let visibles = this.listings.slice();
