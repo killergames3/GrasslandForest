@@ -4193,8 +4193,8 @@ actualizarBarraComida(porcentaje) {
 
 
     this.tempoTimer += delta;
-    if (this.tempoTimer >= 5000 && this.tempo < 0.4) {
-      this.tempo = Math.min(this.tempo + 0.1, 0.4);
+    if (this.tempoTimer >= 5000 && this.tempo < 0.5) {
+      this.tempo = Math.min(this.tempo + 0.1, 0.5);
 
       // ← en lugar de setAlpha usamos setFillStyle para cambiar solo el fillAlpha
       this.nightOverlay.setFillStyle(0x000033, this.tempo);
