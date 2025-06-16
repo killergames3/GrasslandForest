@@ -2566,20 +2566,15 @@ class GameScene extends Phaser.Scene {
 
                 // Carácter global de las definiciones de ítems
         this.ItemDefinitions = {
-          item_1: { src: "./Game/Source/recurso.png", maxStack: 10 },
-          item_2: { src: "./Game/Source/recurso2.png", maxStack: 5 },
-          item_3: { src: "./Game/Source/tijeras.png", maxStack: 20 }
+          Semillax: { src: "./Game/Source/recurso.png", maxStack: 10 },
+          Regaderax: { src: "./Game/Source/recurso2.png", maxStack: 5 },
+          Tijerasx: { src: "./Game/Source/tijeras.png", maxStack: 20 }
           // Agrega más definiciones según sea necesario
         };
+        
+        
+        this.initialize();
 
-    
-      this.initialize();
-
-
-        // ─────────────────────────────────────────────────────────
-
-
-        // ─────────────────────────────────────────────────────────
         this.STATE = {
           slots: Array(40).fill(null),
           quickSlots: Array(7).fill(null),
@@ -2588,6 +2583,9 @@ class GameScene extends Phaser.Scene {
 
         // 1) Inicializar inventario y quick-slots
         this.initInventory();
+
+        
+        this.rebuildPlayerInventoryFromState();
 
         // 2) Escuchar tecla “I” para abrir/cerrar inventario
         this.input.keyboard.on('keydown-I', () => {
@@ -2636,6 +2634,7 @@ class GameScene extends Phaser.Scene {
     this.toggleHubInfo = this.toggleHubInfo.bind(this);
 
     // Cargar estado guardado
+    
     this.loadState();
 
     // Añadir listener
@@ -2643,7 +2642,153 @@ class GameScene extends Phaser.Scene {
 
 
 
+    this._onResize = this.resize.bind(this);
+    this.scale.on('resize', this._onResize);
+    this.resize({ width: this.scale.width, height: this.scale.height });
+
+
+
+
+
 }
+
+
+
+
+
+
+
+
+  resize(gameSize) {
+    const width = gameSize.width;
+    const height = gameSize.height;
+
+    console.log(width, height);
+
+    if (width <= 500) {
+
+      const cam = this.cameras.main;
+
+      const visibleWidth = cam.width / cam.zoom;
+      const visibleHeight = cam.height / cam.zoom;
+
+      this.cameras.resize(visibleWidth, visibleHeight);
+      this.cameras.main.setZoom(0.01);
+    } else if (width <= 727) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(0.2);
+    } else if (width <= 849) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(0.5);
+    } else if (width <= 1272 && height <= 640) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(1);
+    } else if (width >= 1590 && height >= 800) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(1.5);
+    } else if (width >= 1920 && height >= 1080) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(2);
+    } else if (width >= 2706 && height >= 1920) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(3);
+    } else if (width >= 3608 && height >= 2560) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(4);
+    }
+  }
+
+  shutdown() {
+    // si la escena se apaga
+    this.scale.off('resize', this._onResize);
+  }
+
+  destroy() {
+    // si la escena se destruye
+    this.scale.off('resize', this._onResize);
+  }
+
+
+
+
+
+
+
+  // ─────────────────────────────────────────────────────────
+  // BLOQUE B: Reconstruir window.playerInventory con inventario + cofre
+  rebuildPlayerInventoryFromState() {
+    const inventoryArray = [];
+
+    // 1) Recorrer INVENTARIO normal (this.STATE.slots)
+    this.STATE.slots.forEach((slotObj, idx) => {
+      // Verificar que no sea null ni undefined
+      if (slotObj !== null && slotObj !== undefined) {
+        const itemId    = slotObj.id;            
+        const cantidad  = slotObj.count;         
+        const tipo      = slotObj.tipo || "unknown";
+        const unitPrice = slotObj.unitPrice || 0;
+        const defs      = this.ItemDefinitions[itemId];
+        const imageUrl  = defs && defs.src ? defs.src : "";
+
+        /*
+
+        console.log(
+          `[INV] Slot #${idx} → id="${itemId}", tipo="${tipo}", qty=${cantidad}, image="${imageUrl}"`
+        );
+
+        */
+
+        inventoryArray.push({
+          id:        idx.toString(),  // “0”, “1”, “2” … “39”
+          name:      itemId,
+          type:      tipo,
+          qty:       cantidad,
+          unitPrice: unitPrice,
+          imageUrl:  imageUrl,
+          origin:    "inventory"
+        });
+      }
+    });
+
+    // 2) Recorrer COFRE (this.STATE.quickSlots)
+    this.STATE.quickSlots.forEach((slotObj, idx) => {
+      if (slotObj !== null && slotObj !== undefined) {
+        const itemId    = slotObj.id;            
+        const cantidad  = slotObj.count;         
+        const tipo      = slotObj.tipo || "unknown";
+        const unitPrice = slotObj.unitPrice || 0;
+        const defs      = this.ItemDefinitions[itemId];
+        const imageUrl  = defs && defs.src ? defs.src : "";
+
+        /*
+
+        console.log(
+          `[CHEST] Slot #${idx} → id="${itemId}", tipo="${tipo}", qty=${cantidad}, image="${imageUrl}"`
+        );
+
+        */
+
+        inventoryArray.push({
+          id:        "chest-" + idx.toString(), // “chest-0”, “chest-1”, … “chest-6”
+          name:      itemId,
+          type:      tipo,
+          qty:       cantidad,
+          unitPrice: unitPrice,
+          imageUrl:  imageUrl,
+          origin:    "chest"
+        });
+      }
+    });
+
+    // 3) Exponer al nivel global para que AuctionMarket lo use
+    window.playerInventory = inventoryArray;
+    /*
+    console.log("→ window.playerInventory reconstruido:", window.playerInventory);
+    */
+
+  }
+
+
 
 
   toggleHubInfo() {
@@ -3280,6 +3425,9 @@ handleSlotClick(type, index, clickX, clickY) {
           this.STATE.selectedItem = null;
         }
       }
+
+
+
 
 
 
@@ -4408,8 +4556,13 @@ actualizarBarraComida(porcentaje) {
 
 
 
+            this.events.on('shutdown', () => {
+              this.scale.off('resize', this._onResize);
+            });
 
-
+            this.events.on('destroy', () => {
+              this.scale.off('resize', this._onResize);
+            });
 
 
         }

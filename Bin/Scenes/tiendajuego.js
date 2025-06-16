@@ -1648,12 +1648,54 @@ if (closeBtn) {
 
 
 
-
-
+    this._onResize = this.resize.bind(this); // guardamos la referencia para luego quitarla
+    this.scale.on('resize', this._onResize);
+    this.resize({ width: this.scale.width, height: this.scale.height });
 
 }
 
+  resize(gameSize) {
+    const width = gameSize.width;
+    const height = gameSize.height;
 
+    console.log(width, height);
+
+    if (width <= 500) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(0.01);
+    } else if (width <= 727) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(0.2);
+    } else if (width <= 849) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(0.5);
+    } else if (width <= 1272 && height <= 640) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(1);
+    } else if (width >= 1590 && height >= 800) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(1.5);
+    } else if (width >= 1920 && height >= 1080) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(2);
+    } else if (width >= 2706 && height >= 1920) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(3);
+    } else if (width >= 3608 && height >= 2560) {
+      this.cameras.resize(width, height);
+      this.cameras.main.setZoom(4);
+    }
+  }
+
+  shutdown() {
+    // si la escena se apaga
+    this.scale.off('resize', this._onResize);
+  }
+
+  destroy() {
+    // si la escena se destruye
+    this.scale.off('resize', this._onResize);
+  }
 
   toggleHubInfo() {
     this.hubInfo.classList.toggle("collapsed");
@@ -1872,28 +1914,6 @@ makeDraggable(element) {
     /*
     console.log("→ window.playerInventory reconstruido:", window.playerInventory);
     */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   }
 
@@ -2396,7 +2416,6 @@ async _handlePostItem() {
     // 8) Finalmente, recargar listados desde servidor
     // Esto se hace sólo una vez, tras éxito
     await this._loadListingsFromServer();
-    
 
   } catch (err) {
     // Captura errores inesperados dentro de la lógica
@@ -4361,10 +4380,13 @@ actualizarBarraComida(porcentaje) {
           }
 
 
-          
-          // Cancelar el timeout automáticamente al salir de la escena
           this.events.on('shutdown', () => {
+            this.scale.off('resize', this._onResize);
             if (this.abortController) this.abortController.abort();
+          });
+
+          this.events.on('destroy', () => {
+            this.scale.off('resize', this._onResize);
           });
 
           delete this.mostrarObjetoEnCursor;
