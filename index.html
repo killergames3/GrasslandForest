@@ -7,6 +7,8 @@
   <title>Grassland Forest</title>
   <meta name="description" content="Explore Grassland Forest: blockchain RPG with immersive gameplay, NFT economies, and unique experiences.">
   
+  <link rel="icon" href="favicon.png" type="image/png">
+
   <!-- Preconnect & Preload -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,12 +21,13 @@
   <!-- Critical CSS Inline -->
   <style>
     :root { --color-bg:#1b1f24; --color-primary:#00adb5; --color-accent:#420893; --color-light:#f5f5f5; --radius:.5rem; --transition:.3s ease; --font-sans:'Oswald',sans-serif; --font-hand:'Permanent Marker',cursive; }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    *,*::before,*::after{margin:0;padding:0;/*box-sizing:border-box;*/}
     html{scroll-behavior:smooth;}
     body{font-family:var(--font-sans);background:var(--color-bg);color:var(--color-light);line-height:1.6;display:flex;flex-direction:column;min-height:100vh;}
     img,video{display:block;max-width:100%;height:auto;}
     a{color:inherit;text-decoration:none;}
     h1,h2,h3,h4{margin-bottom:.5rem;}
+    .aboutxd{margin-bottom:.5rem;font-size:3rem;}
     section{padding:4rem 1rem;}
     @media(max-width:600px){section{padding:2rem .5rem;}}
     header{display:flex;justify-content:space-between;align-items:center;padding:1rem;background: #2b1b81f2;position:sticky;top:0;z-index:1000;}
@@ -41,10 +44,10 @@
     /* Carousel full-viewport vertical */
     #carousel{position:relative;overflow:hidden;height:100vh;background:#2e0e5b;} .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;} .slide.active{opacity:1;} .slide img{width:100%;height:100%;object-fit:cover;} .slide img[loading]{loading:lazy;}
     .carousel-nav{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;} .carousel-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:background var(--transition);} .carousel-dot.active{background:var(--color-primary);}
-    #faq .item{margin-bottom:1rem;} #faq .question{background:#e0e0e0;color:#333;padding:1rem;border-radius:var(--radius);cursor:pointer;position:relative;} #faq .question::after{content:'+';position:absolute;right:1rem;} #faq .question.opened::after{content:'–';} #faq .answer{max-height:0;overflow:hidden;transition:max-height .5s ease;background:#fff;color:#333;padding:0 1rem;border-radius:0 0 var(--radius) var(--radius);} #faq .answer p{padding:1rem 0;}
+    #faq .item{margin-bottom:1rem;} #faq .question{background:#455051;color:#ffffff;padding:1rem;border-radius:var(--radius);cursor:pointer;position:relative;} #faq .question::after{content:'+';position:absolute;right:1rem;} #faq .question.opened::after{content:'–';} #faq .answer{max-height:0;overflow:hidden;transition:max-height .5s ease;background:#fff;color:#333;padding:0 1rem;border-radius:0 0 var(--radius) var(--radius);} #faq .answer p{padding:1rem 0;}
     #team{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;} .member{background:#fff;color:#333;border-radius:var(--radius);box-shadow:0 4px 10px rgba(0,0,0,.1);text-align:center;padding:2rem 1rem;} .member img{width:100px;height:100px;border-radius:50%;margin:0 auto 1rem;display:block;}
     #contact{background:var(--color-accent);color:#e0e0e0;} .contact-form{max-width:400px;margin:0 auto;display:flex;flex-direction:column;gap:1rem;} .contact-form input,.contact-form textarea{padding:.75rem;border:none;border-radius:var(--radius);font-size:1rem;outline:none;} .contact-form button{padding:.75rem;background:var(--color-primary);color:#fff;border:none;border-radius:var(--radius);font-size:1rem;cursor:pointer;}
-    footer{padding:1rem;background:#111;display:flex;justify-content:space-between;align-items:center;} footer p{margin:0;font-size:.875rem;} .footer-links{display:flex;gap:.75rem;} .footer-links a{padding:.5rem .75rem;background:var(--color-primary);color:#fff;border-radius:var(--radius);font-size:.875rem;transition:var(--transition);} .footer-links a:hover{opacity:.8;}
+    footer{padding:1rem;background:#111;display:flex;justify-content:space-between;align-items:center;} footer p{margin:0;font-size:.875rem;} .footer-links{display:flex;gap:.75rem;} .footer-links a{padding:.5rem .75rem;background: #455051;color:#fff;border-radius:var(--radius);font-size:.875rem;transition:var(--transition);} .footer-links a:hover{opacity:.8;}
   </style>
 </head>
 <body>
@@ -54,7 +57,28 @@
   </header>
   <!--<section id="hero"><div><h1>GRASSLAND FOREST</h1><button class="btn" id="preRegisterBtn" disabled>Pre-Register</button></div></section> -->
   <section id="hero"><div><h1>GRASSLAND FOREST</h1></div></section>
-  <section id="about"><div><h2>About the Game</h2><p>Explore vast forests, battle for resources and embark on an epic crypto adventure. Grassland Forest combines immersive gameplay with blockchain-powered economies.</p></div><div><video controls muted preload="none" poster="video/intro-poster.jpg" width="640" height="360"><source src="video/intro.mp4" type="video/mp4"></video></div></section>
+<section id="about">
+  <div>
+    <h2 class="aboutxd">About the Game</h2>
+    <p>
+      Explore vast forests, battle for resources and embark on an epic crypto adventure. 
+      Grassland Forest combines immersive gameplay with blockchain-powered economies.
+    </p>
+  </div>
+
+  <div>
+    <iframe 
+      width="640" 
+      height="360" 
+      src="https://www.youtube.com/embed/99-lNGzBirc" 
+      title="Grassland Forest Intro" 
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
   <section id="carousel">
     <div class="slide active"><img src="image/1.webp" alt="Farming resources" width="1920" height="1080" loading="lazy"></div>
     <div class="slide"><img src="image/2.webp" alt="Store resources" width="1920" height="1080" loading="lazy"></div>
@@ -118,7 +142,7 @@
       <button type="submit">Send</button>
     </form>
   </section>
-  <footer><p>&copy; 2025 Grassland Forest. All rights reserved.</p><div class="footer-links"><a href="https://artsgames.gitbook.io/grassland-forest">Litepaper</a><a href="#">Terms of Service</a><a href="./privacy-policy.html">Privacy Policy</a><a href="https://x.com/GrasslandForest">Twitter</a><a href="https://discord.gg/cyA4Pcum7r">Discord</a></div></footer>
+  <footer><p>&copy; 2025 Grassland Forest. All rights reserved.</p><div class="footer-links"><a href="https://artsgames.gitbook.io/grassland-forest">Litepaper</a><a href="./Disclaimer.html">Disclaimer</a><a href="./terms-service.html">Terms of Service</a><a href="./privacy-policy.html">Privacy Policy</a><a href="https://x.com/GrasslandForest">Twitter</a><a href="https://discord.gg/cyA4Pcum7r">Discord</a></div></footer>
   <script type="module">
     // Enable pre-register button
     window.addEventListener('load', () => {

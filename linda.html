@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Para Linda — Corazón ASCII Rojo (mejorado)</title>
+<style>
+  html,body{height:100%;margin:0;background:#000;overflow:hidden;font-family:"Courier New", Courier, monospace;}
+  :root{
+    --heart-red:#ff2b2b;
+    --heart-glow: rgba(255,43,43,0.12);
+    --center-color: #ffd7d7;
+  }
+
+  .wrap{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+
+  /* Caja central: control del ancho (no ocupa toda la pantalla) */
+  .stage{
+    width: min(960px, 92%);
+    max-width: 960px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Pre que dibuja el corazón */
+  pre#heart {
+    margin:0;
+    white-space: pre;
+    line-height: 0.86;   /* compresión vertical para forma más redondeada */
+    font-size: 12px;     /* base: JS ajusta para pantalla */
+    letter-spacing: 0.2px;
+    color: var(--heart-red);
+    text-align: center;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    text-shadow: 0 0 8px var(--heart-glow);
+  }
+
+  /* Mensaje central (escapado) */
+  .center-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:12;
+    text-align:center;
+    pointer-events:none;
+    color:var(--center-color);
+    font-weight:700;
+    font-size:18px;
+    line-height:1.15;
+    padding:8px 12px;
+    background: rgba(0,0,0,0.15);
+    border-radius:8px;
+    border: 1px solid rgba(255,43,43,0.06);
+    mix-blend-mode:screen;
+  }
+
+  /* Pulso del bloque */
+  .pulse { transform: scale(1.04); filter: drop-shadow(0 0 12px rgba(255,43,43,0.12)); transition: transform .16s ease; }
+
+  /* pequeños parpadeos de caracteres */
+  @keyframes flick { 0%{opacity:1}50%{opacity:.6}100%{opacity:1} }
+  .flick { animation: flick 1200ms infinite ease-in-out; }
+
+  @media (max-width:640px){
+    pre#heart { font-size: 9px; line-height:0.9; }
+    .center-text { font-size:14px; padding:6px 8px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap" id="wrap">
+    <div class="stage" id="stage">
+      <pre id="heart" aria-hidden="false"></pre>
+      <div class="center-text" id="centerText" aria-hidden="true">
+        eres el <strong>css</strong> de mi <strong>html</strong><br>
+        tu &lt;BODY&gt; es perfecto, me gusta mucho tu &lt;STYLE&gt;<br>
+        y no te puedo sacar de mi &lt;HEAD&gt;
+      </div>
+    </div>
+  </div>
+
+<script>
+/* Corazón ASCII mejorado:
+   - alta resolución (mucha más filas/columnas) para curvas suaves
+   - cada celda contiene exactamente 1 carácter (L/I/N/D/A o ♥)
+   - tamaño adaptativo para que no ocupe toda la pantalla
+*/
+
+const heartEl = document.getElementById('heart');
+const stage = document.getElementById('stage');
+
+// Pool de un solo carácter para mantener forma estable
+const POOL_CHARS = ['L','I','N','D','A','♥'];
+const HEART_SYMBOL = '♥';
+
+let COLS = 120;   // más columnas -> curvas suaves
+let ROWS = 60;    // más filas -> mejor definición
+const aspect = 1.7; // compensa ancho/alto del glifo para mejor curva
+
+// Genera máscara del corazón (ecuación clásica)
+function generateMask(rows, cols) {
+  const grid = [];
+  for (let r = 0; r < rows; r++) {
+    let line = "";
+    // y en rango 1.4 .. -1.6 para mejorar la curva inferior
+    const y = 1.5 - (r / (rows - 1)) * 3.0;
+    for (let c = 0; c < cols; c++) {
+      const x = (c / (cols - 1)) * 3.0 - 1.5; // rango -1.5 .. 1.5
+      const xx = x / aspect;
+      const val = Math.pow(xx*xx + y*y - 1, 3) - (xx*xx)*(y*y*y);
+      line += (val <= 0) ? "#" : " ";
+    }
+    grid.push(line);
+  }
+  return grid;
+}
+
+// Construye el texto: 1 carácter por celda para mantener la forma
+function buildText(mask) {
+  let out = [];
+  let idx = 0;
+  for (let r = 0; r < mask.length; r++) {
+    let ln = "";
+    for (let c = 0; c < mask[r].length; c++) {
+      if (mask[r][c] === "#") {
+        // ocasionalmente poner ♥ para suavizar
+        if (Math.random() < 0.06) ln += HEART_SYMBOL;
+        else ln += POOL_CHARS[idx % POOL_CHARS.length];
+        idx++;
+      } else ln += " ";
+    }
+    out.push(ln);
+  }
+  return out.join("\n");
+}
+
+// Render con span por carácter (permite flickers)
+function render() {
+  const mask = generateMask(ROWS, COLS);
+  const text = buildText(mask);
+  const lines = text.split("\n");
+  const html = lines.map((ln, r) => {
+    let s = "";
+    for (let i = 0; i < ln.length; i++) {
+      const ch = ln[i] || " ";
+      if (ch === " ") s += " ";
+      else {
+        const cls = (Math.abs(r - ROWS/2) + Math.abs(i - COLS/2)) % 9 === 0 ? "flick" : "";
+        s += `<span class="${cls}" style="display:inline-block;color:var(--heart-red)">${ch}</span>`;
+      }
+    }
+    return s;
+  }).join("\n");
+  heartEl.innerHTML = html;
+}
+
+// Ajusta COLS/ROWS según caja y calcula font-size para que NO ocupe toda la pantalla
+function adapt() {
+  const w = stage.clientWidth;
+  // Calcula cols deseadas por ancho, con límites
+  COLS = Math.max(80, Math.min(180, Math.floor(w / 6)));
+  ROWS = Math.max(36, Math.round(COLS * 0.5));
+  // font-size calculada para que el bloque quepa en la stage
+  const fsByWidth = Math.floor(w / (COLS * 0.55));
+  const fsByHeight = Math.floor((window.innerHeight * 0.7) / ROWS);
+  const fs = Math.max(7, Math.min(20, Math.min(fsByWidth, fsByHeight)));
+  heartEl.style.fontSize = fs + "px";
+}
+
+// Latido (pulso)
+function startPulse() {
+  const base = 900;
+  function beat() {
+    heartEl.classList.add('pulse');
+    setTimeout(()=> heartEl.classList.remove('pulse'), 200);
+    setTimeout(beat, base + Math.random()*260 - 130);
+  }
+  beat();
+}
+
+// pequeñas variaciones para vida
+function twitch() {
+  const spans = heartEl.querySelectorAll('span');
+  if (!spans.length) return;
+  for (let i = 0; i < Math.min(40, spans.length); i++) {
+    const s = spans[Math.floor(Math.random() * spans.length)];
+    if (!s) continue;
+    // intercambio temporal de carácter por ♥ o letra cercana
+    if (Math.random() < 0.12) {
+      const orig = s.textContent;
+      s.textContent = HEART_SYMBOL;
+      s.style.opacity = 0.7;
+      setTimeout(()=> { s.textContent = orig; s.style.opacity = ''; }, 400 + Math.random() * 900);
+    } else {
+      s.style.opacity = 0.6 + Math.random() * 0.4;
+      setTimeout(()=> s.style.opacity = '', 300 + Math.random()*700);
+    }
+  }
+}
+
+// Inicializa todo
+function init() {
+  adapt();
+  render();
+  startPulse();
+  setInterval(twitch, 700);
+  // redibujar si cambia tamaño
+  window.addEventListener('resize', () => {
+    adapt();
+    render();
+  });
+}
+
+window.addEventListener('load', init);
+</script>
+</body>
+</html>
