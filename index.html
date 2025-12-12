@@ -63,15 +63,104 @@
     .yt-preview .play{position:absolute;width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));backdrop-filter:blur(4px);border:2px solid rgba(255,255,255,0.06)}
     .yt-preview .play svg{width:36px;height:36px;fill:var(--primary)}
 
-    /* Carousel constrained */
-    #carousel{position:relative;overflow:hidden;border-radius:12px;margin:12px 0;height:36vh;min-height:260px;max-height:560px}
-    .slide{position:absolute;inset:0;opacity:0;transition:opacity .9s ease;display:block}
-    .slide.active{opacity:1}
-    .slide img{width:100%;height:100%;object-fit:cover;display:block;max-height:100%}
+    /* Carrusel CORREGIDO - Adaptación perfecta de imágenes */
+    #carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      margin: 12px 0;
+      background-color: #0a0c0e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-    .carousel-dots{position:absolute;left:50%;transform:translateX(-50%);bottom:10px;display:flex;gap:8px;z-index:3}
-    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.35);cursor:pointer}
-    .dot.active{background:var(--primary);transform:scale(1.15)}
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.9s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .slide img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 8px;
+    }
+
+    .carousel-dots {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 20px;
+      display: flex;
+      gap: 8px;
+      z-index: 3;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dot.active {
+      background: var(--primary);
+      transform: scale(1.15);
+    }
+
+    /* Tamaños responsivos del carrusel */
+    /* Móvil */
+    @media (max-width: 480px) {
+      #carousel {
+        height: 280px;
+        min-height: 280px;
+        max-height: 300px;
+      }
+    }
+
+    /* Tablet */
+    @media (min-width: 481px) and (max-width: 900px) {
+      #carousel {
+        height: 400px;
+        min-height: 400px;
+        max-height: 450px;
+      }
+    }
+
+    /* Desktop */
+    @media (min-width: 901px) {
+      #carousel {
+        height: 500px;
+        min-height: 500px;
+        max-height: 550px;
+      }
+    }
+
+    /* Pantallas grandes */
+    @media (min-width: 1200px) {
+      #carousel {
+        height: 600px;
+        min-height: 600px;
+        max-height: 650px;
+      }
+    }
 
     /* FAQ */
     #faq .question{cursor:pointer;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;justify-content:space-between;align-items:center;font-weight:700}
@@ -95,27 +184,6 @@
     .footer-buttons{display:flex;gap:8px;flex-wrap:wrap}
     .footer-buttons a{background:rgba(255,255,255,0.02);padding:10px 12px;border-radius:8px;color:var(--muted);font-weight:700}
     @media(max-width:600px){.yt-preview{height:300px}}
-
-
-/* ===== Desktop (PC): más alto + mantener imagen pegada ===== */
-@media (min-width:901px) {
-  #carousel {
-    height: calc(36vh + 450px); /* antes +400px -> ahora +450px */
-    min-height: 710px;          /* antes 660px -> ahora 710px */
-    max-height: 1010px;         /* antes 960px -> ahora 1010px */
-  }
-
-  .slide img {
-    object-fit: cover;   /* sigue llenando completamente */
-    object-position: center; /* centrada, sin recortes raros */
-  }
-
-  .carousel-dots {
-    bottom: 30px;
-  }
-}
-
-
   </style>
 </head>
 <body>
