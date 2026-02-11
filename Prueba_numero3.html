@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Nave Espacial - Spectra Engine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            touch-action: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        body {
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        
+        #gameContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #gameCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        #ui {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            color: white;
+            font-size: 18px;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        #mobileControls {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+        
+        .touch-area {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            backdrop-filter: blur(5px);
+        }
+        
+        #gameOverScreen {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 200;
+            display: none;
+        }
+        
+        #gameOverScreen h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ff4444;
+        }
+        
+        #gameOverScreen p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        #restartButton {
+            padding: 15px 30px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            #mobileControls {
+                display: flex;
+            }
+            
+            .touch-area {
+                width: 70px;
+                height: 70px;
+                font-size: 20px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            #mobileControls {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        
+        <div id="ui">
+            <div id="score">PUNTUACIÓN: 0</div>
+            <div id="lives">VIDAS: 3</div>
+        </div>
+        
+        <div id="mobileControls">
+            <div class="touch-area" id="leftButton">←</div>
+            <div class="touch-area" id="fireButton">🔥</div>
+            <div class="touch-area" id="rightButton">→</div>
+        </div>
+        
+        <div id="gameOverScreen">
+            <h1>GAME OVER</h1>
+            <p id="finalScore">Puntuación: 0</p>
+            <button id="restartButton">JUGAR DE NUEVO</button>
+        </div>
+    </div>
+
+    <script src="https://pixijs.download/release/pixi.js"></script>
+    <script>
+        // Spectra Engine simplificado para el juego de naves
+        class SpectraEngine {
+            constructor(config = {}) {
+                this.config = {
+                    canvasId: 'gameCanvas',
+                    width: window.innerWidth,
+                    height: window.innerHeight,
+                    backgroundColor: 0x000000,
+                    ...config
+                };
+                
+                this.init();
+            }
+            
+            async init() {
+                const canvas = document.getElementById(this.config.canvasId);
+                
+                this.app = new PIXI.Application();
+                await this.app.init({
+                    canvas: canvas,
+                    width: this.config.width,
+                    height: this.config.height,
+                    backgroundColor: this.config.backgroundColor,
+                    resolution: window.devicePixelRatio || 1,
+                    autoDensity: true
+                });
+                
+                this.scene = new PIXI.Container();
+                this.app.stage.addChild(this.scene);
+                
+                // Sistemas básicos
+                this.input = new InputSystem();
+                this.input.init();
+                
+                // Cargar recursos
+                await this.loadResources();
+                
+                // Iniciar juego
+                this.startGame();
+                
+                // Configurar bucle de juego
+                this.setupGameLoop();
+            }
+            
+            async loadResources() {
+                // Intentar cargar las imágenes
+                try {
+                    // Cargar la imagen de la nave
+                    this.naveTexture = await PIXI.Assets.load('./nave.png');
+                } catch (e) {
+                    console.warn('No se pudo cargar nave.png, usando gráfico por defecto');
+                    this.createFallbackTextures();
+                }
+
+                try {
+                    // Cargar la imagen de meteoritos
+                    this.meteorTexture = await PIXI.Assets.load('./meteoros.png');
+                } catch (e) {
+                    console.warn('No se pudo cargar meteoros.png, usando gráfico por defecto');
+                    this.createFallbackTextures();
+                }
+
+                // Crear textura de bala (siempre gráfico)
+                this.createBulletTexture();
+            }
+            
+            createFallbackTextures() {
+                // Si no se cargó la nave, crear una por defecto
+                if (!this.naveTexture) {
+                    const naveGraphics = new PIXI.Graphics();
+                    naveGraphics.moveTo(0, -20);
+                    naveGraphics.lineTo(15, 20);
+                    naveGraphics.lineTo(-15, 20);
+                    naveGraphics.lineTo(0, -20);
+                    naveGraphics.fill(0x3498db);
+                    this.naveTexture = this.app.renderer.generateTexture(naveGraphics);
+                }
+
+                // Si no se cargó el meteorito, crear uno por defecto
+                if (!this.meteorTexture) {
+                    const meteorGraphics = new PIXI.Graphics();
+                    meteorGraphics.circle(0, 0, 15);
+                    meteorGraphics.fill(0x8B4513);
+                    meteorGraphics.stroke({ width: 2, color: 0x654321 });
+                    this.meteorTexture = this.app.renderer.generateTexture(meteorGraphics);
+                }
+            }
+
+            createBulletTexture() {
+                const bulletGraphics = new PIXI.Graphics();
+                bulletGraphics.rect(-2, -8, 4, 16);
+                bulletGraphics.fill(0x00FF00);
+                this.bulletTexture = this.app.renderer.generateTexture(bulletGraphics);
+            }
+            
+            startGame() {
+                this.game = new SpaceGame(this);
+            }
+            
+            setupGameLoop() {
+                this.app.ticker.add(() => {
+                    const deltaTime = this.app.ticker.deltaMS / 1000;
+                    this.input.update();
+                    this.game.update(deltaTime);
+                });
+            }
+        }
+
+        class InputSystem {
+            constructor() {
+                this.keys = new Map();
+                this.touches = new Map();
+            }
+            
+            init() {
+                document.addEventListener('keydown', (e) => {
+                    this.keys.set(e.key.toLowerCase(), true);
+                });
+                
+                document.addEventListener('keyup', (e) => {
+                    this.keys.set(e.key.toLowerCase(), false);
+                });
+                
+                // Controles táctiles
+                const leftButton = document.getElementById('leftButton');
+                const rightButton = document.getElementById('rightButton');
+                const fireButton = document.getElementById('fireButton');
+                
+                leftButton.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    this.touches.set('left', true);
+                });
+                
+                leftButton.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    this.touches.set('left', false);
+                });
+                
+                rightButton.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    this.touches.set('right', true);
+                });
+                
+                rightButton.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    this.touches.set('right', false);
+                });
+                
+                fireButton.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    this.touches.set('fire', true);
+                });
+                
+                fireButton.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    this.touches.set('fire', false);
+                });
+            }
+            
+            update() {
+                // Reset de estados temporales
+            }
+            
+            isKeyPressed(key) {
+                return this.keys.get(key) || false;
+            }
+            
+            isTouchPressed(action) {
+                return this.touches.get(action) || false;
+            }
+        }
+
+        class SpaceGame {
+            constructor(engine) {
+                this.engine = engine;
+                this.scene = engine.scene;
+                this.input = engine.input;
+                
+                this.score = 0;
+                this.lives = 3;
+                this.gameState = 'playing';
+                
+                this.player = null;
+                this.bullets = [];
+                this.meteors = [];
+                this.particles = [];
+                
+                this.meteorSpawnTimer = 0;
+                this.bulletCooldown = 0;
+                
+                this.init();
+            }
+            
+            init() {
+                this.createPlayer();
+                this.createStars();
+                this.updateUI();
+                
+                // Ajustar para redimensionamiento
+                window.addEventListener('resize', this.handleResize.bind(this));
+            }
+            
+            createPlayer() {
+                this.player = new PIXI.Sprite(this.engine.naveTexture);
+                this.player.anchor.set(0.5);
+                this.player.x = this.engine.app.screen.width / 2;
+                this.player.y = this.engine.app.screen.height - 100;
+                // Ajustar el tamaño de la nave según la textura
+                // Suponemos que la imagen de la nave es de 40x40 píxeles, escalamos a 60x60
+                this.player.scale.set(60 / Math.max(this.player.width, this.player.height));
+                this.scene.addChild(this.player);
+            }
+            
+            createStars() {
+                this.stars = new PIXI.Graphics();
+                
+                for (let i = 0; i < 100; i++) {
+                    const x = Math.random() * this.engine.app.screen.width;
+                    const y = Math.random() * this.engine.app.screen.height;
+                    const size = Math.random() * 2 + 1;
+                    
+                    this.stars.circle(x, y, size);
+                    this.stars.fill(0xFFFFFF);
+                }
+                
+                this.scene.addChildAt(this.stars, 0);
+            }
+            
+            update(deltaTime) {
+                if (this.gameState !== 'playing') return;
+                
+                this.updatePlayer(deltaTime);
+                this.updateBullets(deltaTime);
+                this.updateMeteors(deltaTime);
+                this.updateParticles(deltaTime);
+                this.spawnMeteors(deltaTime);
+                this.checkCollisions();
+            }
+            
+            updatePlayer(deltaTime) {
+                const speed = 400;
+                let moveX = 0;
+                
+                // Controles teclado
+                if (this.input.isKeyPressed('arrowleft') || this.input.isKeyPressed('a') || this.input.isTouchPressed('left')) {
+                    moveX = -1;
+                }
+                if (this.input.isKeyPressed('arrowright') || this.input.isKeyPressed('d') || this.input.isTouchPressed('right')) {
+                    moveX = 1;
+                }
+                
+                this.player.x += moveX * speed * deltaTime;
+                
+                // Limitar movimiento dentro de la pantalla
+                this.player.x = Math.max(30, Math.min(this.engine.app.screen.width - 30, this.player.x));
+                
+                // Disparar
+                this.bulletCooldown -= deltaTime;
+                if ((this.input.isKeyPressed(' ') || this.input.isKeyPressed('x') || this.input.isTouchPressed('fire')) && this.bulletCooldown <= 0) {
+                    this.shoot();
+                    this.bulletCooldown = 0.2; // 5 disparos por segundo
+                }
+            }
+            
+            shoot() {
+                const bullet = new PIXI.Sprite(this.engine.bulletTexture);
+                bullet.anchor.set(0.5);
+                bullet.x = this.player.x;
+                bullet.y = this.player.y - 30;
+                bullet.speed = 600;
+                this.scene.addChild(bullet);
+                this.bullets.push(bullet);
+            }
+            
+            updateBullets(deltaTime) {
+                for (let i = this.bullets.length - 1; i >= 0; i--) {
+                    const bullet = this.bullets[i];
+                    bullet.y -= bullet.speed * deltaTime;
+                    
+                    // Eliminar balas que salen de la pantalla
+                    if (bullet.y < -50) {
+                        this.scene.removeChild(bullet);
+                        this.bullets.splice(i, 1);
+                    }
+                }
+            }
+            
+            spawnMeteors(deltaTime) {
+                this.meteorSpawnTimer -= deltaTime;
+                
+                if (this.meteorSpawnTimer <= 0) {
+                    const meteor = new PIXI.Sprite(this.engine.meteorTexture);
+                    meteor.anchor.set(0.5);
+                    meteor.x = Math.random() * (this.engine.app.screen.width - 100) + 50;
+                    meteor.y = -50;
+                    meteor.speed = Math.random() * 100 + 100;
+                    meteor.rotation = Math.random() * Math.PI * 2;
+                    meteor.rotationSpeed = (Math.random() - 0.5) * 2;
+                    // Ajustar el tamaño del meteorito
+                    meteor.scale.set(30 / Math.max(meteor.width, meteor.height));
+                    this.scene.addChild(meteor);
+                    this.meteors.push(meteor);
+                    
+                    // Dificultad progresiva
+                    const baseSpawnTime = 1.5;
+                    const minSpawnTime = 0.3;
+                    const difficulty = Math.min(this.score / 1000, 1);
+                    this.meteorSpawnTimer = baseSpawnTime - (baseSpawnTime - minSpawnTime) * difficulty;
+                }
+            }
+            
+            updateMeteors(deltaTime) {
+                for (let i = this.meteors.length - 1; i >= 0; i--) {
+                    const meteor = this.meteors[i];
+                    meteor.y += meteor.speed * deltaTime;
+                    meteor.rotation += meteor.rotationSpeed * deltaTime;
+                    
+                    // Eliminar meteoritos que salen de la pantalla
+                    if (meteor.y > this.engine.app.screen.height + 100) {
+                        this.scene.removeChild(meteor);
+                        this.meteors.splice(i, 1);
+                    }
+                }
+            }
+            
+            updateParticles(deltaTime) {
+                for (let i = this.particles.length - 1; i >= 0; i--) {
+                    const particle = this.particles[i];
+                    particle.x += particle.vx * deltaTime;
+                    particle.y += particle.vy * deltaTime;
+                    particle.alpha -= 0.02;
+                    particle.scale.x *= 0.98;
+                    particle.scale.y *= 0.98;
+                    
+                    if (particle.alpha <= 0) {
+                        this.scene.removeChild(particle);
+                        this.particles.splice(i, 1);
+                    }
+                }
+            }
+            
+            checkCollisions() {
+                // Colisiones bala-meteorito
+                for (let i = this.bullets.length - 1; i >= 0; i--) {
+                    const bullet = this.bullets[i];
+                    
+                    for (let j = this.meteors.length - 1; j >= 0; j--) {
+                        const meteor = this.meteors[j];
+                        
+                        if (this.circleCollision(bullet, meteor, 8, 15)) {
+                            // Destruir meteorito
+                            this.createExplosion(meteor.x, meteor.y, 0xFF4500);
+                            this.scene.removeChild(meteor);
+                            this.meteors.splice(j, 1);
+                            
+                            // Eliminar bala
+                            this.scene.removeChild(bullet);
+                            this.bullets.splice(i, 1);
+                            
+                            // Aumentar puntuación
+                            this.score += 10;
+                            this.updateUI();
+                            
+                            break;
+                        }
+                    }
+                }
+                
+                // Colisiones jugador-meteorito
+                for (let i = this.meteors.length - 1; i >= 0; i--) {
+                    const meteor = this.meteors[i];
+                    
+                    if (this.circleCollision(this.player, meteor, 20, 15)) {
+                        // Daño al jugador
+                        this.lives--;
+                        this.updateUI();
+                        
+                        // Efecto de daño
+                        this.player.tint = 0xFF0000;
+                        setTimeout(() => {
+                            this.player.tint = 0xFFFFFF;
+                        }, 200);
+                        
+                        // Destruir meteorito
+                        this.createExplosion(meteor.x, meteor.y, 0xFF0000);
+                        this.scene.removeChild(meteor);
+                        this.meteors.splice(i, 1);
+                        
+                        // Verificar game over
+                        if (this.lives <= 0) {
+                            this.gameOver();
+                        }
+                    }
+                }
+            }
+            
+            circleCollision(obj1, obj2, radius1, radius2) {
+                const dx = obj1.x - obj2.x;
+                const dy = obj1.y - obj2.y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                return distance < radius1 + radius2;
+            }
+            
+            createExplosion(x, y, color) {
+                for (let i = 0; i < 15; i++) {
+                    const particle = new PIXI.Graphics();
+                    particle.circle(0, 0, Math.random() * 3 + 1);
+                    particle.fill(color);
+                    particle.x = x;
+                    particle.y = y;
+                    
+                    const angle = Math.random() * Math.PI * 2;
+                    const speed = Math.random() * 100 + 50;
+                    particle.vx = Math.cos(angle) * speed;
+                    particle.vy = Math.sin(angle) * speed;
+                    
+                    this.scene.addChild(particle);
+                    this.particles.push(particle);
+                }
+            }
+            
+            updateUI() {
+                document.getElementById('score').textContent = `PUNTUACIÓN: ${this.score}`;
+                document.getElementById('lives').textContent = `VIDAS: ${this.lives}`;
+            }
+            
+            gameOver() {
+                this.gameState = 'gameOver';
+                document.getElementById('finalScore').textContent = `Puntuación: ${this.score}`;
+                document.getElementById('gameOverScreen').style.display = 'flex';
+                
+                document.getElementById('restartButton').addEventListener('click', () => {
+                    this.restart();
+                });
+            }
+            
+            restart() {
+                // Limpiar escena
+                while (this.scene.children.length > 0) {
+                    this.scene.removeChild(this.scene.children[0]);
+                }
+                
+                // Reiniciar variables
+                this.score = 0;
+                this.lives = 3;
+                this.gameState = 'playing';
+                this.bullets = [];
+                this.meteors = [];
+                this.particles = [];
+                this.meteorSpawnTimer = 0;
+                this.bulletCooldown = 0;
+                
+                // Ocultar pantalla de game over
+                document.getElementById('gameOverScreen').style.display = 'none';
+                
+                // Recrear elementos del juego
+                this.createPlayer();
+                this.createStars();
+                this.updateUI();
+            }
+            
+            handleResize() {
+                this.engine.app.renderer.resize(window.innerWidth, window.innerHeight);
+                
+                // Reposicionar jugador si es necesario
+                if (this.player) {
+                    this.player.x = Math.min(this.player.x, this.engine.app.screen.width - 30);
+                    this.player.y = this.engine.app.screen.height - 100;
+                }
+            }
+        }
+
+        // Inicializar el juego cuando se carga la página
+        window.addEventListener('load', () => {
+            new SpectraEngine();
+        });
+
+        // Prevenir acciones por defecto en móviles
+        document.addEventListener('touchmove', (e) => {
+            if (e.target.classList.contains('touch-area')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Manejar cambios de orientación
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                window.dispatchEvent(new Event('resize'));
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Pong - Spectra Engine</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            touch-action: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        body {
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+        
+        #gameContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            max-width: 800px;
+            max-height: 600px;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        #gameCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        
+        #mobileControls {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+        
+        .touch-area {
+            width: 120px;
+            height: 120px;
+            background: rgba(52, 152, 219, 0.2);
+            border: 2px solid rgba(52, 152, 219, 0.5);
+            border-radius: 50%;
+            pointer-events: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        #debugInfo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            color: #00ff00;
+            font-family: monospace;
+            font-size: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+            pointer-events: none;
+        }
+        
+        @media (max-width: 768px) {
+            #mobileControls {
+                display: flex;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            #mobileControls {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        <div id="debugInfo"></div>
+        <div id="mobileControls">
+            <div class="touch-area" id="upButton">ARRIBA</div>
+            <div class="touch-area" id="downButton">ABAJO</div>
+        </div>
+    </div>
+
+    <script src="https://pixijs.download/release/pixi.js"></script>
+    <script src="./bin/SpectraEngine.js"></script>
+
+
+    <script>
+        // Clase para la paleta del jugador - COMPATIBLE CON PIXIJS v8
+        class Paddle extends SpectraEngine.Entity {
+            constructor(engine, x, y, isPlayer = true) {
+                super(engine, x, y);
+                this.isPlayer = isPlayer;
+                this.speed = 400;
+                this.width = 15;
+                this.height = 100;
+                
+                // Crear gráficos compatible con PixiJS v8
+                this.sprite = new PIXI.Graphics();
+                this.sprite.rect(0, 0, this.width, this.height);
+                this.sprite.fill(isPlayer ? 0x3498db : 0xe74c3c);
+                
+                // Posicionar correctamente
+                this.sprite.x = this.x;
+                this.sprite.y = this.y;
+                
+                // Crear collider
+                this.collider = engine.createCollider(
+                    this.x, 
+                    this.y, 
+                    this.width, 
+                    this.height, 
+                    {
+                        layers: ['paddle'],
+                        tag: isPlayer ? 'player' : 'ai',
+                        entity: this,
+                        onCollision: (other, self, otherCollider) => {
+                            if (other.tag === 'ball') {
+                                console.log('Paleta: Colisión con bola detectada');
+                            }
+                        }
+                    }
+                );
+            }
+            
+            update(deltaTime) {
+                super.update(deltaTime);
+                
+                // Actualizar posición del collider con la entidad
+                if (this.collider) {
+                    this.engine.collision.updateColliderPosition(this.collider, this.x, this.y);
+                }
+            }
+        }
+
+        // Clase para la bola - COMPATIBLE CON PIXIJS v8
+        class Ball extends SpectraEngine.Entity {
+            constructor(engine, x, y) {
+                super(engine, x, y);
+                this.radius = 10;
+                this.speedX = 300 * (Math.random() > 0.5 ? 1 : -1);
+                this.speedY = (Math.random() * 200 - 100);
+                
+                // Crear gráficos compatible con PixiJS v8
+                this.sprite = new PIXI.Graphics();
+                this.sprite.circle(0, 0, this.radius);
+                this.sprite.fill(0xffffff);
+                
+                // Posicionar correctamente
+                this.sprite.x = this.x;
+                this.sprite.y = this.y;
+                
+                // Crear collider CIRCULAR
+                this.collider = engine.createCircleCollider(
+                    this.x, 
+                    this.y, 
+                    this.radius,
+                    {
+                        layers: ['ball'],
+                        tag: 'ball',
+                        entity: this,
+                        onCollision: (other, self, otherCollider) => {
+                            this.onCollision(other, otherCollider);
+                        }
+                    }
+                );
+                
+                this.lastHit = null;
+            }
+            
+            update(deltaTime) {
+                super.update(deltaTime);
+                
+                // Movimiento
+                this.x += this.speedX * deltaTime;
+                this.y += this.speedY * deltaTime;
+                
+                // Actualizar posición del collider con la entidad
+                if (this.collider) {
+                    this.engine.collision.updateColliderPosition(this.collider, this.x, this.y);
+                }
+                
+                // Rebote en bordes superior e inferior
+                if (this.y <= this.radius) {
+                    this.speedY = Math.abs(this.speedY);
+                    this.y = this.radius + 1;
+                } else if (this.y >= this.engine.config.height - this.radius) {
+                    this.speedY = -Math.abs(this.speedY);
+                    this.y = this.engine.config.height - this.radius - 1;
+                }
+                
+                // Resetear si sale por los lados
+                if (this.x < -50 || this.x > this.engine.config.width + 50) {
+                    const scorer = this.x < -50 ? 'ai' : 'player';
+                    this.engine.eventManager.emit('score', scorer);
+                    this.reset();
+                }
+                
+                // Debug visual
+                this.updateDebugInfo();
+            }
+            
+            onCollision(other, otherCollider) {
+                if (other.tag === 'player' || other.tag === 'ai') {
+                    // Evitar colisiones múltiples en el mismo frame
+                    if (this.lastHit === other.id) return;
+                    this.lastHit = other.id;
+                    
+                    console.log('Bola: Colisión con paleta', other.tag);
+                    
+                    // Invertir dirección X
+                    this.speedX = -this.speedX;
+                    
+                    // Ajustar dirección Y basado en dónde golpeó la paleta
+                    const paddle = otherCollider.entity;
+                    if (paddle) {
+                        const paddleCenter = paddle.y + paddle.height / 2;
+                        const hitPosition = (this.y - paddleCenter) / (paddle.height / 2);
+                        this.speedY = hitPosition * 400;
+                    }
+                    
+                    // Aumentar velocidad ligeramente
+                    this.speedX *= 1.05;
+                    this.speedY *= 1.05;
+                    
+                    // Ajustar posición para evitar colisiones múltiples
+                    const adjustment = this.speedX > 0 ? 2 : -2;
+                    this.x += adjustment;
+                }
+            }
+            
+            reset() {
+                this.x = this.engine.config.width / 2;
+                this.y = this.engine.config.height / 2;
+                this.speedX = 300 * (Math.random() > 0.5 ? 1 : -1);
+                this.speedY = (Math.random() * 200 - 100);
+                this.lastHit = null;
+            }
+            
+            updateDebugInfo() {
+                const debugElement = document.getElementById('debugInfo');
+                if (debugElement) {
+                    debugElement.innerHTML = `
+                        Bola: ${Math.round(this.x)}, ${Math.round(this.y)}<br>
+                        Velocidad: ${Math.round(this.speedX)}, ${Math.round(this.speedY)}<br>
+                        Último hit: ${this.lastHit || 'ninguno'}
+                    `;
+                }
+            }
+        }
+
+        // Clase para la IA
+        class AI extends SpectraEngine.Entity {
+            constructor(engine, paddle) {
+                super(engine);
+                this.paddle = paddle;
+                this.difficulty = 0.8;
+                this.reactionDelay = 0.1;
+                this.reactionTimer = 0;
+            }
+            
+            update(deltaTime) {
+                const scene = this.engine.currentScene;
+                if (!scene || !scene.ball) return;
+                
+                this.reactionTimer += deltaTime;
+                if (this.reactionTimer < this.reactionDelay) return;
+                
+                const ball = scene.ball;
+                
+                // Predecir posición de la bola
+                let predictedY = ball.y;
+                
+                // Solo predecir si la bola se mueve hacia la IA
+                if (ball.speedX > 0) {
+                    const timeToReach = (this.paddle.x - ball.x) / ball.speedX;
+                    predictedY = ball.y + (ball.speedY * timeToReach);
+                    
+                    // Añadir error basado en la dificultad
+                    const errorRange = (1 - this.difficulty) * 100;
+                    predictedY += (Math.random() * errorRange - errorRange / 2);
+                }
+                
+                // Suavizar el movimiento
+                const targetY = predictedY - this.paddle.height / 2;
+                const currentY = this.paddle.y;
+                const direction = targetY > currentY ? 1 : -1;
+                
+                // Mover con aceleración suave
+                if (Math.abs(targetY - currentY) > 5) {
+                    this.paddle.y += direction * this.paddle.speed * deltaTime;
+                }
+                
+                // Limitar movimiento dentro de la pantalla
+                this.paddle.y = Math.max(0, 
+                    Math.min(this.engine.config.height - this.paddle.height, this.paddle.y));
+                
+                this.reactionTimer = 0;
+            }
+        }
+
+        // Escena principal del juego Pong - COMPLETAMENTE CORREGIDA
+        class PongScene extends SpectraEngine.Scene {
+            create() {
+                this.playerScore = 0;
+                this.aiScore = 0;
+                this.gameState = 'playing';
+                
+                console.log('Iniciando escena Pong...');
+                
+                // Configurar capas de colisión - CRÍTICO
+                this.engine.setCollisionLayer('paddle', 'ball', true);
+                
+                // Crear elementos del juego
+                this.createGameElements();
+                
+                // Crear UI
+                this.createUI();
+                
+                // Configurar controles
+                this.setupControls();
+                
+                // Configurar eventos
+                this.setupEvents();
+                
+                console.log('Escena Pong creada correctamente');
+            }
+            
+            createGameElements() {
+                // Crear paletas
+                this.player = new Paddle(this.engine, 50, 
+                    this.engine.config.height / 2 - 50, true);
+                this.aiPaddle = new Paddle(this.engine, 
+                    this.engine.config.width - 65, 
+                    this.engine.config.height / 2 - 50, false);
+                
+                // Crear bola
+                this.ball = new Ball(this.engine, 
+                    this.engine.config.width / 2, 
+                    this.engine.config.height / 2);
+                
+                // Crear IA
+                this.ai = new AI(this.engine, this.aiPaddle);
+                
+                // Añadir entidades a la escena
+                this.addEntity(this.player);
+                this.addEntity(this.aiPaddle);
+                this.addEntity(this.ball);
+                this.addEntity(this.ai);
+                
+                // Crear línea central
+                this.createCenterLine();
+            }
+            
+            createCenterLine() {
+                const line = new PIXI.Graphics();
+                line.setStrokeStyle({ width: 4, color: 0xffffff, alpha: 0.3 });
+                
+                const dashLength = 20;
+                const gapLength = 15;
+                const centerX = this.engine.config.width / 2;
+                
+                for (let y = 0; y < this.engine.config.height; y += dashLength + gapLength) {
+                    line.moveTo(centerX, y);
+                    line.lineTo(centerX, y + dashLength);
+                }
+                
+                this.container.addChild(line);
+            }
+            
+            createUI() {
+                // Texto de puntuación
+                this.scoreText = this.engine.createText('0 - 0', 
+                    this.engine.config.width / 2, 40, 'title', true);
+                this.scoreText.element.anchor.set(0.5);
+                
+                // Texto de mensaje
+                this.messageText = this.engine.createText('', 
+                    this.engine.config.width / 2, this.engine.config.height / 2, 'title', true);
+                this.messageText.element.anchor.set(0.5);
+                this.messageText.setVisible(false);
+                
+                this.updateScore();
+            }
+            
+            setupControls() {
+                this.moveUp = false;
+                this.moveDown = false;
+                
+                const upButton = document.getElementById('upButton');
+                const downButton = document.getElementById('downButton');
+                
+                const setMove = (direction, value) => {
+                    return (e) => {
+                        e.preventDefault();
+                        if (direction === 'up') this.moveUp = value;
+                        if (direction === 'down') this.moveDown = value;
+                    };
+                };
+                
+                // Eventos táctiles
+                upButton.addEventListener('touchstart', setMove('up', true));
+                upButton.addEventListener('touchend', setMove('up', false));
+                upButton.addEventListener('touchcancel', setMove('up', false));
+                
+                downButton.addEventListener('touchstart', setMove('down', true));
+                downButton.addEventListener('touchend', setMove('down', false));
+                downButton.addEventListener('touchcancel', setMove('down', false));
+                
+                // Eventos de ratón para pruebas en desktop
+                upButton.addEventListener('mousedown', setMove('up', true));
+                upButton.addEventListener('mouseup', setMove('up', false));
+                upButton.addEventListener('mouseleave', setMove('up', false));
+                
+                downButton.addEventListener('mousedown', setMove('down', true));
+                downButton.addEventListener('mouseup', setMove('down', false));
+                downButton.addEventListener('mouseleave', setMove('down', false));
+            }
+            
+            setupEvents() {
+                this.engine.eventManager.on('score', (scorer) => {
+                    if (scorer === 'player') {
+                        this.playerScore++;
+                    } else {
+                        this.aiScore++;
+                    }
+                    this.updateScore();
+                    
+                    // Verificar condición de victoria
+                    if (this.playerScore >= 5) {
+                        this.gameOver('JUGADOR');
+                    } else if (this.aiScore >= 5) {
+                        this.gameOver('COMPUTADORA');
+                    }
+                });
+            }
+            
+            update(deltaTime) {
+                if (this.gameState !== 'playing') return;
+                
+                this.updatePlayerMovement(deltaTime);
+                super.update(deltaTime);
+                
+                // DEBUG VISUAL ELIMINADO - ya no se dibujan los cuadros verdes
+            }
+            
+            updatePlayerMovement(deltaTime) {
+                // Movimiento del jugador
+                if (this.engine.input.isKeyPressed('arrowup') || this.moveUp) {
+                    this.player.y -= this.player.speed * deltaTime;
+                }
+                if (this.engine.input.isKeyPressed('arrowdown') || this.moveDown) {
+                    this.player.y += this.player.speed * deltaTime;
+                }
+                
+                // Limitar movimiento del jugador
+                this.player.y = Math.max(0, 
+                    Math.min(this.engine.config.height - this.player.height, this.player.y));
+            }
+            
+            updateScore() {
+                this.scoreText.setText(`${this.playerScore} - ${this.aiScore}`);
+            }
+            
+            showMessage(text) {
+                this.messageText.setText(text);
+                this.messageText.setVisible(true);
+            }
+            
+            hideMessage() {
+                this.messageText.setVisible(false);
+            }
+            
+            gameOver(winner) {
+                this.gameState = 'gameOver';
+                this.showMessage(`¡${winner} GANA!\n\nToque la pantalla para reiniciar`);
+                
+                const restart = () => {
+                    document.removeEventListener('touchstart', restart);
+                    document.removeEventListener('mousedown', restart);
+                    this.restartGame();
+                };
+                
+                document.addEventListener('touchstart', restart, { once: true });
+                document.addEventListener('mousedown', restart, { once: true });
+            }
+            
+            restartGame() {
+                this.playerScore = 0;
+                this.aiScore = 0;
+                this.gameState = 'playing';
+                this.updateScore();
+                this.hideMessage();
+                this.ball.reset();
+                this.player.y = this.engine.config.height / 2 - 50;
+                this.aiPaddle.y = this.engine.config.height / 2 - 50;
+            }
+        }
+
+        // Inicializar el juego
+        console.log('Inicializando Spectra Engine...');
+        
+        const engine = new SpectraEngine({
+            canvasId: 'gameCanvas',
+            backgroundColor: 0x1a1a2e,
+            debug: false, // DEBUG DESACTIVADO para eliminar cuadros verdes
+            width: 800,
+            height: 600
+        });
+
+        // Esperar a que el motor esté listo
+        engine.eventManager.on('engine:initialized', () => {
+            console.log('Motor inicializado, cargando escena...');
+            engine.addScene('pong', PongScene);
+            engine.startScene('pong');
+        });
+
+        // Manejar errores
+        engine.eventManager.on('scene:started', (sceneName) => {
+            console.log(`Escena ${sceneName} iniciada correctamente`);
+        });
+
+        // Prevenir el scroll en móviles
+        document.addEventListener('touchmove', (e) => {
+            if (e.target.id === 'gameCanvas' || 
+                e.target.classList.contains('touch-area')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        // Manejar cambios de orientación
+        window.addEventListener('orientationchange', () => {
+            setTimeout(() => {
+                window.dispatchEvent(new Event('resize'));
+            }, 100);
+        });
+
+        // Mostrar mensaje de carga
+        console.log('Cargando juego Pong...');
+    </script>
+</body>
+</html>

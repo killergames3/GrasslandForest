@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Spectra Engine — Testbed</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#0f1724;
+      --accent:#7dd3fc;
+      --muted:#9ca3af;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);color:#eef2ff;font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+    #wrap{display:flex;height:100%;}
+    #left{
+      flex:1; position:relative; display:flex; align-items:stretch; justify-content:center;
+      border-right:1px solid rgba(255,255,255,0.03);
+    }
+    #canvas-holder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:12px;box-sizing:border-box;}
+    canvas{max-width:100%;max-height:100%;border-radius:8px;box-shadow:0 8px 30px rgba(2,6,23,0.6)}
+    #right{
+      width:420px;background:linear-gradient(180deg,var(--panel),#071022);padding:16px;box-sizing:border-box;overflow:auto;
+    }
+    h1{font-size:18px;margin:0 0 8px 0}
+    .section{margin-bottom:14px}
+    .kbd{background:#0b1220;padding:6px 10px;border-radius:6px;font-weight:600;color:var(--accent);display:inline-block}
+    label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}
+    .row{display:flex;gap:8px;margin-bottom:8px}
+    button{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px;color:#e6eef8;cursor:pointer}
+    button.primary{background:linear-gradient(90deg,#0ea5e9,#7dd3fc);color:#072031;border:none}
+    button.ghost{background:transparent;border:1px dashed rgba(255,255,255,0.04)}
+    .log{height:120px;overflow:auto;background:#041024;border:1px solid rgba(255,255,255,0.03);padding:8px;border-radius:6px;font-family:monospace;font-size:12px}
+    .asset-list{font-size:13px;color:var(--muted);margin-top:6px}
+    .controls-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    a.small{font-size:12px;color:var(--muted)}
+    footer{font-size:12px;color:var(--muted);margin-top:12px}
+  </style>
+</head>
+<body>
+  <div id="wrap">
+    <div id="left">
+      <div id="canvas-holder">
+        <!-- El canvas será creado por PIXI dentro del engine -->
+        <div id="loader-overlay" style="position:absolute;left:24px;top:18px;z-index:10;">
+          <span class="kbd">Spectra Engine Test</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="right">
+      <h1>Spectra Engine — Testbed</h1>
+
+      <div class="section">
+        <label>Descripción</label>
+        <div style="font-size:13px;color:var(--muted)">
+          Prueba rápida de funciones: carga de assets, mapa Tiled (con fallback), creación de sprites, sonido, partículas, UI y filtros.
+        </div>
+      </div>
+
+      <div class="section">
+        <label>Controles</label>
+        <div class="controls-grid">
+          <button id="btn-create-engine" class="primary">Crear Engine</button>
+          <button id="btn-load-assets">Cargar Assets</button>
+
+          <button id="btn-create-scene">Crear Escena</button>
+          <button id="btn-start-scene">Iniciar Escena</button>
+
+          <button id="btn-add-sprite">Añadir Sprite</button>
+          <button id="btn-add-tilemap">Render Tilemap</button>
+
+          <button id="btn-play-sound">Reproducir Sonido</button>
+          <button id="btn-spawn-particles">Particle Burst</button>
+
+          <button id="btn-toggle-filter">Toggle Blur</button>
+          <button id="btn-take-screenshot">Screenshot</button>
+        </div>
+
+        <div class="asset-list" id="asset-list"></div>
+      </div>
+
+      <div class="section">
+        <label>Registro</label>
+        <div class="log" id="log">Logs del Test…</div>
+      </div>
+
+      <footer>
+        Librerías cargadas desde CDN (automático por <code>spectra-engine.js</code>). Si algo falla revisa consola devtools.
+      </footer>
+    </div>
+  </div>
+
+  <!-- Asegúrate de tener spectra-engine.js (el single-file que te pasé) en la misma carpeta -->
+  <script src="./bin/SpectraEngine.js"></script>
+
+  <script>
+  (async function(){
+    // Utilidades
+    const $ = sel => document.querySelector(sel);
+    const logEl = $('#log');
+    function log(...args){ console.log(...args); logEl.innerText += '\\n' + args.map(a=> typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' '); logEl.scrollTop = logEl.scrollHeight; }
+
+    // ASSETS: usa URLs públicas para pruebas
+    const ASSETS = [
+      // sprite de prueba - bunny (Pixi example)
+      { name: 'player_right_1', url: 'https://pixijs.io/examples/examples/assets/bunny.png' },
+      // particle texture (pixi sample)
+      { name: 'particle', url: 'https://pixijs.io/examples/examples/assets/particle.png' },
+      // sound: short beep (Google sound library)
+      { name: 'beep', url: 'https://actions.google.com/sounds/v1/alarms/beep_short.ogg' }
+    ];
+
+    // mini tilemap JSON generado en runtime (data URL).
+    // Crearemos un tileset con 2 tiles taken from the bunny image (works as test).
+    const sampleTilemapJson = {
+      "height": 8,
+      "width": 10,
+      "tilewidth": 32,
+      "tileheight": 32,
+      "orientation": "orthogonal",
+      "renderorder": "right-down",
+      "layers": [
+        {
+          "data": Array.from({length: 80}, (_,i)=> (i%3===0?1:0)), // pattern: every 3rd tile = gid 1
+          "height": 8,
+          "name": "Ground",
+          "opacity": 1,
+          "type": "tilelayer",
+          "visible": true,
+          "width": 10,
+          "x": 0,
+          "y": 0
+        }
+      ],
+      "tilesets": [
+        {
+          "firstgid": 1,
+          "image": "https://pixijs.io/examples/examples/assets/bunny.png",
+          "imagewidth": 150,
+          "imageheight": 150,
+          "name": "tiny_tileset",
+          "tilewidth": 32,
+          "tileheight": 32,
+          "columns": 4,
+          "tilecount": 16
+        }
+      ]
+    };
+    // data URL for loader (works cross-origin as data)
+    const mapDataUrl = 'data:application/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(sampleTilemapJson));
+
+    // refs
+    let engine = null;
+    let demoScene = null;
+    let blurOn = false;
+    let blurFilter = null;
+
+    // buttons
+    $('#btn-create-engine').addEventListener('click', async ()=>{
+      try {
+        // Ensure SpectraEngine is available; if not, try to bootstrap again
+        if (!window.SpectraEngine) {
+          log('Bootstrapping libraries (SpectraEngine_bootstrap)...');
+          await window.SpectraEngine_bootstrap({ autoCreate: false });
+        }
+        const EngineClass = window.SpectraEngine;
+        engine = new EngineClass({ width: window.innerWidth - 420, height: window.innerHeight, container: document.getElementById('canvas-holder'), debug: true });
+        window._engine = engine; // expose for console
+        log('Engine creado', engine);
+      } catch (e) {
+        log('ERROR creando engine:', e.message || e);
+        console.error(e);
+      }
+    });
+
+    $('#btn-load-assets').addEventListener('click', async ()=>{
+      if (!engine) return log('Primero crea el engine.');
+      try {
+        log('Cargando assets…');
+        const resources = await engine.loadAssets([
+          ...ASSETS,
+          { name: 'demo_tilemap', url: mapDataUrl, type: 'json' } // the tilemap JSON as data URL
+        ], (progress)=> {
+          log('Loader progress ', progress.toFixed ? progress.toFixed(2) : progress);
+        });
+        log('Assets cargados:', Object.keys(resources).join(', '));
+        $('#asset-list').innerText = Object.keys(resources).join(', ');
+      } catch (e) {
+        log('Error cargando assets', e);
+      }
+    });
+
+    $('#btn-create-scene').addEventListener('click', async ()=>{
+      if (!engine) return log('Crea engine primero');
+      demoScene = engine.scenes.create('demo');
+      demoScene.onCreate = async () => {
+        // simple background
+        const bg = new PIXI.Graphics();
+        bg.beginFill(0x061226);
+        bg.drawRect(0,0, engine.app.view.width, engine.app.view.height);
+        bg.endFill();
+        demoScene.container.addChild(bg);
+        log('Scene.onCreate executed');
+      };
+      demoScene.onStart = () => { log('Scene.onStart executed'); };
+      demoScene.onUpdate = (dt) => { /* optional per-frame logic */ };
+      log('Escena creada: demo');
+    });
+
+    $('#btn-start-scene').addEventListener('click', async ()=>{
+      if (!engine || !demoScene) return log('Create engine & scene first');
+      await engine.scenes.start('demo');
+      log('Scene started and added to stage');
+    });
+
+    $('#btn-add-sprite').addEventListener('click', ()=>{
+      if (!engine || !demoScene) return log('Create engine & start scene first');
+      const s = engine.createSprite('player_right_1', { x: Math.random() * engine.app.view.width, y: Math.random() * engine.app.view.height, scale: 1.2 });
+      demoScene.container.addChild(s);
+      // make sprite interactive
+      s.interactive = true;
+      s.buttonMode = true;
+      s.on('pointerdown', () => {
+        // simple tween: scale up and return
+        s.scale.set(s.scale.x * 1.2);
+        setTimeout(()=> s.scale.set(1.2), 180);
+      });
+      log('Sprite agregado (clic para escalar)');
+    });
+
+    $('#btn-add-tilemap').addEventListener('click', async ()=>{
+      if (!engine || !demoScene) return log('Create engine & start scene first');
+      try {
+        log('Renderizando tilemap (demo_tilemap)…');
+        // parse resource and render
+        await engine.tiled.parseMapResource('demo_tilemap');
+        const root = await engine.tiled.loadMapToScene('demo_tilemap', demoScene, { useTilemapIfAvailable: true });
+        // center the root a bit
+        root.x = 0; root.y = 0;
+        log('Tilemap renderizado (root):', root);
+      } catch (e) {
+        log('Error rendering tilemap:', e);
+        console.error(e);
+      }
+    });
+
+    $('#btn-play-sound').addEventListener('click', ()=>{
+      if (!engine) return log('Crea engine');
+      try {
+        // PIXI.sound may be available via global PIXI.sound
+        if (window.PIXI && window.PIXI.sound) {
+          window.PIXI.sound.play('beep');
+          log('Sound.play("beep") triggered');
+        } else if (engine.loader.resources['beep'] && engine.loader.resources['beep'].data) {
+          // fallback: create Audio object
+          const url = engine.loader.resources['beep'].url;
+          new Audio(url).play();
+          log('Audio.fallback play', url);
+        } else {
+          log('No sound plugin disponible o recurso no cargado.');
+        }
+      } catch (e) { log('Error reproducir sonido', e); }
+    });
+
+    $('#btn-spawn-particles').addEventListener('click', ()=>{
+      if (!engine || !demoScene) return log('Create engine & start scene first');
+      try {
+        if (window.particleEmitter || (window.PIXI && window.PIXI.particles)) {
+          // if particle emitter lib loaded as UMD it might expose PIXI.particles or particleEmitter
+        }
+        const tex = engine.loader.resources['particle']?.texture || PIXI.Texture.WHITE;
+        // simple particle via many sprites (fallback)
+        const burst = new PIXI.Container();
+        demoScene.container.addChild(burst);
+        for (let i=0;i<40;i++){
+          const p = new PIXI.Sprite(tex);
+          p.x = Math.random() * engine.app.view.width;
+          p.y = Math.random() * engine.app.view.height;
+          p.anchor.set(0.5);
+          p.scale.set(0.2 + Math.random()*0.6);
+          p.alpha = 0.9;
+          burst.addChild(p);
+          // animate fade + drift
+          const vx = (Math.random()-0.5)*6;
+          const vy = (Math.random()-0.5)*6;
+          const life = 1200 + Math.random()*1200;
+          const start = performance.now();
+          const tick = (now)=>{
+            const t = (now - start)/life;
+            if (t >= 1) { burst.removeChild(p); return; }
+            p.x += vx; p.y += vy; p.alpha = 1 - t;
+            requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+        setTimeout(()=> { try{ demoScene.container.removeChild(burst); }catch(e){} }, 4000);
+        log('Particle burst (fallback sprite based) spawned');
+      } catch (e) { log('Error spawning particles', e); }
+    });
+
+    $('#btn-toggle-filter').addEventListener('click', ()=>{
+      if (!engine || !demoScene) return log('Create engine & start scene first');
+      try {
+        if (!blurFilter) {
+          // try to create BlurFilter from pixi-filters
+          if (window.PIXI && window.PIXI.filters && window.PIXI.filters.BlurFilter) {
+            blurFilter = new window.PIXI.filters.BlurFilter();
+            blurFilter.blur = 0;
+          } else {
+            blurFilter = null;
+          }
+        }
+        if (!blurFilter) { log('BlurFilter no disponible'); return; }
+        blurOn = !blurOn;
+        blurFilter.blur = blurOn ? 4 : 0;
+        demoScene.container.filters = blurOn ? [blurFilter] : [];
+        log('Blur toggled:', blurOn);
+      } catch (e) { log('Error toggling filter', e); }
+    });
+
+    $('#btn-take-screenshot').addEventListener('click', ()=>{
+      if (!engine) return log('Create engine first');
+      try {
+        const base64 = engine.app.renderer.extract.canvas(engine.app.stage).toDataURL('image/png');
+        const a = document.createElement('a');
+        a.href = base64;
+        a.download = 'spectra-screenshot.png';
+        a.click();
+        log('Screenshot generated (download started)');
+      } catch (e) { log('Screenshot failed', e); }
+    });
+
+    // Auto-create small hint: wait a bit for spectra-engine bootstrapping
+    log('Esperando que SpectraEngine cargue internals (si es necesario)...');
+    // If spectra-engine already bootstrapped, create engine automatically for you
+    setTimeout(()=> {
+      if (!window.SpectraEngine) {
+        log('SpectraEngine no está listo aun — pulsa "Crear Engine" cuando se muestre en consola.');
+      } else {
+        log('SpectraEngine detectado en window. Puedes pulsar "Crear Engine".');
+      }
+    }, 800);
+  })();
+  </script>
+</body>
+</html>
