@@ -65,7 +65,7 @@
       --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
     }
 
-    *, *::before, *::after { box-sizing: border-box; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
 
     body {
@@ -350,17 +350,23 @@
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-size: clamp(2.2rem, 5.5vw, 5.5rem);
       font-weight: 900;
       color: var(--white);
-      line-height: 0.92;
+      line-height: 1.05;
       letter-spacing: 0.04em;
       margin-bottom: 0.4rem;
       text-shadow: 0 4px 40px rgba(0,0,0,0.8);
+      white-space: nowrap;
     }
     .hero-title .line2 {
       color: var(--gold);
       display: block;
+      white-space: nowrap;
+    }
+    @media (max-width: 480px) {
+      .hero-title { font-size: clamp(2rem, 11vw, 3rem); white-space: normal; }
+      .hero-title .line2 { white-space: normal; }
     }
 
     .hero-desc {
@@ -512,6 +518,7 @@
       gap: clamp(2rem, 5vw, 4rem);
       align-items: center;
     }
+    .about-grid > * { min-width: 0; }
     @media (max-width: 768px) {
       .about-grid { grid-template-columns: 1fr; }
     }
@@ -741,6 +748,12 @@
       user-select: none;
       transition: color var(--transition);
     }
+    .question span.q-text {
+      flex: 1;
+      min-width: 0;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
     .question:hover { color: var(--teal); }
     .faq-item.open .question { color: var(--teal); }
 
@@ -796,6 +809,7 @@
       gap: 1.5rem;
       margin-top: 2.5rem;
     }
+    .team-grid > * { min-width: 0; }
 
     .member {
       background: var(--surface);
@@ -866,6 +880,7 @@
       align-items: start;
       margin-top: 2.5rem;
     }
+    .contact-grid > * { min-width: 0; }
     @media (max-width: 768px) {
       .contact-grid { grid-template-columns: 1fr; }
     }
@@ -1273,7 +1288,7 @@
         <div class="faq-list" id="faqList">
           <div class="faq-item">
             <div class="question" tabindex="0" role="button" aria-expanded="false">
-              Why Grassland Forest and where did it come from?
+              <span class="q-text">Why Grassland Forest and where did it come from?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="answer" role="region"><div class="answer-inner">
@@ -1284,7 +1299,7 @@
 
           <div class="faq-item">
             <div class="question" tabindex="0" role="button" aria-expanded="false">
-              How can I get new resources in Grassland Forest?
+              <span class="q-text">How can I get new resources in Grassland Forest?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="answer" role="region"><div class="answer-inner">
@@ -1294,7 +1309,7 @@
 
           <div class="faq-item">
             <div class="question" tabindex="0" role="button" aria-expanded="false">
-              What makes Grassland Forest unique in the world of RPGs?
+              <span class="q-text">What makes Grassland Forest unique in the world of RPGs?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="answer" role="region"><div class="answer-inner">
@@ -1304,7 +1319,7 @@
 
           <div class="faq-item">
             <div class="question" tabindex="0" role="button" aria-expanded="false">
-              How do NFTs work in the game?
+              <span class="q-text">How do NFTs work in the game?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="answer" role="region"><div class="answer-inner">
@@ -1315,7 +1330,7 @@
 
           <div class="faq-item">
             <div class="question" tabindex="0" role="button" aria-expanded="false">
-              What is crafting and how can I take advantage of it?
+              <span class="q-text">What is crafting and how can I take advantage of it?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="answer" role="region"><div class="answer-inner">
@@ -1325,7 +1340,7 @@
 
           <div class="faq-item">
             <div class="question" tabindex="0" role="button" aria-expanded="false">
-              What kind of special events can I expect?
+              <span class="q-text">What kind of special events can I expect?</span>
               <span class="faq-icon" aria-hidden="true">+</span>
             </div>
             <div class="answer" role="region"><div class="answer-inner">
@@ -1498,7 +1513,13 @@
         }
       } catch (err) {
         console.warn('reCAPTCHA failed:', err);
-        document.getElementById('recaptcha-wrapper').innerHTML = '<p class="form-hint" style="color:#f6917e">reCAPTCHA blocked. Use image captcha below.</p>';
+        const wrapper2 = document.getElementById('recaptcha-wrapper');
+        wrapper2.textContent = '';
+        const errP = document.createElement('p');
+        errP.className = 'form-hint';
+        errP.style.color = '#f6917e';
+        errP.textContent = 'reCAPTCHA blocked. Use image captcha below.';
+        wrapper2.appendChild(errP);
         showCanvasFallback();
       }
     };
@@ -1544,16 +1565,14 @@
       for (let i = 0; i < count; i++) {
         const p = document.createElement('div');
         p.className = 'particle';
-        p.style.cssText = `
-          left: ${Math.random()*100}%;
-          bottom: ${Math.random()*30}%;
-          animation-duration: ${4 + Math.random()*6}s;
-          animation-delay: ${Math.random()*6}s;
-          width: ${1 + Math.random()*2}px;
-          height: ${1 + Math.random()*2}px;
-          opacity: 0;
-          will-change: transform, opacity;
-        `;
+        p.style.left              = (Math.random() * 100) + '%';
+        p.style.bottom            = (Math.random() * 30) + '%';
+        p.style.animationDuration = (4 + Math.random() * 6) + 's';
+        p.style.animationDelay    = (Math.random() * 6) + 's';
+        p.style.width             = (1 + Math.random() * 2) + 'px';
+        p.style.height            = p.style.width;
+        p.style.opacity           = '0';
+        p.style.willChange        = 'transform, opacity';
         container.appendChild(p);
       }
     })();
@@ -1630,20 +1649,34 @@
       function loadIframe() {
         try {
           const iframe = document.createElement('iframe');
-          iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(vid)}?rel=0&modestbranding=1&playsinline=1&autoplay=1`;
+          iframe.src = 'https://www.youtube.com/embed/' + encodeURIComponent(vid) + '?rel=0&modestbranding=1&playsinline=1&autoplay=1';
           iframe.title = 'Grassland Forest Intro';
           iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
           iframe.setAttribute('allowfullscreen', '');
           iframe.loading = 'lazy';
-          root.parentElement.innerHTML = '';
-          root.parentElement.appendChild(iframe);
-          iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none';
+          /* Use individual style props — no cssText string (CSP blocks it in Brave) */
+          iframe.style.position  = 'absolute';
+          iframe.style.inset     = '0';
+          iframe.style.width     = '100%';
+          iframe.style.height    = '100%';
+          iframe.style.border    = 'none';
+          const wrapper = root.parentElement;
+          wrapper.innerHTML = '';
+          wrapper.appendChild(iframe);
         } catch(e) {
-          root.innerHTML = '<p class="form-hint" style="padding:1rem;color:#f6917e">Unable to load video. Disable extensions blocking YouTube.</p>';
+          if (root && root.parentElement) {
+            const msg = document.createElement('p');
+            msg.className = 'form-hint';
+            msg.style.padding = '1rem';
+            msg.style.color = '#f6917e';
+            msg.textContent = 'Unable to load video. Check extensions blocking YouTube.';
+            root.parentElement.innerHTML = '';
+            root.parentElement.appendChild(msg);
+          }
         }
       }
       root.addEventListener('click', loadIframe);
-      root.addEventListener('keypress', e => { if (e.key === 'Enter' || e.key === ' ') loadIframe(); });
+      root.addEventListener('keypress', function(e){ if (e.key === 'Enter' || e.key === ' ') loadIframe(); });
     })();
 
     /* ── Scroll reveal ── */
