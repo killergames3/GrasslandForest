@@ -4,10 +4,11 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Grassland Forest</title>
+  <title>Grassland Forest — Blockchain RPG</title>
   <meta name="description" content="Explore Grassland Forest: blockchain RPG with immersive gameplay, NFT economies, and unique experiences.">
+  <meta name="theme-color" content="#050a0e">
 
-  <!-- Content-Security-Policy updated to allow reCAPTCHA and YouTube frames -->
+  <!-- Security Headers -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self' https: data:;
     script-src 'self' https://www.google.com/recaptcha/ https://www.gstatic.com https://www.google.com https://www.youtube.com 'unsafe-inline';
@@ -17,677 +18,1781 @@
     connect-src 'self' http://localhost:3000 https://www.google.com https://www.gstatic.com https://www.recaptcha.net;
     object-src 'none';
     base-uri 'self';
+    form-action 'self';
+    upgrade-insecure-requests;
   ">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Grassland Forest — Blockchain RPG">
+  <meta property="og:description" content="Explore vast forests, battle for resources, and embark on an epic crypto adventure.">
+  <meta property="og:type" content="website">
 
   <link rel="icon" href="favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="preload" href="image/Logo1.webp" as="image">
 
   <style>
-    :root{
-      --bg:#0f1113; --primary:#00adb5; --muted:#cfd8dc; --radius:12px; --font-sans:'Oswald', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    /* ═══════════════════════════════════════════════
+       ROOT & RESET
+    ═══════════════════════════════════════════════ */
+    :root {
+      --bg:        #050a0e;
+      --bg2:       #080f14;
+      --surface:   #0d1820;
+      --surface2:  #0f1f2b;
+      --border:    rgba(0,200,180,0.12);
+      --border2:   rgba(0,200,180,0.06);
+      --teal:      #00c8b4;
+      --teal2:     #00a89a;
+      --gold:      #c9a84c;
+      --gold2:     #e8c96a;
+      --text:      #c8d8e0;
+      --text2:     #7a9aaa;
+      --white:     #eef4f7;
+      --red:       #e05533;
+      --green:     #2ecc71;
+      --radius:    10px;
+      --font-display: 'Cinzel', Georgia, serif;
+      --font-body:    'Crimson Pro', Georgia, serif;
+      --font-mono:    'JetBrains Mono', monospace;
+      --glow-teal: 0 0 40px rgba(0,200,180,0.15);
+      --glow-gold: 0 0 40px rgba(201,168,76,0.2);
+      --transition: 0.25s cubic-bezier(0.4,0,0.2,1);
     }
-    *,*::before,*::after{box-sizing:border-box}
-    html{font-family:var(--font-sans);-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
-    body{margin:0;background:linear-gradient(180deg,var(--bg),#071019);color:var(--muted);min-height:100vh;display:flex;flex-direction:column}
-    a{color:inherit;text-decoration:none}
-    img,video,iframe,canvas{max-width:100%;height:auto;display:block}
-    header{position:sticky;top:0;z-index:60;padding:12px 20px;background:linear-gradient(180deg, rgba(11,12,16,0.7), rgba(11,12,16,0.55));display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.03)}
-    .logo{font-family:'Permanent Marker',cursive;color:var(--primary);display:flex;align-items:center;gap:.6rem}
-    .logo img{width:44px;height:44px;border-radius:8px;object-fit:cover}
-    nav{display:flex;gap:12px;align-items:center}
-    .nav-list{display:flex;gap:10px;list-style:none;margin:0;padding:0}
-    .nav-list a{padding:8px 12px;border-radius:10px;background:transparent;font-weight:600}
-    .menu-toggle{display:none}
-    @media(max-width:900px){.nav-list{display:none;position:fixed;right:12px;top:64px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));backdrop-filter:blur(6px);flex-direction:column;padding:10px;border-radius:12px;min-width:160px}.nav-list.show{display:flex}.menu-toggle{display:inline-flex}}
 
-    /* HERO */
-    #hero{min-height:42vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0;margin:0;position:relative;border-bottom:1px solid rgba(255,255,255,0.03)}
-    .hero-media{position:relative;width:100%;height:42vh;min-height:220px;overflow:hidden}
-    .hero-media img.lcp{width:100%;height:100%;object-fit:cover;display:block;max-height:600px}
-    .hero-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:20px;background:linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.15));}
-    .hero-overlay h1{margin:0;color:#fff;font-size:clamp(26px,6vw,48px);text-shadow:0 6px 18px rgba(0,0,0,.6)}
-    .hero-cta{margin-top:12px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-    .btn{background:linear-gradient(90deg,var(--primary),#009fb0);color:#ffffff;border:0;padding:8px 14px;border-radius:10px;font-weight:700;cursor:pointer}
-    .btn.secondary{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
 
-    section{padding:28px 18px}
-    #about{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
-    @media(max-width:900px){#about{grid-template-columns:1fr}}
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.7;
+      /* Subtle noise texture */
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    }
 
-    /* YouTube preview height adjusted */
-    .yt-preview{position:relative;cursor:pointer;border-radius:12px;overflow:hidden;background:#000;height:330px;min-height:200px;display:flex;align-items:center;justify-content:center}
-    .yt-preview .thumb{width:100%;height:100%;object-fit:cover;filter:brightness(.6)}
-    .yt-preview .play{position:absolute;width:72px;height:72px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));backdrop-filter:blur(4px);border:2px solid rgba(255,255,255,0.06)}
-    .yt-preview .play svg{width:36px;height:36px;fill:var(--primary)}
+    a { color: inherit; text-decoration: none; }
+    img, video, iframe, canvas { max-width: 100%; height: auto; display: block; }
+    button { font-family: inherit; cursor: pointer; }
+    ul { list-style: none; }
 
-    /* Carrusel CORREGIDO - Adaptación perfecta de imágenes */
-    #carousel {
+    /* ═══════════════════════════════════════════════
+       SCROLLBAR
+    ═══════════════════════════════════════════════ */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--teal2); border-radius: 3px; }
+
+    /* ═══════════════════════════════════════════════
+       UTILS
+    ═══════════════════════════════════════════════ */
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 24px; height: 1px;
+      background: var(--teal);
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .gold-line {
+      display: block;
+      width: 48px; height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin: 1rem 0;
+    }
+
+    /* ═══════════════════════════════════════════════
+       HEADER / NAV
+    ═══════════════════════════════════════════════ */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 clamp(1rem, 4vw, 2.5rem);
+      height: 64px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(5, 10, 14, 0.82);
+      backdrop-filter: blur(16px) saturate(1.2);
+      -webkit-backdrop-filter: blur(16px) saturate(1.2);
+      border-bottom: 1px solid var(--border2);
+      transition: box-shadow var(--transition);
+    }
+
+    header.scrolled {
+      box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+      border-bottom-color: var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+    }
+    .logo img {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid var(--border);
+    }
+    .logo span.glow { color: var(--teal); }
+
+    nav { display: flex; align-items: center; gap: 0.5rem; }
+
+    .nav-list {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+    }
+
+    .nav-list a {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text2);
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      transition: color var(--transition), background var(--transition);
       position: relative;
+    }
+    .nav-list a:hover { color: var(--teal); background: rgba(0,200,180,0.06); }
+
+    .nav-play {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, var(--teal), var(--teal2));
+      color: #020f0e;
+      font-weight: 600;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      border: none;
+      margin-left: 0.5rem;
+      transition: opacity var(--transition), box-shadow var(--transition);
+    }
+    .nav-play:hover { opacity: 0.88; box-shadow: 0 0 20px rgba(0,200,180,0.3); }
+
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--text2);
+      width: 38px; height: 38px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      align-items: center;
+      justify-content: center;
+      transition: color var(--transition), border-color var(--transition);
+    }
+    .menu-toggle:hover { color: var(--teal); border-color: var(--teal); }
+
+    @media (max-width: 860px) {
+      .menu-toggle { display: flex; }
+      .nav-list {
+        display: none;
+        position: fixed;
+        top: 64px; right: 0; left: 0;
+        background: rgba(8, 15, 20, 0.97);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+        gap: 0.25rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-list.show { display: flex; }
+      .nav-list a { padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; }
+      .nav-play { margin: 0.5rem 0 0 0; width: 100%; text-align: center; padding: 0.75rem; }
+    }
+
+    /* ═══════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════ */
+    #hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: flex-end;
       overflow: hidden;
-      border-radius: 12px;
-      margin: 12px 0;
-      background-color: #0a0c0e;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    /* Multi-layer overlay for depth */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(5,10,14,1) 0%, rgba(5,10,14,0.7) 40%, rgba(5,10,14,0.2) 100%),
+        linear-gradient(to right, rgba(5,10,14,0.6) 0%, transparent 60%);
+    }
+
+    /* Animated particles */
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .particle {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: var(--teal);
+      border-radius: 50%;
+      opacity: 0;
+      animation: floatUp linear infinite;
+    }
+    @keyframes floatUp {
+      0%   { opacity: 0; transform: translateY(0) scale(0); }
+      10%  { opacity: 0.6; }
+      90%  { opacity: 0.2; }
+      100% { opacity: 0; transform: translateY(-120px) scale(1.5); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+      max-width: 700px;
+      animation: heroReveal 1.2s cubic-bezier(0.16,1,0.3,1) both;
+    }
+    @keyframes heroReveal {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px; height: 1px;
+      background: var(--teal);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 0.92;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+      text-shadow: 0 4px 40px rgba(0,0,0,0.8);
+    }
+    .hero-title .line2 {
+      color: var(--gold);
+      display: block;
+    }
+
+    .hero-desc {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--text2);
+      max-width: 500px;
+      margin: 1.25rem 0 2rem;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal2) 100%);
+      color: #020f0e;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius);
+      transition: all var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 28px rgba(0,200,180,0.45);
+      transform: translateY(-1px);
+    }
+    .btn-primary svg { width: 14px; height: 14px; }
+
+    .btn-ghost {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.85rem 2rem;
+      border-radius: var(--radius);
+      transition: all var(--transition);
+    }
+    .btn-ghost:hover {
+      border-color: rgba(0,200,180,0.4);
+      color: var(--teal);
+      background: rgba(0,200,180,0.04);
+    }
+
+    /* Hero scroll hint */
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      right: clamp(1.5rem, 4vw, 3rem);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text2);
+      opacity: 0.6;
+    }
+    .scroll-hint::after {
+      content: '';
+      display: block;
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--text2), transparent);
+      animation: scrollPulse 2s ease infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; transform: scaleY(1); }
+      50%       { opacity: 1; transform: scaleY(0.7); }
+    }
+
+    /* ═══════════════════════════════════════════════
+       STATS BAR
+    ═══════════════════════════════════════════════ */
+    .stats-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border2);
+      border-bottom: 1px solid var(--border2);
+      padding: 1.5rem clamp(1.5rem, 5vw, 3rem);
+      display: flex;
+      justify-content: center;
+      gap: clamp(2rem, 6vw, 5rem);
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      display: block;
+    }
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text2);
+      margin-top: 0.2rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       SECTION WRAPPER
+    ═══════════════════════════════════════════════ */
+    .section-wrap {
+      padding: clamp(3rem, 7vw, 6rem) clamp(1.5rem, 5vw, 4rem);
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* ═══════════════════════════════════════════════
+       ABOUT SECTION
+    ═══════════════════════════════════════════════ */
+    #about-wrap {
+      position: relative;
+    }
+    #about-wrap::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
+    .about-text p {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+    .about-text p em { color: var(--teal); font-style: italic; }
+
+    .hint-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,200,180,0.06);
+      border: 1px solid rgba(0,200,180,0.15);
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--teal);
+      letter-spacing: 0.06em;
+    }
+
+    /* YouTube embed */
+    .yt-wrap {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+      aspect-ratio: 16/9;
+    }
+
+    .yt-preview {
+      position: absolute;
+      inset: 0;
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: transform var(--transition);
     }
+    .yt-preview:hover { transform: scale(1.01); }
+    .yt-preview:hover .play-btn { box-shadow: 0 0 0 12px rgba(0,200,180,0.12); }
+
+    .yt-preview img.thumb {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.55) saturate(0.8);
+    }
+
+    .play-btn {
+      position: relative;
+      z-index: 2;
+      width: 68px; height: 68px;
+      background: rgba(0,200,180,0.15);
+      backdrop-filter: blur(8px);
+      border: 2px solid rgba(0,200,180,0.4);
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      transition: box-shadow var(--transition);
+    }
+    .play-btn svg { width: 28px; height: 28px; fill: var(--teal); margin-left: 3px; }
+
+    .yt-label {
+      position: absolute;
+      z-index: 2;
+      bottom: 1rem; left: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+    }
+
+    .yt-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ═══════════════════════════════════════════════
+       CAROUSEL / GALLERY
+    ═══════════════════════════════════════════════ */
+    #gallery-wrap {
+      background: var(--bg2);
+      border-top: 1px solid var(--border2);
+      border-bottom: 1px solid var(--border2);
+    }
+
+    .gallery-header {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 5vw, 4rem) 1.5rem;
+    }
+
+    .carousel-outer {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 5vw, 4rem) clamp(2.5rem, 5vw, 4rem);
+    }
+
+    #carousel {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #000;
+      border: 1px solid var(--border);
+      aspect-ratio: 16/9;
+      contain: layout style paint;
+    }
+    @media (max-width: 500px) { #carousel { aspect-ratio: 4/3; } }
 
     .slide {
       position: absolute;
       inset: 0;
       opacity: 0;
-      transition: opacity 0.9s ease;
+      transition: opacity 0.8s ease;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      height: 100%;
+      will-change: opacity;
     }
-
-    .slide.active {
-      opacity: 1;
-    }
-
+    .slide.active { opacity: 1; }
     .slide img {
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      object-position: center;
-      border-radius: 8px;
+      width: 100%; height: 100%;
+      object-fit: cover;
     }
+
+    /* Carousel controls */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(8, 15, 20, 0.8);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all var(--transition);
+      cursor: pointer;
+    }
+    .carousel-btn:hover { color: var(--teal); border-color: var(--teal); box-shadow: var(--glow-teal); }
+    .carousel-btn.prev { left: calc(clamp(1.5rem, 5vw, 4rem) + 12px); }
+    .carousel-btn.next { right: calc(clamp(1.5rem, 5vw, 4rem) + 12px); }
 
     .carousel-dots {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 20px;
+      bottom: calc(clamp(2.5rem, 5vw, 4rem) + 12px);
+      left: 50%; transform: translateX(-50%);
       display: flex;
       gap: 8px;
-      z-index: 3;
     }
-
     .dot {
-      width: 10px;
-      height: 10px;
+      width: 6px; height: 6px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.35);
+      background: rgba(255,255,255,0.25);
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all var(--transition);
     }
-
     .dot.active {
-      background: var(--primary);
-      transform: scale(1.15);
+      background: var(--teal);
+      width: 20px;
+      border-radius: 3px;
     }
 
-    /* Tamaños responsivos del carrusel */
-    /* Móvil */
-    @media (max-width: 480px) {
-      #carousel {
-        height: 280px;
-        min-height: 280px;
-        max-height: 300px;
-      }
+    /* ═══════════════════════════════════════════════
+       FAQ
+    ═══════════════════════════════════════════════ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-top: 2rem;
     }
 
-    /* Tablet */
-    @media (min-width: 481px) and (max-width: 900px) {
-      #carousel {
-        height: 400px;
-        min-height: 400px;
-        max-height: 450px;
-      }
+    .faq-item {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+    .faq-item:hover { border-color: var(--border); }
+    .faq-item.open { border-color: rgba(0,200,180,0.2); }
+
+    .question {
+      cursor: pointer;
+      padding: 1.1rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      user-select: none;
+      transition: color var(--transition);
+    }
+    .question:hover { color: var(--teal); }
+    .faq-item.open .question { color: var(--teal); }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px; height: 24px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--text2);
+      transition: all var(--transition);
+    }
+    .faq-item.open .faq-icon {
+      background: rgba(0,200,180,0.1);
+      border-color: var(--teal);
+      color: var(--teal);
+      transform: rotate(45deg);
     }
 
-    /* Desktop */
-    @media (min-width: 901px) {
-      #carousel {
-        height: 500px;
-        min-height: 500px;
-        max-height: 550px;
-      }
+    .answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.32s cubic-bezier(0.4,0,0.2,1);
+    }
+    .faq-item.open .answer {
+      grid-template-rows: 1fr;
+    }
+    .answer-inner {
+      overflow: hidden;
+      padding: 0 1.5rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--text2);
+      line-height: 1.8;
+    }
+    .answer-inner p + p { margin-top: 0.75rem; }
+
+    /* ═══════════════════════════════════════════════
+       TEAM
+    ═══════════════════════════════════════════════ */
+    #team-wrap {
+      background: var(--bg2);
+      border-top: 1px solid var(--border2);
     }
 
-    /* Pantallas grandes */
-    @media (min-width: 1200px) {
-      #carousel {
-        height: 600px;
-        min-height: 600px;
-        max-height: 650px;
-      }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
     }
 
-    /* FAQ */
-    #faq .question{cursor:pointer;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));display:flex;justify-content:space-between;align-items:center;font-weight:700}
-    #faq .answer{max-height:0;overflow:hidden;transition:max-height .32s ease;padding:0 10px;margin-bottom:10px}
-    #faq .question.open + .answer{padding:12px 10px}
+    .member {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 14px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: all var(--transition);
+    }
+    .member::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+    .member:hover {
+      border-color: var(--border);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4), var(--glow-teal);
+      transform: translateY(-4px);
+    }
+    .member:hover::before { opacity: 1; }
 
-    /* Team */
-    #team{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-    .member{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;text-align:center}
-    .member img{width:88px;height:88px;border-radius:50%;object-fit:cover;margin:0 auto 10px}
+    .member-avatar {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1.25rem;
+      border: 2px solid var(--border);
+      transition: border-color var(--transition);
+    }
+    .member:hover .member-avatar { border-color: var(--teal); }
 
-    /* Contact */
-    .contact-form{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
-    .contact-form input,.contact-form textarea{padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:rgba(0,0,0,0.28);color:var(--muted);outline:none;font-size:15px}
-    .hint{font-size:13px;color:rgba(255,255,255,0.6)}
-    .msg-ok{background:linear-gradient(90deg,#16a34a,#34d399);color:#021219;padding:10px;border-radius:10px;text-align:center}
-    .msg-error{background:linear-gradient(90deg,#ef4444,#f97316);color:#021219;padding:10px;border-radius:10px;text-align:center}
-    .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .member-role {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.4rem;
+    }
+    .member-name {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.03em;
+    }
+    .member-desc {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: var(--text2);
+      line-height: 1.65;
+    }
 
-    footer{padding:18px 20px;background:#020306;border-top:1px solid rgba(255,255,255,0.03);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:center}
-    .footer-buttons{display:flex;gap:8px;flex-wrap:wrap}
-    .footer-buttons a{background:rgba(255,255,255,0.02);padding:10px 12px;border-radius:8px;color:var(--muted);font-weight:700}
-    @media(max-width:600px){.yt-preview{height:300px}}
+    /* ═══════════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════════ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+      margin-top: 2.5rem;
+    }
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    .contact-info h3 {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.04em;
+    }
+    .contact-info p {
+      font-size: 0.95rem;
+      color: var(--text2);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--text2);
+      padding: 0.6rem 0.9rem;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 8px;
+      transition: all var(--transition);
+    }
+    .contact-link:hover { color: var(--teal); border-color: rgba(0,200,180,0.2); background: rgba(0,200,180,0.04); }
+    .contact-link .link-icon { font-size: 0.9rem; }
+
+    /* Form */
+    .contact-form {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      border-radius: 14px;
+      padding: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .form-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text2);
+    }
+    .form-label .req { color: var(--teal); margin-left: 3px; }
+
+    .form-input, .form-textarea {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      padding: 0.7rem 1rem;
+      outline: none;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      width: 100%;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text2); opacity: 0.6; }
+    .form-input:focus, .form-textarea:focus {
+      border-color: rgba(0,200,180,0.3);
+      box-shadow: 0 0 0 3px rgba(0,200,180,0.06);
+    }
+    .form-textarea { resize: vertical; min-height: 110px; }
+
+    .captcha-section {
+      margin: 0.75rem 0;
+    }
+
+    .canvas-captcha-wrap {
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .canvas-captcha-wrap.visible { display: flex; }
+    .canvas-captcha-wrap canvas {
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    .captcha-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal2) 100%);
+      color: #020f0e;
+      border: none;
+      padding: 0.9rem 2rem;
+      border-radius: var(--radius);
+      transition: all var(--transition);
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover:not(:disabled) {
+      box-shadow: 0 0 28px rgba(0,200,180,0.4);
+      transform: translateY(-1px);
+    }
+    .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .btn-sm {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      background: var(--surface2);
+      color: var(--text2);
+      border: 1px solid var(--border);
+      padding: 0.5rem 0.9rem;
+      border-radius: 7px;
+      transition: all var(--transition);
+      white-space: nowrap;
+    }
+    .btn-sm:hover { color: var(--teal); border-color: rgba(0,200,180,0.3); }
+
+    .form-hint {
+      font-size: 0.75rem;
+      color: var(--text2);
+      font-style: italic;
+      margin-top: 0.25rem;
+      line-height: 1.5;
+    }
+
+    .msg-ok {
+      background: linear-gradient(135deg, rgba(46,204,113,0.15), rgba(0,200,180,0.1));
+      border: 1px solid rgba(46,204,113,0.3);
+      color: #7ee8a2;
+      padding: 0.9rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .msg-error {
+      background: linear-gradient(135deg, rgba(224,85,51,0.12), rgba(220,38,38,0.08));
+      border: 1px solid rgba(224,85,51,0.3);
+      color: #f6917e;
+      padding: 0.9rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ═══════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════ */
+    footer {
+      background: #020508;
+      border-top: 1px solid var(--border2);
+      padding: 2rem clamp(1.5rem, 5vw, 4rem);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text2);
+      letter-spacing: 0.08em;
+    }
+    .footer-logo span { color: var(--teal); }
+
+    .footer-links {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--text2);
+      padding: 0.4rem 0.75rem;
+      border-radius: 6px;
+      border: 1px solid var(--border2);
+      transition: all var(--transition);
+    }
+    .footer-links a:hover { color: var(--teal); border-color: var(--border); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border2);
+      padding-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: var(--text2);
+      opacity: 0.55;
+    }
+
+    /* ═══════════════════════════════════════════════
+       ANIMATIONS / ENTRANCE
+    ═══════════════════════════════════════════════ */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    [data-reveal].revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Divider */
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo" aria-label="Grassland Forest logo">
-      <img src="favicon.png" alt="Grassland Forest logo" width="44" height="44">
-      <span>Grassland Forest</span>
-    </div>
+
+  <!-- ═══════ HEADER ═══════ -->
+  <header id="mainHeader">
+    <a class="logo" href="#hero" aria-label="Grassland Forest home">
+      <img src="favicon.png" alt="" width="36" height="36">
+      <span>Grassland<span class="glow"> Forest</span></span>
+    </a>
 
     <nav aria-label="Main navigation">
-      <button class="menu-toggle" id="menuBtn" aria-expanded="false" aria-controls="navList" title="Open menu">☰</button>
+      <button class="menu-toggle" id="menuBtn" aria-expanded="false" aria-controls="navList" aria-label="Toggle menu">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8">
+          <line x1="2" y1="4.5" x2="16" y2="4.5"/><line x1="2" y1="9" x2="16" y2="9"/><line x1="2" y1="13.5" x2="16" y2="13.5"/>
+        </svg>
+      </button>
       <ul id="navList" class="nav-list" role="menubar">
-        <li role="none"><a role="menuitem" href="#hero">Home</a></li>
-        <li role="none"><a role="menuitem" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">Demo</a></li>
         <li role="none"><a role="menuitem" href="#about">About</a></li>
-        <li role="none"><a role="menuitem" href="#team">Team</a></li>
-        <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+        <li role="none"><a role="menuitem" href="#gallery-wrap">Gallery</a></li>
+        <li role="none"><a role="menuitem" href="#faq-wrap">FAQ</a></li>
+        <li role="none"><a role="menuitem" href="#team-wrap">Team</a></li>
+        <li role="none"><a role="menuitem" href="#contact-wrap">Contact</a></li>
+        <li role="none">
+          <a role="menuitem" class="nav-play" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">Play Demo ▶</a>
+        </li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <!-- HERO -->
-  <section id="hero" aria-labelledby="hero-title">
-    <div class="hero-media">
-      <img class="lcp" src="image/Logo1.webp" alt="Grassland Forest hero image" width="1600" height="900" loading="eager">
-      <div class="hero-overlay">
-        <h1 id="hero-title">GRASSLAND FOREST</h1>
+
+    <!-- ═══════ HERO ═══════ -->
+    <section id="hero" aria-labelledby="hero-title">
+      <div class="hero-bg">
+        <img src="image/Logo1.webp" alt="Grassland Forest world" width="1600" height="900" loading="eager" fetchpriority="high">
+      </div>
+
+      <!-- Floating particles -->
+      <div class="hero-particles" id="particles" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Blockchain RPG · Web3 · NFT Economy</p>
+        <h1 class="hero-title" id="hero-title">
+          GRASSLAND
+          <span class="line2">FOREST</span>
+        </h1>
+        <p class="hero-desc">Explore vast wilderness, battle shadowy enemies, and build your legacy in a world where every action carries real value.</p>
         <div class="hero-cta">
-          <a class="btn" id="preRegisterBtn" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">Play-Demo</a>
-          <a class="btn secondary" href="#about">Learn more</a>
+          <a class="btn-primary" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            Play Demo
+          </a>
+          <a class="btn-ghost" href="#about">Learn More</a>
+        </div>
+      </div>
+
+      <span class="scroll-hint" aria-hidden="true">Scroll</span>
+    </section>
+
+    <!-- ═══════ STATS BAR ═══════ -->
+    <div class="stats-bar" aria-label="Key stats">
+      <div class="stat-item">
+        <span class="stat-value">Web3</span>
+        <span class="stat-label">Blockchain Powered</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">NFT</span>
+        <span class="stat-label">Economy</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">RPG</span>
+        <span class="stat-label">Immersive World</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-value">Free</span>
+        <span class="stat-label">To Play Demo</span>
+      </div>
+    </div>
+
+    <!-- ═══════ ABOUT ═══════ -->
+    <div id="about-wrap">
+      <div class="section-wrap">
+        <div class="about-grid" id="about">
+          <div class="about-text" data-reveal>
+            <p class="section-tag">About the Game</p>
+            <h2 class="section-title">A World Where<br>Adventure Has Value</h2>
+            <span class="gold-line"></span>
+            <p>Explore vast forests, <em>battle for resources</em>, and embark on an epic crypto adventure. Grassland Forest combines immersive RPG gameplay with blockchain-powered economies.</p>
+            <p>Every quest completed, every enemy defeated, every item crafted carries real meaning — and real reward.</p>
+            <a class="hint-tag" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M2 2h8v8H2z" opacity=".3"/><path d="M4 1v2H1V1h3zM1 4h2v3H1V4zM4 9v2H1V9h3zM9 1h2v3H9V1zM9 9h2v2H9V9z"/></svg>
+              Playable demo 
+            </a>
+          </div>
+
+          <div data-reveal>
+            <div class="yt-wrap">
+              <div id="ytRoot" class="yt-preview" role="button" tabindex="0" aria-label="Play Grassland Forest intro video">
+                <img class="thumb" src="https://i.ytimg.com/vi/99-lNGzBirc/hqdefault.jpg" alt="Grassland Forest intro video thumbnail" loading="lazy">
+                <div class="play-btn" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+                <span class="yt-label">Official Trailer</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
 
-    <section id="about" aria-labelledby="about-title">
-      <div>
-        <h2 id="about-title">About the Game</h2>
-        <p>Explore vast forests, battle for resources and embark on an epic crypto adventure. Grassland Forest combines immersive gameplay with blockchain-powered economies.</p>
-        <p class="hint">Playable demo available — best experience on desktop for the demo.</p>
+    <!-- ═══════ GALLERY / CAROUSEL ═══════ -->
+    <div id="gallery-wrap">
+      <div class="gallery-header" data-reveal>
+        <p class="section-tag">Gallery</p>
+        <h2 class="section-title">The World of<br>Grassland Forest</h2>
       </div>
+      <div class="carousel-outer">
+        <div id="carousel" aria-label="Game screenshots">
+          <div class="slide active" role="img" aria-label="Farming resources"><img src="image/1.webp" alt="Farming resources in Grassland Forest" loading="lazy"></div>
+          <div class="slide" role="img" aria-label="Store resources"><img src="image/2.webp" alt="Store resources" loading="lazy"></div>
+          <div class="slide" role="img" aria-label="Fishing"><img src="image/3.webp" alt="Fishing gameplay" loading="lazy"></div>
+          <div class="slide" role="img" aria-label="Coming soon"><img src="image/4.webp" alt="Coming soon" loading="lazy"></div>
+        </div>
+        <button class="carousel-btn prev" id="prevBtn" aria-label="Previous image">&#8592;</button>
+        <button class="carousel-btn next" id="nextBtn" aria-label="Next image">&#8594;</button>
+        <div class="carousel-dots" role="tablist" aria-label="Gallery navigation">
+          <div class="dot active" data-slide="0" role="tab" aria-selected="true" tabindex="0" aria-label="Image 1"></div>
+          <div class="dot" data-slide="1" role="tab" tabindex="0" aria-label="Image 2"></div>
+          <div class="dot" data-slide="2" role="tab" tabindex="0" aria-label="Image 3"></div>
+          <div class="dot" data-slide="3" role="tab" tabindex="0" aria-label="Image 4"></div>
+        </div>
+      </div>
+    </div>
 
-      <div>
-        <div id="ytRoot" class="yt-preview" role="button" tabindex="0" aria-label="Play intro video">
-          <img class="thumb" src="https://i.ytimg.com/vi/99-lNGzBirc/hqdefault.jpg" alt="Grassland Forest intro video" loading="lazy">
-          <div class="play" aria-hidden="true">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"></path></svg>
+    <!-- ═══════ FAQ ═══════ -->
+    <div id="faq-wrap">
+      <div class="section-wrap">
+        <div data-reveal>
+          <p class="section-tag">FAQ</p>
+          <h2 class="section-title">Frequently Asked<br>Questions</h2>
+        </div>
+
+        <div class="faq-list" id="faqList">
+          <div class="faq-item">
+            <div class="question" tabindex="0" role="button" aria-expanded="false">
+              Why Grassland Forest and where did it come from?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="answer" role="region"><div class="answer-inner">
+              <p>Grassland Forest was created to provide a comfortable, immersive, and truly interactive RPG experience within the Web3 world. Its goal is clear: to push the boundaries of conventionality, offering deeper, more accessible, and more immersive gameplay than other titles in the genre. Grassland Forest seeks to respect the player's time, reward their exploration, and provide a space where every action has a real impact.</p>
+              <p>Grassland Forest was born from the vision of building a world where good and evil coexist in balance, and where each region reflects that duality. Its name embodies that concept: a vast, natural environment (Grassland) combined with dense, mysterious, and challenging areas (Forest).</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" tabindex="0" role="button" aria-expanded="false">
+              How can I get new resources in Grassland Forest?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="answer" role="region"><div class="answer-inner">
+              <p>In your battles, defeating shadowy enemies and completing quests will allow you to obtain rare materials, grow plants, and practice fishing! Each victory brings you closer to valuable resources.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" tabindex="0" role="button" aria-expanded="false">
+              What makes Grassland Forest unique in the world of RPGs?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="answer" role="region"><div class="answer-inner">
+              <p>Aside from its innovative mechanics and Web3 integration, Grassland Forest boasts a deeply emotional story and a world that blends the beautiful with the dangerous. The combination of a retro pixel art style with dynamic battles and the ability to earn NFTs is what makes this game truly unique.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" tabindex="0" role="button" aria-expanded="false">
+              How do NFTs work in the game?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="answer" role="region"><div class="answer-inner">
+              <p>Character NFTs grant exclusive benefits, such as stat boosts, which can make a significant difference in performance during battles. Each character NFT includes two unique special cards, offering strategic advantages and expanding tactical possibilities.</p>
+              <p>Pet NFTs represent elemental companions whose attributes — damage, defense, and card abilities — vary based on their elemental type. Owning NFTs doesn't just mean collecting, but also empowering your adventure and unlocking exclusive content.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" tabindex="0" role="button" aria-expanded="false">
+              What is crafting and how can I take advantage of it?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="answer" role="region"><div class="answer-inner">
+              <p>The crafting system allows you to create a wide variety of essential items: food and potions that restore energy or enhance skills, specialized clothing and tools like pickaxes. Getting the most out of crafting means better preparing for each challenge and customizing your playstyle with unique, functional items.</p>
+            </div></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="question" tabindex="0" role="button" aria-expanded="false">
+              What kind of special events can I expect?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="answer" role="region"><div class="answer-inner">
+              <p>Special events full of surprises, challenges, and unique rewards await you. Themed minigames, hidden mysteries, and timed competitions where your ingenuity makes the difference. Dynamic events that transform the environment, introduce new characters, and secret stories. Each event offers exclusive items and collaborative challenges.</p>
+            </div></div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Carousel -->
-    <section id="carousel" aria-label="Gallery">
-      <div class="slide active" aria-hidden="false"><img src="image/1.webp" alt="Farming resources" loading="lazy"></div>
-      <div class="slide" aria-hidden="true"><img src="image/2.webp" alt="Store resources" loading="lazy"></div>
-      <div class="slide" aria-hidden="true"><img src="image/3.webp" alt="Fishing" loading="lazy"></div>
-      <div class="slide" aria-hidden="true"><img src="image/4.webp" alt="Coming soon" loading="lazy"></div>
-      <div class="carousel-dots" role="tablist" aria-label="Carousel navigation">
-        <div class="dot active" data-slide="0" role="tab" aria-selected="true" tabindex="0"></div>
-        <div class="dot" data-slide="1" role="tab" tabindex="0"></div>
-        <div class="dot" data-slide="2" role="tab" tabindex="0"></div>
-        <div class="dot" data-slide="3" role="tab" tabindex="0"></div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title">Frequently Asked Questions</h2>
-
-      <div class="item">
-        <div class="question" tabindex="0">Why Grassland Forest and where did it come from?</div>
-        <div class="answer">
-          <p>Why Grassland Forest?
-          Grassland Forest was created to provide a comfortable, immersive, and truly interactive RPG experience within the Web3 world. Its goal is clear: to push the boundaries of conventionality, offering deeper, more accessible, and more immersive gameplay than other titles in the genre. Grassland Forest seeks to respect the player's time, reward their exploration, and provide a space where every action has a real impact.</p>
-
-          <p>Where was it born?
-          Grassland Forest was born from the vision of building a world where good and evil coexist in balance, and where each region reflects that duality. Its name embodies that concept: a vast, natural environment (Grassland) combined with dense, mysterious, and challenging areas (Forest). Inspired by a passion for classic RPGs and a desire to innovate within the blockchain ecosystem, this game was created to mark a turning point in the genre.</p>
+    <!-- ═══════ TEAM ═══════ -->
+    <div id="team-wrap">
+      <div class="section-wrap">
+        <div data-reveal>
+          <p class="section-tag">The Team</p>
+          <h2 class="section-title">The People Behind<br>the Forest</h2>
         </div>
-      </div>
-
-      <div class="item">
-        <div class="question" tabindex="0">How can I get new resources in Grassland Forest?</div>
-        <div class="answer">
-          <p>In your battles, defeating shadowy enemies and completing quests will allow you to obtain rare materials, grow plants, and practice fishing! Each victory brings you closer to valuable resources.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="question" tabindex="0">What makes Grassland Forest unique in the world of RPGs?</div>
-        <div class="answer">
-          <p>Aside from its innovative mechanics and Web 3 integration, Grassland Forest boasts a deeply emotional story and a world that blends the beautiful with the dangerous. The combination of a retro pixel art style with dynamic battles and the ability to earn NFTs is what makes this game truly unique.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="question" tabindex="0">How do NFTs work in the game?</div>
-        <div class="answer">
-          <p>In the game, NFTs play a pivotal and dynamic role in enriching the player experience.
-          Character NFTs grant exclusive benefits, such as stat boosts, which can make a significant difference in performance during battles. Additionally, each character NFT includes two unique special cards, offering strategic advantages and expanding tactical possibilities within the game.</p>
-
-          <p>Pet NFTs, on the other hand, represent elemental companions, whose attributes—such as damage, defense, and card abilities—vary based on their elemental type. This adds an extra layer of customization, allowing players to tailor their playstyle and strategy by choosing the pet that best aligns with their approach.</p>
-
-          <p>Owning NFTs doesn't just mean collecting, but also empowering your adventure and unlocking exclusive content that will set you apart on every mission.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="question" tabindex="0">What is crafting and how can I take advantage of it?</div>
-        <div class="answer">
-          <p>The crafting system allows you to create a wide variety of essential items for your adventure.
-          From food and potions that restore energy or enhance skills, to specialized clothing and tools like pickaxes, everything can be crafted with the right materials.</p>
-
-          <p>Getting the most out of crafting means better preparing for each challenge, optimizing your resources, and customizing your playstyle with unique and functional items.</p>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="question" tabindex="0">What kind of special events can I expect at Grassland Forest?</div>
-        <div class="answer">
-          <p>Special events full of surprises, challenges, and unique rewards await you in Grassland Forest.
-          You'll be able to participate in themed minigames, solve hidden mysteries, and take on timed competitions where your ingenuity and skill will make the difference.</p>
-
-          <p>In addition, there will be dynamic events that will transform the environment, introducing new characters, secret stories, and collaborative challenges. Each event will be an opportunity to earn exclusive items, discover secrets of the forest, and leave your mark on the game world.</p>
-
-          <p>Get ready for an ever-evolving experience, where there will always be something new to explore and conquer.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section id="team" aria-labelledby="team-title">
-      <h2 id="team-title">Team :</h2>
-      <div class="member">
-        <img src="image/equip0.webp" alt="Jean Larreal" width="100" height="100">
-        <h3>Builder, CTO and Engineer</h3>
-        <h4>Name: Jean Larreal</h4>
-        <p>Creator of Grassland Forest. Product and game designer, security expert, architect and solutions engineer, founding engineer, UX expert, and specialist.</p>
-      </div>
-      <div class="member">
-        <img src="image/epuip2.webp" alt="Dagoberto Patiño" width="100" height="100">
-        <h3>Head of Design and Community</h3>
-        <h4>Name: Dagoberto Patiño</h4>
-        <p>Pixel Artist, Community Manager and Design Vision, Technical Support Manager, Community Usage and Development.</p>
-      </div>
-      <div class="member">
-        <img src="image/equip1.webp" alt="Milena Medrano" width="100" height="100">
-        <h3>Artist and Support</h3>
-        <h4>Name: Jonas Larreal</h4>
-        <p>Pixel Artist, Animator & Designer, Technical Support, Props & Community Development.</p>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact Us</h2>
-
-      <form id="contactForm" class="contact-form" novalidate>
-        <input id="name" name="name" type="text" placeholder="Name" required autocomplete="name" />
-        <input id="email" name="email" type="email" placeholder="Email" required autocomplete="email" />
-        <input id="company" name="company" type="text" placeholder="Company" required autocomplete="organization" />
-        <input id="telegram" name="telegram" type="text" placeholder="Telegram" />
-        <input id="discord" name="discord" type="text" placeholder="Discord" />
-        <textarea id="message" name="message" rows="4" placeholder="Message" required></textarea>
-
-        <input type="text" name="_hp_field" class="visually-hidden" autocomplete="off" tabindex="-1" value="">
-
-        <div id="recaptcha-wrapper" style="min-height:84px">
-          <!-- recaptcha DIV intentionally visible; will be filled by Google's script -->
-          <div id="recaptcha" aria-hidden="false"></div>
-        </div>
-
-        <div id="canvasCaptcha" style="display:none;margin-top:8px;">
-          <canvas id="captchaCanvas" width="200" height="60" aria-label="captcha image"></canvas>
-          <div style="display:flex;gap:8px;margin-top:8px;">
-            <input id="captchaInput" name="captchaInput" type="text" placeholder="Type the text you see" autocomplete="off" />
-            <button type="button" id="refreshCaptcha" class="btn secondary">Refresh</button>
+        <div class="team-grid">
+          <div class="member" data-reveal>
+            <img class="member-avatar" src="image/equip0.webp" alt="Jean Larreal" width="90" height="90" loading="lazy">
+            <p class="member-role">Builder · CTO · Engineer</p>
+            <h3 class="member-name">Jean Larreal</h3>
+            <p class="member-desc">Creator of Grassland Forest. Product &amp; game designer, security expert, architect and solutions engineer, founding engineer and UX specialist.</p>
           </div>
-          <p class="hint" style="margin-top:8px;">If reCAPTCHA doesn't show, complete this image captcha.</p>
+          <div class="member" data-reveal>
+            <img class="member-avatar" src="image/epuip2.webp" alt="Dagoberto Patiño" width="90" height="90" loading="lazy">
+            <p class="member-role">Head of Design &amp; Community</p>
+            <h3 class="member-name">Dagoberto Patiño</h3>
+            <p class="member-desc">Pixel Artist, Community Manager and Design Vision, Technical Support Manager, Community Usage and Development.</p>
+          </div>
+          <div class="member" data-reveal>
+            <img class="member-avatar" src="image/equip1.webp" alt="Jonas Larreal" width="90" height="90" loading="lazy">
+            <p class="member-role">Artist &amp; Support</p>
+            <h3 class="member-name">Jonas Larreal</h3>
+            <p class="member-desc">Pixel Artist, Animator &amp; Designer, Technical Support, Props &amp; Community Development.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════ CONTACT ═══════ -->
+    <div id="contact-wrap">
+      <div class="section-wrap">
+        <div data-reveal>
+          <p class="section-tag">Contact</p>
+          <h2 class="section-title">Get in Touch</h2>
         </div>
 
-        <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
-        <small class="hint">We protect this form from spam with reCAPTCHA. If it does not appear, check extensions or network filters and reload the page.</small>
+        <div class="contact-grid">
+          <div class="contact-info" data-reveal>
+            <h3>Let's Build Together</h3>
+            <p>Whether you're interested in partnerships, investment, or just want to learn more about the Grassland Forest universe — we'd love to hear from you.</p>
+            <div class="contact-links">
+              <a class="contact-link" href="https://x.com/GrasslandForest" target="_blank" rel="noopener noreferrer">
+                <span class="link-icon">𝕏</span> @GrasslandForest on X (Twitter)
+              </a>
+              <a class="contact-link" href="https://discord.gg/cyA4Pcum7r" target="_blank" rel="noopener noreferrer">
+                <span class="link-icon">⬡</span> Join our Discord
+              </a>
+              <a class="contact-link" href="https://artsgames.gitbook.io/grassland-forest" target="_blank" rel="noopener noreferrer">
+                <span class="link-icon">📄</span> Read the Litepaper
+              </a>
+            </div>
+          </div>
 
-        <div id="formResult" role="status" aria-live="polite" class="visually-hidden"></div>
-        <button id="submitBtn" class="btn" type="submit">Send</button>
-      </form>
-    </section>
+          <div data-reveal>
+            <form id="contactForm" class="contact-form" novalidate aria-label="Contact form">
+              <!-- Honeypot (hidden from real users) -->
+              <input type="text" name="_hp_field" class="visually-hidden" autocomplete="off" tabindex="-1" value="">
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="name">Name <span class="req">*</span></label>
+                  <input class="form-input" id="name" name="name" type="text" placeholder="Your name" required autocomplete="name">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="email">Email <span class="req">*</span></label>
+                  <input class="form-input" id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="company">Company <span class="req">*</span></label>
+                <input class="form-input" id="company" name="company" type="text" placeholder="Your company" required autocomplete="organization">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="telegram">Telegram</label>
+                  <input class="form-input" id="telegram" name="telegram" type="text" placeholder="@username">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="discord">Discord</label>
+                  <input class="form-input" id="discord" name="discord" type="text" placeholder="user#0000">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="message">Message <span class="req">*</span></label>
+                <textarea class="form-textarea" id="message" name="message" rows="4" placeholder="Tell us about your interest…" required></textarea>
+              </div>
+
+              <!-- reCAPTCHA -->
+              <div class="captcha-section">
+                <div id="recaptcha-wrapper" style="min-height:78px">
+                  <div id="recaptcha" aria-hidden="false"></div>
+                </div>
+                <div id="canvasCaptcha" class="canvas-captcha-wrap">
+                  <canvas id="captchaCanvas" width="200" height="60" aria-label="captcha image"></canvas>
+                  <div class="captcha-row">
+                    <input class="form-input" id="captchaInput" name="captchaInput" type="text" placeholder="Type the text you see" autocomplete="off">
+                    <button type="button" id="refreshCaptcha" class="btn-sm">Refresh</button>
+                  </div>
+                  <p class="form-hint">If reCAPTCHA doesn't appear, complete this image captcha instead.</p>
+                </div>
+              </div>
+
+              <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" value="">
+              <p class="form-hint">This form is protected from spam. If reCAPTCHA doesn't appear, check browser extensions or reload the page.</p>
+
+              <div id="formResult" role="status" aria-live="polite" class="visually-hidden"></div>
+              <button id="submitBtn" class="btn-submit" type="submit">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 
+  <!-- ═══════ FOOTER ═══════ -->
   <footer>
-    <div><small>&copy; 2025 Grassland Forest. All rights reserved.</small></div>
-    <div class="footer-buttons">
-      <a href="https://artsgames.gitbook.io/grassland-forest" target="_blank" rel="noopener noreferrer">Litepaper</a>
-      <a href="./Disclaimer.html">Disclaimer</a>
-      <a href="./terms-service.html">Terms of Service</a>
-      <a href="./privacy-policy.html">Privacy Policy</a>
-      <a href="https://x.com/GrasslandForest" target="_blank" rel="noopener noreferrer">Twitter</a>
-      <a href="https://discord.gg/cyA4Pcum7r" target="_blank" rel="noopener noreferrer">Discord</a>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">Grassland <span>Forest</span></div>
+        <div class="footer-links">
+          <a href="https://artsgames.gitbook.io/grassland-forest" target="_blank" rel="noopener noreferrer">Litepaper</a>
+          <a href="./Disclaimer.html">Disclaimer</a>
+          <a href="./terms-service.html">Terms of Service</a>
+          <a href="./privacy-policy.html">Privacy Policy</a>
+          <a href="https://x.com/GrasslandForest" target="_blank" rel="noopener noreferrer">Twitter / X</a>
+          <a href="https://discord.gg/cyA4Pcum7r" target="_blank" rel="noopener noreferrer">Discord</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2025 Grassland Forest. All rights reserved.</span>
+        <span class="footer-copy">Explore, Collect, Fight and Win</span>
+      </div>
     </div>
   </footer>
 
-  <!-- reCAPTCHA script (public SITE KEY only) -->
+  <!-- ═══════ reCAPTCHA ═══════ -->
   <script>
-    const SITE_KEY = '6LdbGE8rAAAAAEBx45f4qHqqLFQ-y_fn6Kepg_Q9'; // public site key
+    const SITE_KEY = '6LdbGE8rAAAAAEBx45f4qHqqLFQ-y_fn6Kepg_Q9';
     window.onRecaptchaLoad = function () {
       try {
         if (typeof grecaptcha !== 'undefined') {
-          // render the widget
           window._recWidget = grecaptcha.render('recaptcha', {
             sitekey: SITE_KEY,
-            theme: 'light',
+            theme: 'dark',
             callback: function(token) {
               document.getElementById('g-recaptcha-response').value = token || '';
-              document.getElementById('canvasCaptcha').style.display = 'none';
+              document.getElementById('canvasCaptcha').classList.remove('visible');
             },
-            'expired-callback': function(){ 
-              document.getElementById('g-recaptcha-response').value = '';
-            },
-            'error-callback': function() {
-              console.warn('reCAPTCHA encountered an error');
-              document.getElementById('canvasCaptcha').style.display = 'block';
-            }
+            'expired-callback': function(){ document.getElementById('g-recaptcha-response').value = ''; },
+            'error-callback': function() { showCanvasFallback('reCAPTCHA error'); }
           });
         } else {
-          throw new Error('grecaptcha not present');
+          throw new Error('grecaptcha not available');
         }
       } catch (err) {
-        console.warn('reCAPTCHA failed to render:', err);
-        document.getElementById('recaptcha-wrapper').innerHTML = '<div class="msg-error">This content is blocked. Complete the image captcha below or disable extensions that block reCAPTCHA.</div>';
-        // show canvas fallback
-        showCanvasFallback('reCAPTCHA failed to render or is blocked.');
+        console.warn('reCAPTCHA failed:', err);
+        document.getElementById('recaptcha-wrapper').innerHTML = '<p class="form-hint" style="color:#f6917e">reCAPTCHA blocked. Use image captcha below.</p>';
+        showCanvasFallback();
       }
     };
-    (function loadRecaptchaScript() {
+    (function(){
       const s = document.createElement('script');
       s.src = 'https://www.google.com/recaptcha/api.js?onload=onRecaptchaLoad&render=explicit';
       s.async = true; s.defer = true;
-      s.onerror = function(){ 
-        document.getElementById('recaptcha-wrapper').innerHTML = '<div class="msg-error">Failed loading reCAPTCHA script.</div>'; 
-        showCanvasFallback('Failed loading reCAPTCHA script.'); 
-      };
+      s.onerror = function(){ showCanvasFallback('reCAPTCHA script failed'); };
       document.head.appendChild(s);
     })();
   </script>
 
-  <!-- Main JS -->
+  <!-- ═══════ MAIN JS ═══════ -->
   <script>
-    (function(){
-      // basic helpers
-      const el = id => document.getElementById(id);
+  (function(){
+    'use strict';
+    const $ = id => document.getElementById(id);
 
-      // nav toggle
-      const menuBtn = el('menuBtn'), navList = el('navList');
-      if(menuBtn) menuBtn.addEventListener('click', ()=> { const show = navList.classList.toggle('show'); menuBtn.setAttribute('aria-expanded', show); });
+    /* ── Header scroll shadow ── */
+    const header = document.getElementById('mainHeader');
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
+    window.addEventListener('scroll', onScroll, { passive: true });
 
-      // pre-register disabled
-      const preBtn = el('preRegisterBtn'); if(preBtn){ preBtn.disabled = true; preBtn.setAttribute('aria-disabled','true'); }
-
-      // carousel
-      (function initCarousel(){
-        const slides = Array.from(document.querySelectorAll('#carousel .slide'));
-        const dots = Array.from(document.querySelectorAll('.dot'));
-        if(!slides.length) return;
-        let current = 0, timer = null;
-        function show(n){
-          slides.forEach((s,i)=> s.classList.toggle('active', i===n));
-          dots.forEach((d,i)=> d.classList.toggle('active', i===n));
-          current = n;
-        }
-        dots.forEach((d,i)=> d.addEventListener('click', ()=> { clearInterval(timer); show(i); timer = setInterval(()=> show((current+1)%slides.length),5000); }));
-        timer = setInterval(()=> show((current+1)%slides.length),5000);
-      })();
-
-      // FAQ toggles
-      document.querySelectorAll('#faq .question').forEach(q=>{
-        q.addEventListener('click', ()=> { 
-          q.classList.toggle('opened'); 
-          const ans = q.nextElementSibling; 
-          ans.style.maxHeight = q.classList.contains('opened') ? ans.scrollHeight + 'px' : 0; 
-        });
+    /* ── Nav toggle ── */
+    const menuBtn = $('menuBtn'), navList = $('navList');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        const open = navList.classList.toggle('show');
+        menuBtn.setAttribute('aria-expanded', open);
       });
+    }
+    // Close menu on nav link click (mobile)
+    navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navList.classList.remove('show');
+      menuBtn.setAttribute('aria-expanded', false);
+    }));
 
-      // YouTube lazy load
-      (function youtubeLazy(){
-        const root = el('ytRoot'); if(!root) return;
-        const vid = '99-lNGzBirc';
-        function loadIframe(){
-          try{
-            const src = `https://www.youtube.com/embed/${encodeURIComponent(vid)}?rel=0&modestbranding=1&playsinline=1`;
-            const iframe = document.createElement('iframe');
-            iframe.src = src; iframe.title = 'Grassland Forest Intro';
-            iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-            iframe.setAttribute('allowfullscreen',''); iframe.loading='lazy';
-            iframe.style.width='100%'; iframe.style.height='100%';
-            root.innerHTML=''; root.appendChild(iframe);
-          }catch(err){
-            root.innerHTML = '<div class="msg-error">Unable to load video. Disable extensions that block YouTube and try again.</div>';
-          }
-        }
-        root.addEventListener('click', loadIframe); root.addEventListener('keypress', e=> { if(e.key==='Enter' || e.key===' ') loadIframe(); });
-      })();
-
-      // Canvas CAPTCHA fallback functions
-      const canvasCaptcha = el('canvasCaptcha');
-      const canvas = el('captchaCanvas');
-      const ctx = canvas ? canvas.getContext('2d') : null;
-      const captchaInput = el('captchaInput');
-      const refreshBtn = el('refreshCaptcha');
-      let currentCaptcha = '';
-
-      function randString(len=6){
-        const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789';
-        let s=''; for(let i=0;i<len;i++) s += chars.charAt(Math.floor(Math.random()*chars.length)); return s;
+    /* ── Hero particles ── */
+    (function particles(){
+      const container = $('particles');
+      if (!container) return;
+      const count = window.innerWidth < 600 ? 6 : 14;
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.style.cssText = `
+          left: ${Math.random()*100}%;
+          bottom: ${Math.random()*30}%;
+          animation-duration: ${4 + Math.random()*6}s;
+          animation-delay: ${Math.random()*6}s;
+          width: ${1 + Math.random()*2}px;
+          height: ${1 + Math.random()*2}px;
+          opacity: 0;
+          will-change: transform, opacity;
+        `;
+        container.appendChild(p);
       }
-      function drawCaptcha(text){
-        if(!ctx) return;
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        ctx.fillStyle = '#0e0e10'; ctx.fillRect(0,0,canvas.width,canvas.height);
-        for(let i=0;i<6;i++){
-          ctx.strokeStyle = `rgba(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},0.12)`;
-          ctx.beginPath(); ctx.moveTo(Math.random()*canvas.width, Math.random()*canvas.height); ctx.lineTo(Math.random()*canvas.width, Math.random()*canvas.height); ctx.stroke();
-        }
-        const fontSize = 34 + Math.floor(Math.random()*6);
-        ctx.font = `${fontSize}px sans-serif`;
-        ctx.fillStyle = '#fff';
-        const gap = canvas.width / (text.length + 1);
-        for(let i=0;i<text.length;i++){
-          const x = gap*(i+1) - (fontSize/3);
-          const y = canvas.height/2 + (Math.random()*8 - 2);
-          ctx.save();
-          const angle = (Math.random()*20 - 10) * Math.PI/180;
-          ctx.translate(x,y); ctx.rotate(angle); ctx.fillText(text[i],0,0); ctx.restore();
-        }
-        for(let i=0;i<40;i++){
-          ctx.fillStyle = `rgba(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},0.06)`;
-          ctx.fillRect(Math.random()*canvas.width, Math.random()*canvas.height, 2,2);
-        }
-      }
-      function generateCaptcha(){ currentCaptcha = randString(6); drawCaptcha(currentCaptcha); if(captchaInput) captchaInput.value=''; }
-      function showCanvasFallback(msg){ if(canvasCaptcha) { canvasCaptcha.style.display = 'block'; generateCaptcha(); } console.warn(msg || 'Showing canvas fallback'); }
-      if(refreshBtn) refreshBtn.addEventListener('click', generateCaptcha);
-
-      // Si grecaptcha no se carga rápidamente, mostrar fallback automáticamente
-      setTimeout(()=> { 
-        if(typeof grecaptcha === 'undefined' || !document.querySelector('#recaptcha iframe')) {
-          showCanvasFallback('reCAPTCHA not loaded or blocked'); 
-        }
-      }, 4000);
-
-      // Contact form submit - CÓDIGO CORREGIDO
-      (function contactForm(){
-        const form = el('contactForm'); 
-        const result = el('formResult'); 
-        const submitBtn = el('submitBtn'); 
-        const hiddenToken = el('g-recaptcha-response');
-
-        function escapeHtml(s){ 
-          return String(s).replace(/[&<>"'`=\/]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','/':'&#x2F;','`':'&#x60;','=':'&#x3D;'}[c]));
-        }
-        
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-        form.addEventListener('submit', async (e)=>{
-          e.preventDefault(); 
-          submitBtn.disabled = true; 
-          result.className='visually-hidden'; 
-          result.textContent='';
-
-          console.log('Form submission started...');
-
-          // Honeypot check
-          const hp = form.querySelector('input[name="_hp_field"]').value; 
-          if(hp && hp.trim() !== ''){ 
-            showResult('Spam detected (honeypot).', false); 
-            submitBtn.disabled=false; 
-            return; 
-          }
-
-          const payload = {
-            name: escapeHtml(form.name.value.trim()),
-            email: form.email.value.trim(),
-            company: escapeHtml(form.company.value.trim()),
-            telegram: escapeHtml(form.telegram.value.trim()),
-            discord: escapeHtml(form.discord.value.trim()),
-            message: escapeHtml(form.message.value.trim()),
-            'g-recaptcha-response': ''
-          };
-
-          // Validation
-          if(!payload.name || !payload.email || !payload.company || !payload.message){ 
-            showResult('Please fill required fields (Name, Email, Company, Message).', false); 
-            submitBtn.disabled=false; 
-            return; 
-          }
-          if(!emailRegex.test(payload.email)){ 
-            showResult('Please enter a valid email address.', false); 
-            submitBtn.disabled=false; 
-            return; 
-          }
-
-          // OBTENER TOKEN DE reCAPTCHA DE MANERA ROBUSTA
-          let recaptchaToken = '';
-          
-          // Primero intentar con reCAPTCHA de Google
-          if (typeof grecaptcha !== 'undefined' && window._recWidget !== undefined) {
-            try {
-              recaptchaToken = grecaptcha.getResponse(window._recWidget);
-              console.log('reCAPTCHA token obtained:', recaptchaToken ? 'VALID' : 'EMPTY');
-            } catch (error) {
-              console.warn('Error getting reCAPTCHA token:', error);
-            }
-          }
-
-          // Si no hay token de reCAPTCHA, usar captcha de canvas
-          if (!recaptchaToken && canvasCaptcha.style.display !== 'none') {
-            const answer = (captchaInput && captchaInput.value || '').trim();
-            if(!answer){ 
-              showResult('Please complete the image captcha.', false); 
-              submitBtn.disabled=false; 
-              return; 
-            }
-            if(answer.toLowerCase() !== currentCaptcha.toLowerCase()){ 
-              showResult('Image captcha does not match. Try again.', false); 
-              generateCaptcha(); 
-              submitBtn.disabled=false; 
-              return; 
-            }
-            // Captcha de canvas válido
-            recaptchaToken = 'canvas-captcha-verified';
-            console.log('Canvas captcha verified');
-          }
-
-          // Si no hay ningún tipo de captcha válido
-          if (!recaptchaToken) {
-            showResult('Please complete the reCAPTCHA or image captcha.', false); 
-            submitBtn.disabled=false; 
-            return;
-          }
-
-          // Actualizar el payload con el token
-          payload['g-recaptcha-response'] = recaptchaToken;
-          hiddenToken.value = recaptchaToken;
-
-          //console.log('Sending payload to server:', { ...payload, message: payload.message.substring(0, 50) + '...' });
-
-          // Enviar al servidor
-          try {
-            const resp = await fetch('http://localhost:3000/api/contact', { 
-              method:'POST', 
-              headers:{
-                'Accept':'application/json',
-                'Content-Type':'application/json'
-              }, 
-              body: JSON.stringify(payload) 
-            });
-            
-            const responseData = await resp.json().catch(() => ({ error: 'Invalid JSON response' }));
-            
-            if(resp.ok){ 
-              showResult('Message sent. Thank you — we will reply soon.', true); 
-              form.reset(); 
-              // Resetear reCAPTCHA si existe
-              if(typeof grecaptcha !== 'undefined' && grecaptcha.reset && window._recWidget !== undefined) {
-                grecaptcha.reset(window._recWidget);
-              }
-              hiddenToken.value='';
-              // Ocultar captcha de canvas si está visible
-              if(canvasCaptcha) canvasCaptcha.style.display = 'none';
-              console.log('Form submitted successfully');
-            } else { 
-              const errorMsg = responseData.error || `Server error: ${resp.status} ${resp.statusText}`;
-              console.error('Server error:', errorMsg);
-              showResult(errorMsg, false); 
-              // Si hay error de reCAPTCHA, mostrar fallback
-              if (errorMsg.includes('reCAPTCHA')) {
-                showCanvasFallback('reCAPTCHA failed, please use image captcha');
-              }
-            }
-          } catch(err){
-            console.error('Submit error', err); 
-            showResult('Network error sending to server. Please try again.', false);
-          } finally { 
-            submitBtn.disabled=false; 
-          }
-        });
-
-        function showResult(msg, ok){ 
-          result.textContent = msg; 
-          result.className = ok ? 'msg-ok' : 'msg-error'; 
-          result.classList.remove('visually-hidden'); 
-          result.scrollIntoView({behavior:'smooth',block:'center'}); 
-        }
-      })();
-
-      // basic input hygiene
-      document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(i=> {
-        i.addEventListener('input', ()=> { 
-          i.value = i.value.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g,''); 
-        });
-      });
-
     })();
+
+    /* ── Carousel ── */
+    (function initCarousel(){
+      const slides = Array.from(document.querySelectorAll('#carousel .slide'));
+      const dots   = Array.from(document.querySelectorAll('.dot'));
+      const prev   = $('prevBtn'), next = $('nextBtn');
+      if (!slides.length) return;
+      let current = 0, timer = null;
+
+      function show(n) {
+        slides.forEach((s, i) => {
+          s.classList.toggle('active', i === n);
+          s.setAttribute('aria-hidden', i !== n);
+        });
+        dots.forEach((d, i) => {
+          d.classList.toggle('active', i === n);
+          d.setAttribute('aria-selected', i === n);
+        });
+        current = n;
+      }
+
+      function next_() { show((current + 1) % slides.length); }
+      function prev_() { show((current - 1 + slides.length) % slides.length); }
+
+      function restart() { clearInterval(timer); timer = setInterval(next_, 5000); }
+
+      if (prev) prev.addEventListener('click', () => { prev_(); restart(); });
+      if (next) next.addEventListener('click', () => { next_(); restart(); });
+
+      dots.forEach((d, i) => {
+        d.addEventListener('click', () => { show(i); restart(); });
+        d.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { show(i); restart(); } });
+      });
+
+      // Swipe support
+      let tx = 0;
+      const car = document.getElementById('carousel');
+      car.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+      car.addEventListener('touchend', e => {
+        const diff = tx - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) { diff > 0 ? next_() : prev_(); restart(); }
+      }, { passive: true });
+
+      restart();
+    })();
+
+    /* ── FAQ ── (CSS grid-template-rows animation — zero reflow) */
+    document.querySelectorAll('#faqList .question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        // Close all
+        document.querySelectorAll('#faqList .faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.question').setAttribute('aria-expanded', 'false');
+        });
+        // Open clicked (if it wasn't open)
+        if (!isOpen) {
+          item.classList.add('open');
+          q.setAttribute('aria-expanded', 'true');
+        }
+      });
+      q.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); q.click(); } });
+    });
+
+    /* ── YouTube lazy load ── */
+    (function ytLazy(){
+      const root = $('ytRoot');
+      if (!root) return;
+      const vid = '99-lNGzBirc';
+      function loadIframe() {
+        try {
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(vid)}?rel=0&modestbranding=1&playsinline=1&autoplay=1`;
+          iframe.title = 'Grassland Forest Intro';
+          iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+          iframe.setAttribute('allowfullscreen', '');
+          iframe.loading = 'lazy';
+          root.parentElement.innerHTML = '';
+          root.parentElement.appendChild(iframe);
+          iframe.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:none';
+        } catch(e) {
+          root.innerHTML = '<p class="form-hint" style="padding:1rem;color:#f6917e">Unable to load video. Disable extensions blocking YouTube.</p>';
+        }
+      }
+      root.addEventListener('click', loadIframe);
+      root.addEventListener('keypress', e => { if (e.key === 'Enter' || e.key === ' ') loadIframe(); });
+    })();
+
+    /* ── Scroll reveal ── */
+    (function scrollReveal(){
+      const items = document.querySelectorAll('[data-reveal]');
+      if (!items.length) return;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('revealed'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      items.forEach(el => io.observe(el));
+    })();
+
+    /* ── Canvas CAPTCHA fallback ── */
+    const canvasCaptcha = $('canvasCaptcha');
+    const canvas = $('captchaCanvas');
+    const ctx = canvas ? canvas.getContext('2d') : null;
+    const captchaInput = $('captchaInput');
+    const refreshBtn = $('refreshCaptcha');
+    let currentCaptcha = '';
+
+    function randString(len=6){
+      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789';
+      let s = '';
+      for (let i = 0; i < len; i++) s += chars[Math.floor(Math.random()*chars.length)];
+      return s;
+    }
+
+    function drawCaptcha(text){
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#0d1820'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < 5; i++){
+        ctx.strokeStyle = `rgba(0,200,180,0.08)`;
+        ctx.beginPath();
+        ctx.moveTo(Math.random()*canvas.width, Math.random()*canvas.height);
+        ctx.lineTo(Math.random()*canvas.width, Math.random()*canvas.height);
+        ctx.stroke();
+      }
+      const fs = 30 + Math.floor(Math.random()*6);
+      ctx.font = `bold ${fs}px monospace`;
+      const gap = canvas.width / (text.length + 1);
+      for (let i = 0; i < text.length; i++){
+        const hue = Math.floor(Math.random()*60) + 160;
+        ctx.fillStyle = `hsl(${hue},70%,65%)`;
+        const x = gap*(i+1) - (fs/3);
+        const y = canvas.height/2 + (Math.random()*8 - 2);
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate((Math.random()*20 - 10)*Math.PI/180);
+        ctx.fillText(text[i], 0, 0);
+        ctx.restore();
+      }
+    }
+
+    function generateCaptcha(){ currentCaptcha = randString(6); drawCaptcha(currentCaptcha); if(captchaInput) captchaInput.value = ''; }
+
+    window.showCanvasFallback = function(msg){
+      if (canvasCaptcha) { canvasCaptcha.classList.add('visible'); generateCaptcha(); }
+      if (msg) console.warn(msg);
+    };
+
+    if (refreshBtn) refreshBtn.addEventListener('click', generateCaptcha);
+
+    // Auto fallback if reCAPTCHA doesn't load
+    setTimeout(() => {
+      if (typeof grecaptcha === 'undefined' || !document.querySelector('#recaptcha iframe')) {
+        window.showCanvasFallback('reCAPTCHA not loaded');
+      }
+    }, 4500);
+
+    /* ── Contact Form ── */
+    (function contactForm(){
+      const form = $('contactForm');
+      const result = $('formResult');
+      const submitBtn = $('submitBtn');
+      const hiddenToken = $('g-recaptcha-response');
+      const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+      function escape(s){ return String(s).replace(/[&<>"'`=\/]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;','/':'&#x2F;','`':'&#x60;','=':'&#x3D;'}[c])); }
+
+      function showResult(msg, ok){
+        result.textContent = msg;
+        result.className = ok ? 'msg-ok' : 'msg-error';
+        result.classList.remove('visually-hidden');
+        result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      if (!form) return;
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        result.className = 'visually-hidden';
+        result.textContent = '';
+
+        // Honeypot
+        const hp = form.querySelector('input[name="_hp_field"]').value;
+        if (hp && hp.trim() !== '') { showResult('Spam detected.', false); submitBtn.disabled = false; return; }
+
+        const payload = {
+          name:     escape(form.name.value.trim()),
+          email:    form.email.value.trim(),
+          company:  escape(form.company.value.trim()),
+          telegram: escape(form.telegram.value.trim()),
+          discord:  escape(form.discord.value.trim()),
+          message:  escape(form.message.value.trim()),
+          'g-recaptcha-response': ''
+        };
+
+        if (!payload.name || !payload.email || !payload.company || !payload.message){
+          showResult('Please fill all required fields (Name, Email, Company, Message).', false);
+          submitBtn.disabled = false; return;
+        }
+        if (!emailRx.test(payload.email)){
+          showResult('Please enter a valid email address.', false);
+          submitBtn.disabled = false; return;
+        }
+
+        // Get CAPTCHA token
+        let token = '';
+        if (typeof grecaptcha !== 'undefined' && window._recWidget !== undefined){
+          try { token = grecaptcha.getResponse(window._recWidget); } catch(_){}
+        }
+
+        if (!token && canvasCaptcha.classList.contains('visible')){
+          const ans = (captchaInput && captchaInput.value || '').trim();
+          if (!ans){ showResult('Please complete the image captcha.', false); submitBtn.disabled = false; return; }
+          if (ans.toLowerCase() !== currentCaptcha.toLowerCase()){
+            showResult('Image captcha does not match. Try again.', false);
+            generateCaptcha(); submitBtn.disabled = false; return;
+          }
+          token = 'canvas-verified';
+        }
+
+        if (!token){ showResult('Please complete the captcha.', false); submitBtn.disabled = false; return; }
+
+        payload['g-recaptcha-response'] = token;
+        hiddenToken.value = token;
+
+        try {
+          const resp = await fetch('http://localhost:3000/api/contact', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          const data = await resp.json().catch(() => ({ error: 'Invalid server response' }));
+          if (resp.ok){
+            showResult('Message sent — we will reply soon. Thank you!', true);
+            form.reset();
+            if (typeof grecaptcha !== 'undefined' && grecaptcha.reset && window._recWidget !== undefined) grecaptcha.reset(window._recWidget);
+            hiddenToken.value = '';
+            canvasCaptcha.classList.remove('visible');
+          } else {
+            const errMsg = data.error || `Server error ${resp.status}`;
+            showResult(errMsg, false);
+            if (errMsg.includes('reCAPTCHA')) window.showCanvasFallback('reCAPTCHA rejected');
+          }
+        } catch(err){
+          showResult('Network error. Please try again.', false);
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+
+      // Input sanitisation
+      form.querySelectorAll('input, textarea').forEach(el => {
+        el.addEventListener('input', () => {
+          el.value = el.value.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '');
+        });
+      });
+    })();
+
+  })();
   </script>
 </body>
 </html>
