@@ -76,6 +76,9 @@
       display: flex;
       flex-direction: column;
       line-height: 1.7;
+      overflow-x: hidden;
+      overflow-wrap: break-word;
+      word-break: break-word;
       /* Subtle noise texture */
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
     }
@@ -127,6 +130,8 @@
       letter-spacing: 0.04em;
       line-height: 1.15;
       margin-bottom: 1rem;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
 
     .gold-line {
@@ -148,11 +153,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(5, 10, 14, 0.82);
+      background: rgba(5, 10, 14, 0.96);
       backdrop-filter: blur(16px) saturate(1.2);
       -webkit-backdrop-filter: blur(16px) saturate(1.2);
       border-bottom: 1px solid var(--border2);
       transition: box-shadow var(--transition);
+    }
+
+    /* Brave / browsers with backdrop-filter disabled: use opaque fallback */
+    @supports not (backdrop-filter: blur(1px)) {
+      header { background: rgba(5, 10, 14, 0.99); }
     }
 
     header.scrolled {
@@ -237,12 +247,17 @@
         display: none;
         position: fixed;
         top: 64px; right: 0; left: 0;
-        background: rgba(8, 15, 20, 0.97);
+        background: rgba(8, 15, 20, 0.99);
+        -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
         flex-direction: column;
         padding: 1.5rem 1rem;
         gap: 0.25rem;
         border-bottom: 1px solid var(--border);
+        z-index: 99;
+      }
+      @supports not (backdrop-filter: blur(1px)) {
+        .nav-list { background: #080f14; }
       }
       .nav-list.show { display: flex; }
       .nav-list a { padding: 0.75rem 1rem; border-radius: 8px; font-size: 0.85rem; }
@@ -512,7 +527,7 @@
 
     .hint-tag {
       display: inline-flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 8px;
       background: rgba(0,200,180,0.06);
       border: 1px solid rgba(0,200,180,0.15);
@@ -522,6 +537,10 @@
       font-size: 0.7rem;
       color: var(--teal);
       letter-spacing: 0.06em;
+      max-width: 100%;
+      word-break: break-word;
+      white-space: normal;
+      line-height: 1.5;
     }
 
     /* YouTube embed */
@@ -560,6 +579,7 @@
       z-index: 2;
       width: 68px; height: 68px;
       background: rgba(0,200,180,0.15);
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       border: 2px solid rgba(0,200,180,0.4);
       border-radius: 50%;
@@ -579,6 +599,7 @@
       text-transform: uppercase;
       color: rgba(255,255,255,0.6);
       background: rgba(0,0,0,0.4);
+      -webkit-backdrop-filter: blur(4px);
       backdrop-filter: blur(4px);
       padding: 0.3rem 0.7rem;
       border-radius: 4px;
@@ -637,7 +658,8 @@
     .slide.active { opacity: 1; }
     .slide img {
       width: 100%; height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      object-position: center;
     }
 
     /* Carousel controls */
@@ -646,7 +668,8 @@
       top: 50%;
       transform: translateY(-50%);
       z-index: 10;
-      background: rgba(8, 15, 20, 0.8);
+      background: rgba(8, 15, 20, 0.85);
+      -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
       border: 1px solid var(--border);
       color: var(--text2);
@@ -1196,7 +1219,7 @@
             <p>Every quest completed, every enemy defeated, every item crafted carries real meaning — and real reward.</p>
             <a class="hint-tag" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M2 2h8v8H2z" opacity=".3"/><path d="M4 1v2H1V1h3zM1 4h2v3H1V4zM4 9v2H1V9h3zM9 1h2v3H9V1zM9 9h2v2H9V9z"/></svg>
-              Playable demo 
+              Playable demo
             </a>
           </div>
 
@@ -1449,7 +1472,7 @@
       </div>
       <div class="footer-bottom">
         <span class="footer-copy">&copy; 2025 Grassland Forest. All rights reserved.</span>
-        <span class="footer-copy">Explore, Collect, Fight and Win</span>
+        <span class="footer-copy">Where every tree hides a secret, and every battle shapes your legend.</span>
       </div>
     </div>
   </footer>
