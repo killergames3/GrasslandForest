@@ -274,6 +274,9 @@
       align-items: flex-end;
       overflow: hidden;
     }
+    @media (max-width: 600px) {
+      #hero { min-height: 100svh; }
+    }
 
     .hero-bg {
       position: absolute;
@@ -321,9 +324,10 @@
     .hero-content {
       position: relative;
       z-index: 2;
-      padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+      padding: clamp(1.5rem, 5vw, 5rem) clamp(1.25rem, 5vw, 4rem) clamp(2rem, 6vw, 4rem);
       max-width: 700px;
       animation: heroReveal 1.2s cubic-bezier(0.16,1,0.3,1) both;
+      width: 100%;
     }
     @keyframes heroReveal {
       from { opacity: 0; transform: translateY(30px); }
@@ -350,7 +354,7 @@
 
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(2.2rem, 5.5vw, 5.5rem);
+      font-size: clamp(2.4rem, 5.5vw, 5.5rem);
       font-weight: 900;
       color: var(--white);
       line-height: 1.05;
@@ -364,18 +368,31 @@
       display: block;
       white-space: nowrap;
     }
+    /* Tablet */
+    @media (max-width: 768px) {
+      .hero-title { font-size: clamp(2rem, 7vw, 3.5rem); }
+    }
+    /* Mobile — scale to fit screen width comfortably */
     @media (max-width: 480px) {
-      .hero-title { font-size: clamp(2rem, 11vw, 3rem); white-space: normal; }
+      .hero-title {
+        font-size: clamp(1.8rem, 9.5vw, 2.8rem);
+        white-space: normal;
+        word-break: keep-all;
+      }
       .hero-title .line2 { white-space: normal; }
     }
 
     .hero-desc {
-      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
       color: var(--text2);
       max-width: 500px;
-      margin: 1.25rem 0 2rem;
+      margin: 1rem 0 1.75rem;
       font-weight: 300;
       font-style: italic;
+    }
+    @media (max-width: 480px) {
+      .hero-desc { font-size: 0.95rem; margin: 0.75rem 0 1.5rem; }
+      .hero-eyebrow { font-size: 0.62rem; margin-bottom: 0.6rem; }
     }
 
     .hero-cta {
@@ -461,10 +478,10 @@
       background: var(--surface);
       border-top: 1px solid var(--border2);
       border-bottom: 1px solid var(--border2);
-      padding: 1.5rem clamp(1.5rem, 5vw, 3rem);
+      padding: 1.25rem clamp(1rem, 4vw, 3rem);
       display: flex;
       justify-content: center;
-      gap: clamp(2rem, 6vw, 5rem);
+      gap: clamp(1.25rem, 5vw, 5rem);
       flex-wrap: wrap;
     }
 
@@ -727,7 +744,7 @@
       background: var(--surface);
       border: 1px solid var(--border2);
       border-radius: var(--radius);
-      overflow: hidden;
+      /* NO overflow:hidden — it breaks grid-template-rows animation */
       transition: border-color var(--transition);
     }
     .faq-item:hover { border-color: var(--border); }
@@ -780,18 +797,24 @@
     .answer {
       display: grid;
       grid-template-rows: 0fr;
-      transition: grid-template-rows 0.32s cubic-bezier(0.4,0,0.2,1);
+      transition: grid-template-rows 0.35s cubic-bezier(0.4,0,0.2,1);
     }
     .faq-item.open .answer {
       grid-template-rows: 1fr;
     }
     .answer-inner {
+      min-height: 0;        /* REQUIRED: makes 0fr collapse fully to zero */
       overflow: hidden;
-      padding: 0 1.5rem 1.25rem;
+      padding: 0 1.5rem;
       font-size: 1rem;
       font-weight: 300;
       color: var(--text2);
       line-height: 1.8;
+      /* padding animates open/close smoothly */
+      transition: padding 0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    .faq-item.open .answer-inner {
+      padding: 0 1.5rem 1.25rem;
     }
     .answer-inner p + p { margin-top: 0.75rem; }
 
@@ -928,7 +951,9 @@
       background: var(--surface);
       border: 1px solid var(--border2);
       border-radius: 14px;
-      padding: clamp(1.5rem, 3vw, 2rem);
+      padding: clamp(1.25rem, 3vw, 2rem);
+      overflow: hidden; /* clip reCAPTCHA if it overflows on tiny phones */
+      min-width: 0;
     }
 
     .form-row {
@@ -975,6 +1000,30 @@
 
     .captcha-section {
       margin: 0.75rem 0;
+      overflow: hidden;
+    }
+
+    /* reCAPTCHA iframe is always 304px — scale it down on narrow screens */
+    #recaptcha-wrapper {
+      min-height: 78px;
+      overflow: hidden;
+    }
+    #recaptcha-wrapper > div,
+    #recaptcha-wrapper iframe,
+    .g-recaptcha {
+      max-width: 100%;
+    }
+    @media (max-width: 360px) {
+      #recaptcha-wrapper {
+        transform: scale(0.88);
+        transform-origin: left top;
+      }
+    }
+    @media (min-width: 361px) and (max-width: 420px) {
+      #recaptcha-wrapper {
+        transform: scale(0.95);
+        transform-origin: left top;
+      }
     }
 
     .canvas-captcha-wrap {
@@ -1141,6 +1190,45 @@
       width: 100%;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    /* ═══════════════════════════════════════════════
+       GLOBAL MOBILE OVERRIDES (≤ 600px)
+    ═══════════════════════════════════════════════ */
+    @media (max-width: 600px) {
+      /* Sections less padding */
+      .section-wrap { padding: 2.5rem 1.1rem; }
+      .gallery-header { padding: 2rem 1.1rem 1rem; }
+      .carousel-outer { padding: 0 1.1rem 2rem; }
+
+      /* FAQ font smaller on phone */
+      .question { padding: 0.9rem 1rem; font-size: 0.85rem; }
+      .answer-inner { padding: 0 1rem; font-size: 0.9rem; }
+      .faq-item.open .answer-inner { padding: 0 1rem 1rem; }
+
+      /* Team compact */
+      .member { padding: 1.5rem 1rem; }
+
+      /* Contact: full column */
+      .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .contact-form { padding: 1.1rem; }
+
+      /* Footer wrap */
+      .footer-top { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .footer-links { gap: 0.35rem; }
+      .footer-links a { font-size: 0.6rem; padding: 0.35rem 0.6rem; }
+      .footer-bottom { flex-direction: column; gap: 0.35rem; }
+
+      /* Stats bar: 2x2 grid on phone */
+      .stats-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 0.5rem; padding: 1.25rem; }
+      .stat-item { text-align: center; }
+
+      /* Scroll hint hidden on mobile */
+      .scroll-hint { display: none; }
+
+      /* Hero CTA buttons full width on very small */
+      .hero-cta { gap: 0.5rem; }
+      .btn-primary, .btn-ghost { padding: 0.75rem 1.5rem; font-size: 0.7rem; }
     }
   </style>
 </head>
