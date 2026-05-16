@@ -15,7 +15,7 @@
     style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
     img-src 'self' data: https:;
     frame-src https://www.google.com https://www.gstatic.com https://www.youtube.com https://www.youtube-nocookie.com;
-    connect-src 'self' http://localhost:3000 https://www.google.com https://www.gstatic.com https://www.recaptcha.net;
+    connect-src 'self' http://localhost:3000 https://www.google.com https://www.gstatic.com https://www.recaptcha.net https://app.grasslandforest.com;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
@@ -79,7 +79,6 @@
       overflow-x: hidden;
       overflow-wrap: break-word;
       word-break: break-word;
-      /* Subtle noise texture */
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
     }
 
@@ -160,7 +159,6 @@
       transition: box-shadow var(--transition);
     }
 
-    /* Brave / browsers with backdrop-filter disabled: use opaque fallback */
     @supports not (backdrop-filter: blur(1px)) {
       header { background: rgba(5, 10, 14, 0.99); }
     }
@@ -288,7 +286,6 @@
       object-fit: cover;
       object-position: center top;
     }
-    /* Multi-layer overlay for depth */
     .hero-bg::after {
       content: '';
       position: absolute;
@@ -298,7 +295,6 @@
         linear-gradient(to right, rgba(5,10,14,0.6) 0%, transparent 60%);
     }
 
-    /* Animated particles */
     .hero-particles {
       position: absolute;
       inset: 0;
@@ -368,11 +364,9 @@
       display: block;
       white-space: nowrap;
     }
-    /* Tablet */
     @media (max-width: 768px) {
       .hero-title { font-size: clamp(2rem, 7vw, 3.5rem); }
     }
-    /* Mobile — scale to fit screen width comfortably */
     @media (max-width: 480px) {
       .hero-title {
         font-size: clamp(1.8rem, 9.5vw, 2.8rem);
@@ -442,7 +436,6 @@
       background: rgba(0,200,180,0.04);
     }
 
-    /* Hero scroll hint */
     .scroll-hint {
       position: absolute;
       bottom: 2rem;
@@ -744,7 +737,6 @@
       background: var(--surface);
       border: 1px solid var(--border2);
       border-radius: var(--radius);
-      /* NO overflow:hidden — it breaks grid-template-rows animation */
       transition: border-color var(--transition);
     }
     .faq-item:hover { border-color: var(--border); }
@@ -803,14 +795,13 @@
       grid-template-rows: 1fr;
     }
     .answer-inner {
-      min-height: 0;        /* REQUIRED: makes 0fr collapse fully to zero */
+      min-height: 0;
       overflow: hidden;
       padding: 0 1.5rem;
       font-size: 1rem;
       font-weight: 300;
       color: var(--text2);
       line-height: 1.8;
-      /* padding animates open/close smoothly */
       transition: padding 0.35s cubic-bezier(0.4,0,0.2,1);
     }
     .faq-item.open .answer-inner {
@@ -952,7 +943,7 @@
       border: 1px solid var(--border2);
       border-radius: 14px;
       padding: clamp(1.25rem, 3vw, 2rem);
-      overflow: hidden; /* clip reCAPTCHA if it overflows on tiny phones */
+      overflow: hidden;
       min-width: 0;
     }
 
@@ -1003,7 +994,6 @@
       overflow: hidden;
     }
 
-    /* reCAPTCHA iframe is always 304px — scale it down on narrow screens */
     #recaptcha-wrapper {
       min-height: 78px;
       overflow: hidden;
@@ -1196,39 +1186,108 @@
        GLOBAL MOBILE OVERRIDES (≤ 600px)
     ═══════════════════════════════════════════════ */
     @media (max-width: 600px) {
-      /* Sections less padding */
       .section-wrap { padding: 2.5rem 1.1rem; }
       .gallery-header { padding: 2rem 1.1rem 1rem; }
       .carousel-outer { padding: 0 1.1rem 2rem; }
 
-      /* FAQ font smaller on phone */
       .question { padding: 0.9rem 1rem; font-size: 0.85rem; }
       .answer-inner { padding: 0 1rem; font-size: 0.9rem; }
       .faq-item.open .answer-inner { padding: 0 1rem 1rem; }
 
-      /* Team compact */
       .member { padding: 1.5rem 1rem; }
 
-      /* Contact: full column */
       .contact-grid { grid-template-columns: 1fr; gap: 1.5rem; }
       .contact-form { padding: 1.1rem; }
 
-      /* Footer wrap */
       .footer-top { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
       .footer-links { gap: 0.35rem; }
       .footer-links a { font-size: 0.6rem; padding: 0.35rem 0.6rem; }
       .footer-bottom { flex-direction: column; gap: 0.35rem; }
 
-      /* Stats bar: 2x2 grid on phone */
       .stats-bar { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 0.5rem; padding: 1.25rem; }
       .stat-item { text-align: center; }
 
-      /* Scroll hint hidden on mobile */
       .scroll-hint { display: none; }
 
-      /* Hero CTA buttons full width on very small */
       .hero-cta { gap: 0.5rem; }
       .btn-primary, .btn-ghost { padding: 0.75rem 1.5rem; font-size: 0.7rem; }
+    }
+
+    /* ═══════════════════════════════════════════════
+       MAINTENANCE MODAL
+    ═══════════════════════════════════════════════ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(5, 10, 14, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .modal-overlay.visible {
+      display: flex;
+    }
+
+    .modal-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      max-width: 480px;
+      width: 100%;
+      padding: clamp(2rem, 5vw, 3rem);
+      text-align: center;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6), var(--glow-teal);
+      animation: modalFadeIn 0.4s ease;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .modal-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.75rem;
+    }
+
+    .modal-body {
+      font-family: var(--font-body);
+      font-size: 1.1rem;
+      color: var(--text2);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    .modal-close {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: rgba(0,200,180,0.08);
+      border: 1px solid rgba(0,200,180,0.25);
+      padding: 0.7rem 1.8rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .modal-close:hover {
+      background: rgba(0,200,180,0.15);
+      box-shadow: 0 0 18px rgba(0,200,180,0.25);
     }
   </style>
 </head>
@@ -1254,7 +1313,7 @@
         <li role="none"><a role="menuitem" href="#team-wrap">Team</a></li>
         <li role="none"><a role="menuitem" href="#contact-wrap">Contact</a></li>
         <li role="none">
-          <a role="menuitem" class="nav-play" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">Play Demo ▶</a>
+          <a role="menuitem" class="nav-play" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer" data-demo-link="true">Play Demo ▶</a>
         </li>
       </ul>
     </nav>
@@ -1279,7 +1338,7 @@
         </h1>
         <p class="hero-desc">Explore vast wilderness, battle shadowy enemies, and build your legacy in a world where every action carries real value.</p>
         <div class="hero-cta">
-          <a class="btn-primary" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">
+          <a class="btn-primary" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer" data-demo-link="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             Play Demo
           </a>
@@ -1320,7 +1379,7 @@
             <span class="gold-line"></span>
             <p>Explore vast forests, <em>battle for resources</em>, and embark on an epic crypto adventure. Grassland Forest combines immersive RPG gameplay with blockchain-powered economies.</p>
             <p>Every quest completed, every enemy defeated, every item crafted carries real meaning — and real reward.</p>
-            <a class="hint-tag" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">
+            <a class="hint-tag" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer" data-demo-link="true">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M2 2h8v8H2z" opacity=".3"/><path d="M4 1v2H1V1h3zM1 4h2v3H1V4zM4 9v2H1V9h3zM9 1h2v3H9V1zM9 9h2v2H9V9z"/></svg>
               Playable demo
             </a>
@@ -1580,6 +1639,18 @@
     </div>
   </footer>
 
+  <!-- ═══════ MAINTENANCE MODAL ═══════ -->
+  <div id="maintenance-modal" class="modal-overlay" role="dialog" aria-labelledby="maintenance-title" aria-modal="true">
+    <div class="modal-box">
+      <div class="modal-icon">🔧</div>
+      <h2 class="modal-title" id="maintenance-title">Servidor en Mantenimiento</h2>
+      <p class="modal-body">
+        El Servidor está en mantenimiento.<br>Pronto Reactivaremos el servicio..
+      </p>
+      <button id="close-maintenance-modal" class="modal-close">Entendido</button>
+    </div>
+  </div>
+
   <!-- ═══════ reCAPTCHA ═══════ -->
   <script>
     const SITE_KEY = '6LdbGE8rAAAAAEBx45f4qHqqLFQ-y_fn6Kepg_Q9';
@@ -1639,7 +1710,6 @@
         menuBtn.setAttribute('aria-expanded', open);
       });
     }
-    // Close menu on nav link click (mobile)
     navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       navList.classList.remove('show');
       menuBtn.setAttribute('aria-expanded', false);
@@ -1715,12 +1785,10 @@
       q.addEventListener('click', () => {
         const item = q.parentElement;
         const isOpen = item.classList.contains('open');
-        // Close all
         document.querySelectorAll('#faqList .faq-item').forEach(i => {
           i.classList.remove('open');
           i.querySelector('.question').setAttribute('aria-expanded', 'false');
         });
-        // Open clicked (if it wasn't open)
         if (!isOpen) {
           item.classList.add('open');
           q.setAttribute('aria-expanded', 'true');
@@ -1742,7 +1810,6 @@
           iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
           iframe.setAttribute('allowfullscreen', '');
           iframe.loading = 'lazy';
-          /* Use individual style props — no cssText string (CSP blocks it in Brave) */
           iframe.style.position  = 'absolute';
           iframe.style.inset     = '0';
           iframe.style.width     = '100%';
@@ -1828,7 +1895,6 @@
 
     if (refreshBtn) refreshBtn.addEventListener('click', generateCaptcha);
 
-    // Auto fallback if reCAPTCHA doesn't load
     setTimeout(() => {
       if (typeof grecaptcha === 'undefined' || !document.querySelector('#recaptcha iframe')) {
         window.showCanvasFallback('reCAPTCHA not loaded');
@@ -1859,7 +1925,6 @@
         result.className = 'visually-hidden';
         result.textContent = '';
 
-        // Honeypot
         const hp = form.querySelector('input[name="_hp_field"]').value;
         if (hp && hp.trim() !== '') { showResult('Spam detected.', false); submitBtn.disabled = false; return; }
 
@@ -1882,7 +1947,6 @@
           submitBtn.disabled = false; return;
         }
 
-        // Get CAPTCHA token
         let token = '';
         if (typeof grecaptcha !== 'undefined' && window._recWidget !== undefined){
           try { token = grecaptcha.getResponse(window._recWidget); } catch(_){}
@@ -1928,13 +1992,79 @@
         }
       });
 
-      // Input sanitisation
       form.querySelectorAll('input, textarea').forEach(el => {
         el.addEventListener('input', () => {
           el.value = el.value.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g, '');
         });
       });
     })();
+
+    /* ── MAINTENANCE MODAL & DEMO LINK CHECK ── */
+    const maintenanceModal = $('maintenance-modal');
+    const closeMaintenanceBtn = $('close-maintenance-modal');
+
+    // Show the modal
+    function showMaintenanceModal() {
+      if (maintenanceModal) {
+        maintenanceModal.classList.add('visible');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // Hide the modal
+    function hideMaintenanceModal() {
+      if (maintenanceModal) {
+        maintenanceModal.classList.remove('visible');
+        document.body.style.overflow = '';
+      }
+    }
+
+    if (closeMaintenanceBtn) {
+      closeMaintenanceBtn.addEventListener('click', hideMaintenanceModal);
+    }
+
+    // Close modal on overlay click (not on the modal box)
+    maintenanceModal.addEventListener('click', (e) => {
+      if (e.target === maintenanceModal) hideMaintenanceModal();
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && maintenanceModal.classList.contains('visible')) {
+        hideMaintenanceModal();
+      }
+    });
+
+    // Service check function
+    async function isServiceReachable(url) {
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 5000);
+        await fetch(url, {
+          method: 'HEAD',
+          mode: 'no-cors',
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        return true; // Server responded (even with an opaque response)
+      } catch (error) {
+        return false; // Network error or timeout
+      }
+    }
+
+    // Intercept all demo links
+    document.querySelectorAll('[data-demo-link="true"]').forEach(link => {
+      link.addEventListener('click', async function(e) {
+        e.preventDefault();
+        const demoUrl = this.href; // Original href (relative)
+        const online = await isServiceReachable('https://app.grasslandforest.com/');
+        if (online) {
+          window.location.href = demoUrl;
+        } else {
+          showMaintenanceModal();
+        }
+      });
+    });
 
   })();
   </script>
