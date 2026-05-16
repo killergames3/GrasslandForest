@@ -2060,15 +2060,15 @@
       }
     }
 
-    // Intercept all demo links
+    // Intercept all demo links (all must go through the same check)
     document.querySelectorAll('[data-demo-link="true"]').forEach(link => {
+      link.href = APP_URL;
       link.addEventListener('click', async function(e) {
         e.preventDefault();
 
         const online = await isServiceReachable(APP_URL);
-
         if (online) {
-          window.location.href = APP_URL;
+          window.location.assign(APP_URL);
         } else {
           showMaintenanceModal();
         }
