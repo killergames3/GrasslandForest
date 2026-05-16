@@ -1313,7 +1313,7 @@
         <li role="none"><a role="menuitem" href="#team-wrap">Team</a></li>
         <li role="none"><a role="menuitem" href="#contact-wrap">Contact</a></li>
         <li role="none">
-          <a role="menuitem" class="nav-play" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer" data-demo-link="true">Play Demo ▶</a>
+          <a role="menuitem" class="nav-play" href="https://app.grasslandforest.com/" rel="noopener noreferrer" data-demo-link="true">Play Demo ▶</a>
         </li>
       </ul>
     </nav>
@@ -1338,7 +1338,7 @@
         </h1>
         <p class="hero-desc">Explore vast wilderness, battle shadowy enemies, and build your legacy in a world where every action carries real value.</p>
         <div class="hero-cta">
-          <a class="btn-primary" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer" data-demo-link="true">
+          <a class="btn-primary" href="https://app.grasslandforest.com/" rel="noopener noreferrer" data-demo-link="true">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             Play Demo
           </a>
@@ -1379,7 +1379,7 @@
             <span class="gold-line"></span>
             <p>Explore vast forests, <em>battle for resources</em>, and embark on an epic crypto adventure. Grassland Forest combines immersive RPG gameplay with blockchain-powered economies.</p>
             <p>Every quest completed, every enemy defeated, every item crafted carries real meaning — and real reward.</p>
-            <a class="hint-tag" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer" data-demo-link="true">
+            <a class="hint-tag" href="https://app.grasslandforest.com/" rel="noopener noreferrer" data-demo-link="true">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M2 2h8v8H2z" opacity=".3"/><path d="M4 1v2H1V1h3zM1 4h2v3H1V4zM4 9v2H1V9h3zM9 1h2v3H9V1zM9 9h2v2H9V9z"/></svg>
               Playable demo
             </a>
@@ -1645,7 +1645,10 @@
       <div class="modal-icon">🔧</div>
       <h2 class="modal-title" id="maintenance-title">Servidor en Mantenimiento</h2>
       <p class="modal-body">
-        El Servidor está en mantenimiento.<br>Pronto Reactivaremos el servicio..
+        El servidor está en mantenimiento.<br>Pronto reactivaremos el servicio.
+      </p>
+      <p class="modal-body" style="font-size:0.95rem; margin-top:-0.8rem; opacity:.9;">
+        Gracias por tu paciencia. Estamos trabajando para volver a activar el acceso lo antes posible.
       </p>
       <button id="close-maintenance-modal" class="modal-close">Entendido</button>
     </div>
@@ -2035,16 +2038,21 @@
       }
     });
 
+    const APP_URL = 'https://app.grasslandforest.com/';
+
     // Service check function
     async function isServiceReachable(url) {
       try {
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 5000);
+
         await fetch(url, {
           method: 'HEAD',
           mode: 'no-cors',
+          cache: 'no-store',
           signal: controller.signal
         });
+
         clearTimeout(timeoutId);
         return true; // Server responded (even with an opaque response)
       } catch (error) {
@@ -2056,10 +2064,11 @@
     document.querySelectorAll('[data-demo-link="true"]').forEach(link => {
       link.addEventListener('click', async function(e) {
         e.preventDefault();
-        const demoUrl = this.href; // Original href (relative)
-        const online = await isServiceReachable('https://app.grasslandforest.com/');
+
+        const online = await isServiceReachable(APP_URL);
+
         if (online) {
-          window.location.href = demoUrl;
+          window.location.href = APP_URL;
         } else {
           showMaintenanceModal();
         }
