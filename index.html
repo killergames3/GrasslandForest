@@ -15,7 +15,7 @@
     style-src 'self' https://fonts.googleapis.com 'unsafe-inline';
     img-src 'self' data: https:;
     frame-src https://www.google.com https://www.gstatic.com https://www.youtube.com https://www.youtube-nocookie.com;
-    connect-src 'self' http://localhost:3000 https://www.google.com https://www.gstatic.com https://www.recaptcha.net;
+    connect-src 'self' http://localhost:3000 https://app.grasslandforest.com https://www.google.com https://www.gstatic.com https://www.recaptcha.net;
     object-src 'none';
     base-uri 'self';
     form-action 'self';
@@ -83,6 +83,7 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { font-size: 16px; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+    html, body { width: 100%; min-width: 100%; }
 
     body {
       font-family: var(--font-body);
@@ -1078,6 +1079,82 @@
     }
 
     /* ══════════════════════════════════════════════════════════
+       DEMO GATE — maintenance / connecting modal
+    ══════════════════════════════════════════════════════════ */
+    .maint-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      padding: 1.25rem;
+      background: rgba(4, 9, 15, 0.85);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .maint-overlay[hidden] { display: none; }
+
+    .maint-box {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      clip-path: var(--px-corner);
+      background: var(--edge-lit);
+      padding: 2.25rem 1.75rem 1.9rem;
+      text-align: center;
+    }
+    .maint-box::before {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      clip-path: var(--px-corner);
+      background: linear-gradient(180deg, var(--surface2), var(--surface));
+    }
+    .maint-box > * { position: relative; z-index: 1; }
+
+    .maint-icon {
+      font-family: var(--font-pixel);
+      font-size: 1.8rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.9rem;
+    }
+
+    .maint-title {
+      font-family: var(--font-pixel);
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+
+    .maint-text {
+      font-size: 0.94rem;
+      color: var(--ink);
+      line-height: 1.65;
+      margin-bottom: 1.4rem;
+    }
+
+    .maint-actions {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .maint-checking .dots::after {
+      content: '';
+      animation: maintDots 1.2s steps(4, jump-none) infinite;
+    }
+    @keyframes maintDots {
+      0%   { content: ''; }
+      25%  { content: '.'; }
+      50%  { content: '..'; }
+      75%  { content: '...'; }
+    }
+
+    /* ══════════════════════════════════════════════════════════
        REVEAL ON SCROLL
     ══════════════════════════════════════════════════════════ */
     [data-reveal] {
@@ -1162,7 +1239,7 @@
         <li role="none"><a role="menuitem" href="#team-wrap">Team</a></li>
         <li role="none"><a role="menuitem" href="#contact-wrap">Contact</a></li>
         <li role="none">
-          <a role="menuitem" class="nav-play" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">Play Demo ▶</a>
+          <a role="menuitem" class="nav-play js-demo-link" href="https://app.grasslandforest.com" rel="noopener noreferrer">Play Demo ▶</a>
         </li>
       </ul>
     </nav>
@@ -1188,7 +1265,7 @@
         </h1>
         <p class="hero-desc">Explore vast wilderness, battle shadowy enemies, and build your legacy in a pixel world where every action carries real value.</p>
         <div class="hero-cta">
-          <a class="btn-primary" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">
+          <a class="btn-primary js-demo-link" href="https://app.grasslandforest.com" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
             Play Demo
           </a>
@@ -1229,7 +1306,7 @@
             <span class="gold-line"></span>
             <p>Explore vast forests, <em>battle for resources</em>, and embark on an epic crypto adventure. Grassland Forest combines immersive pixel-art RPG gameplay with blockchain-powered economies.</p>
             <p>Every quest completed, every enemy defeated, every item crafted carries real meaning — and real reward.</p>
-            <a class="hint-tag" href="./Grassland_Forest_Game/index.html" rel="noopener noreferrer">
+            <a class="hint-tag js-demo-link" href="https://app.grasslandforest.com" rel="noopener noreferrer">
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M2 2h8v8H2z" opacity=".3"/><path d="M4 1v2H1V1h3zM1 4h2v3H1V4zM4 9v2H1V9h3zM9 1h2v3H9V1zM9 9h2v2H9V9z"/></svg>
               Playable demo
             </a>
@@ -1476,6 +1553,29 @@
 
   </main>
 
+  <!-- ═══════ DEMO GATE MODAL ═══════ -->
+  <div id="maintModal" class="maint-overlay" hidden>
+    <div class="maint-box" role="dialog" aria-modal="true" aria-labelledby="maintTitle">
+      <!-- State 1: checking -->
+      <div id="maintChecking" class="maint-checking">
+        <span class="maint-icon" aria-hidden="true">▶</span>
+        <h2 class="maint-title" id="maintTitle">Connecting<span class="dots"></span></h2>
+        <p class="maint-text">Checking the game server availability. One moment…</p>
+      </div>
+      <!-- State 2: maintenance -->
+      <div id="maintDown" hidden>
+        <span class="maint-icon" aria-hidden="true">⚒</span>
+        <h2 class="maint-title">Under Maintenance</h2>
+        <p class="maint-text">The Grassland Forest demo is temporarily offline while we work on improvements. Please check back soon — or join our Discord for live status updates.</p>
+        <div class="maint-actions">
+          <button type="button" id="maintRetry" class="btn-primary">Try Again</button>
+          <a class="btn-ghost" href="https://discord.gg/cyA4Pcum7r" target="_blank" rel="noopener noreferrer">Discord</a>
+          <button type="button" id="maintClose" class="btn-sm">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ═══════ FOOTER ═══════ -->
   <footer>
     <div class="footer-inner">
@@ -1657,7 +1757,8 @@
       function loadIframe() {
         try {
           const iframe = document.createElement('iframe');
-          iframe.src = 'https://www.youtube.com/embed/' + encodeURIComponent(vid) + '?rel=0&modestbranding=1&playsinline=1&autoplay=1';
+          /* youtube-nocookie: privacy-enhanced domain, far less likely to be blocked by Brave Shields / adblockers */
+          iframe.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(vid) + '?rel=0&modestbranding=1&playsinline=1&autoplay=1';
           iframe.title = 'Grassland Forest Intro';
           iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
           iframe.setAttribute('allowfullscreen', '');
@@ -1677,7 +1778,15 @@
             msg.className = 'form-hint';
             msg.style.padding = '1rem';
             msg.style.color = '#f6917e';
-            msg.textContent = 'Unable to load video. Check extensions blocking YouTube.';
+            msg.textContent = 'Unable to load the video here (an extension may be blocking YouTube). ';
+            const link = document.createElement('a');
+            link.href = 'https://www.youtube.com/watch?v=' + encodeURIComponent(vid);
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = 'Watch on YouTube ↗';
+            link.style.color = '#4fd4e3';
+            link.style.textDecoration = 'underline';
+            msg.appendChild(link);
             root.parentElement.innerHTML = '';
             root.parentElement.appendChild(msg);
           }
@@ -1754,6 +1863,73 @@
         window.showCanvasFallback('reCAPTCHA not loaded');
       }
     }, 4500);
+
+    /* ── Demo Gate: check app availability, redirect or show maintenance ── */
+    (function demoGate(){
+      const DEMO_URL = 'https://app.grasslandforest.com';
+      const overlay  = $('maintModal');
+      const stChecking = $('maintChecking');
+      const stDown     = $('maintDown');
+      const btnRetry   = $('maintRetry');
+      const btnClose   = $('maintClose');
+      if (!overlay) return;
+      let lastFocus = null;
+
+      function openOverlay(state){
+        stChecking.hidden = state !== 'checking';
+        stDown.hidden     = state !== 'down';
+        overlay.hidden = false;
+        document.body.style.overflow = 'hidden';
+        if (state === 'down' && btnRetry) btnRetry.focus();
+      }
+      function closeOverlay(){
+        overlay.hidden = true;
+        document.body.style.overflow = '';
+        if (lastFocus) lastFocus.focus();
+      }
+
+      async function serverIsUp(){
+        /* no-cors: any HTTP response = server reachable; DNS/connection failure or timeout = down */
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), 6000);
+        try {
+          await fetch(DEMO_URL + '/?ping=' + Date.now(), {
+            mode: 'no-cors',
+            cache: 'no-store',
+            signal: ctrl.signal
+          });
+          return true;
+        } catch (_) {
+          return false;
+        } finally {
+          clearTimeout(timer);
+        }
+      }
+
+      async function checkAndGo(e){
+        e.preventDefault();
+        lastFocus = e.currentTarget;
+        openOverlay('checking');
+        const up = await serverIsUp();
+        if (up) {
+          window.location.href = DEMO_URL;
+        } else {
+          openOverlay('down');
+        }
+      }
+
+      document.querySelectorAll('.js-demo-link').forEach(a => a.addEventListener('click', checkAndGo));
+      if (btnRetry) btnRetry.addEventListener('click', async () => {
+        openOverlay('checking');
+        const up = await serverIsUp();
+        if (up) { window.location.href = DEMO_URL; } else { openOverlay('down'); }
+      });
+      if (btnClose) btnClose.addEventListener('click', closeOverlay);
+      overlay.addEventListener('click', e => { if (e.target === overlay && stDown && !stDown.hidden) closeOverlay(); });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && !overlay.hidden && stDown && !stDown.hidden) closeOverlay();
+      });
+    })();
 
     /* ── Contact Form ── */
     (function contactForm(){
