@@ -1,0 +1,57 @@
+{
+  "checks": [
+    "No third-party requests on load; strict CSP; legal links; private files blocked",
+    "English landing; every demo CTA points to app.grasslandforest.com; supplied logo; exact current English legal clauses",
+    "Motion pause/resume works; offscreen animation pauses; system reduced-motion is respected",
+    "Gallery mouse/keyboard; native FAQ; trailer opens and releases iframe on Escape",
+    "Contact validates consent, submits once, displays success, preserves input on failure",
+    "No overflow at 320, 390, 768, 1024 and 1440 px; mobile menu and reduced motion",
+    "Content, navigation, legal links and FAQ remain usable without JavaScript",
+    "Cold mobile load uses the smaller 960px hero asset and makes no external requests",
+    "All legal pages render in English without overflow at 320 and 1440 px",
+    "Actual Phaser/joystick boot and destruction; ethers and rebuilt Socket.IO browser API"
+  ],
+  "metrics": {
+    "resources": [
+      {
+        "name": "/assets/press-start-2p.woff2",
+        "bytes": 29140
+      },
+      {
+        "name": "/assets/site.css",
+        "bytes": 27514
+      },
+      {
+        "name": "/assets/site.js",
+        "bytes": 11334
+      },
+      {
+        "name": "/assets/grassland-forest-logo.webp",
+        "bytes": 67864
+      },
+      {
+        "name": "/assets/forest-world-1680.webp",
+        "bytes": 432594
+      },
+      {
+        "name": "/image/1.webp",
+        "bytes": 147328
+      },
+      {
+        "name": "/assets/favicon.png",
+        "bytes": 8969
+      }
+    ],
+    "domNodes": 350,
+    "initialHero": "/assets/forest-world-1680.webp",
+    "mobileHero": "/assets/forest-world-960.webp",
+    "mobileResourceBytes": 484359
+  },
+  "vendors": {
+    "phaser": "3.90.0",
+    "ethers": "6.17.0",
+    "io": "function",
+    "address": "0x0000000000000000000000000000000000000001"
+  },
+  "browserErrors": []
+}

@@ -1,0 +1,242 @@
+[
+  {
+    "file": "index.html",
+    "bytes": 19708,
+    "sha256": "462d30e098bce8a7f5f89b5a4367b5b4707606308dbc502beee531bf69f17d2f"
+  },
+  {
+    "file": "assets/site.css",
+    "bytes": 27514,
+    "sha256": "4468f7ec12306b037755826f8c7c22b7556b38f7a6fe8b053a8d875a2271e4a8"
+  },
+  {
+    "file": "assets/site.js",
+    "bytes": 11334,
+    "sha256": "d3bacbf89c9e9e9ff1fe3c93325e62a881f938c52056fd43d4b3b16160d9fd44"
+  },
+  {
+    "file": "terms-service.html",
+    "bytes": 5907,
+    "sha256": "38eb87447979d691bba16cf920b7e25a8cf90e6a80568fa2aab75a85b085d30c"
+  },
+  {
+    "file": "privacy-policy.html",
+    "bytes": 5008,
+    "sha256": "cb5ed811faf0b36ee8759e1799d2a2e6e4382e028e74dce253a4ab44d8a04c4a"
+  },
+  {
+    "file": "Disclaimer.html",
+    "bytes": 5125,
+    "sha256": "b85743b6a80e9d986a4e6ead14e8a76dbed9eef43627f26b698a47e44fef27fa"
+  },
+  {
+    "file": "bin/package.json",
+    "bytes": 671,
+    "sha256": "cbb5751c9ebc688af55e4cf7f4aa609bf0103f5a4fe0cda9034bbfb9e4043f65"
+  },
+  {
+    "file": "bin/package-lock.json",
+    "bytes": 67032,
+    "sha256": "7d0d73d5f24abf5f84a9641734c234b5dce21f3309d6c8ca6158bea1a885a8b0"
+  },
+  {
+    "file": "bin/index.html",
+    "bytes": 78936,
+    "sha256": "3d996234e49d10abb7628c4fba7f460f9f7513458fc92cfd3f672774b6989d3c"
+  },
+  {
+    "file": "bin/reporter.html",
+    "bytes": 11838,
+    "sha256": "953a9999b66b190f883d0a08dab8352f75aba6ef06da9704cfc47ec6e76ff05c"
+  },
+  {
+    "file": "bin/ui-image-fallbacks.js",
+    "bytes": 482,
+    "sha256": "a4b8188cfde42f888c7f0520f4248e249610c93eddf8d406159e3bb25c02a0f4"
+  },
+  {
+    "file": "bin/lib/tileManager.js",
+    "bytes": 56075,
+    "sha256": "a194d5406cc1afd053ffa57ceba9c0967b274f986ba824364e32f348e3cc8f5c"
+  },
+  {
+    "file": "bin/lib/tileMonitor.js",
+    "bytes": 11386,
+    "sha256": "2f0b59a8508246809c37507f1d1131a3abf78315823c196879965a8f7fc8ac74"
+  },
+  {
+    "file": "bin/phaser-canvas-scaler.js",
+    "bytes": 29251,
+    "sha256": "9ab20330a3d458e6fd0840b29831cb52fe7217550b87bfb1143a28f93389bc20"
+  },
+  {
+    "file": "bin/phaser-rpg-perf.js",
+    "bytes": 122482,
+    "sha256": "35711ca35ba03728d21d6e144e2b62839fc5267f11dd7aab43c2737baec48eaa"
+  },
+  {
+    "file": "bin/memory-fix.js",
+    "bytes": 4784,
+    "sha256": "fee9136a55a98a6d9eb400a8eb65a3fff8f07321253e33477429d17ed424fab9"
+  },
+  {
+    "file": "bin/phaser-memory-cleaner.js",
+    "bytes": 18649,
+    "sha256": "1d68e3ae9a2d47dd2332cd3994ce9b81c1135eb0516669d9bf69d18cef6ee0c6"
+  },
+  {
+    "file": "bin/phaser-memory-reporter.js",
+    "bytes": 53516,
+    "sha256": "b53ce4f5d91d6e3eb3e60eba47b09c827b6ef1e81c674836704d3244c4e742f1"
+  },
+  {
+    "file": "bin/tx-gate.js",
+    "bytes": 6064,
+    "sha256": "9b340b6ed65a51836696dd8807245ea61ca335962c384ef7f6026fa216eedac1"
+  },
+  {
+    "file": "bin/TransactionHub.js",
+    "bytes": 20059,
+    "sha256": "6f726d109b90df3e50f783c5e4ce302d05e0a539585332cb1478f302e13df3f5"
+  },
+  {
+    "file": "bin/BlockchainManager.js",
+    "bytes": 12769,
+    "sha256": "49f30ec1a7143919504b658885e731c346256e6ab064f57dc127358c4855e0fd"
+  },
+  {
+    "file": "bin/SystemaTransaccion.js",
+    "bytes": 18135,
+    "sha256": "4e56b6f8bedbf0ceae02f1af9d8b380300073a3c44a7074eac1e774561d760dc"
+  },
+  {
+    "file": "bin/gf-wallet-sdk/gf-wallet.js",
+    "bytes": 64967,
+    "sha256": "e95770c6377b7aa8bbdf5fb2a5ee42ca3cd8b31091147a7efe2aaad351f6356f"
+  },
+  {
+    "file": "bin/phaser-relay-library.js",
+    "bytes": 84105,
+    "sha256": "330a363b21af215476114440609b7bc44de45f5d52b26143d17810b8b0996fd7"
+  },
+  {
+    "file": "bin/hub.js",
+    "bytes": 20092,
+    "sha256": "541a039a8aa3de7614b59f4a78872f4f8e2fca9b85e0cdc833c435c1c494eb7a"
+  },
+  {
+    "file": "backend_pagina/server.js",
+    "bytes": 11433,
+    "sha256": "d26a52092f5e493a8c22552bc302091994d827a3593e1be4dd64a3cbaedfca31"
+  },
+  {
+    "file": "backend_pagina/package.json",
+    "bytes": 226,
+    "sha256": "159c2dd64dedd461390c8481832218e1ec85fc24ee69828231682d5d49831ba5"
+  },
+  {
+    "file": "backend_pagina/package-lock.json",
+    "bytes": 37715,
+    "sha256": "b9b776800fd815d2e40bf7d1f1516e14026a1df20dc8d65f807aa54c152640e8"
+  },
+  {
+    "file": "C:/Users/pc/Desktop/server2.js",
+    "bytes": 824529,
+    "sha256": "2ff4c6e7fd72c596575afe4227c4862a8000242f614a06c4a6a9fa44f1b41d4d"
+  },
+  {
+    "file": "assets/legal.css",
+    "bytes": 2740,
+    "sha256": "7b8ff53574d5a0096bf4f817b5f5e98cdc7bcaba2706bd18279e97eec555998f"
+  },
+  {
+    "file": "assets/grassland-forest-logo.png",
+    "bytes": 443098,
+    "sha256": "ccaa773e744cbd303e4874de42f9a942d593615c660c0922a6c6a1f42eec4797"
+  },
+  {
+    "file": "assets/grassland-forest-logo.webp",
+    "bytes": 67864,
+    "sha256": "b557d70ccfdb3fefab9a2229c968545f68b4c14e9c2b8049a5dded3b0eeea7fe"
+  },
+  {
+    "file": "assets/favicon.png",
+    "bytes": 8969,
+    "sha256": "42c6b2e6805c96773039ff12d2c3d94ba0e6a48485db6dba4cd61c2419e91136"
+  },
+  {
+    "file": "assets/forest-world-1680.webp",
+    "bytes": 432594,
+    "sha256": "318135d616eeae4099f1d1faacc68e8e254aa2a6912e3264e66a946307870e18"
+  },
+  {
+    "file": "assets/forest-world-960.webp",
+    "bytes": 192210,
+    "sha256": "c26dd0d96c56dae8796aaa8e9f96382e84523ac8e1efa7a9552ddb8b65f70bab"
+  },
+  {
+    "file": "assets/press-start-2p.woff2",
+    "bytes": 29140,
+    "sha256": "90bcad7ce229858e9eabf886e75fa8089b63d8bc2f8e6561956140c0690f8242"
+  },
+  {
+    "file": "assets/OFL-PressStart2P.txt",
+    "bytes": 4413,
+    "sha256": "705960c3281a5765ecc0b59bd4ed7ca59eed165748076bc2fc3e8fdbfeb944b0"
+  },
+  {
+    "file": "bin/tools/hub-lifecycle.test.cjs",
+    "bytes": 11623,
+    "sha256": "c4d6ce9ddbef2e30336e5c700db1e41ffe29f6d3ae709908cf4c0a9c14bd5339"
+  },
+  {
+    "file": "bin/tools/engine-lifecycle.test.cjs",
+    "bytes": 13366,
+    "sha256": "df2a596a032310981de338b7ecf7ba98b59a87bdfc5aaac33b7e282366e58d13"
+  },
+  {
+    "file": "bin/tools/web3-seguridad-prueba.cjs",
+    "bytes": 14394,
+    "sha256": "d6c93ec125729e50775780b70bf42c6909750684a97dc0520c7512deb1a35389"
+  },
+  {
+    "file": "bin/tools/memory-diagnostics.test.cjs",
+    "bytes": 3275,
+    "sha256": "63cdb616bddc44b1288506e078c021bb35d0e682c945d584c136d449d1abfd5d"
+  },
+  {
+    "file": "tools/server2-security.test.cjs",
+    "bytes": 9693,
+    "sha256": "ae22b63df572f72e52f551a0229fdf6f4b966519b95c588cfc867a0e7bf941e3"
+  },
+  {
+    "file": "tools/check-site.cjs",
+    "bytes": 15143,
+    "sha256": "af3d6dbe0da8803364bb84e63bd1af16e5c65d62320257d0152e91cc03f942ed"
+  },
+  {
+    "file": "tools/preview-server.cjs",
+    "bytes": 3938,
+    "sha256": "773f296c3748adf57d1c8a672906614c26db68ea20e2481b5b2edbbccde23b2a"
+  },
+  {
+    "file": "README.md",
+    "bytes": 3361,
+    "sha256": "e000a47304ac18f5df86cc53c8bddf4ee7a4d706524aa982ce19c55d4afc150d"
+  },
+  {
+    "file": "docs/ASSETS.md",
+    "bytes": 3160,
+    "sha256": "27c876b49dd75c89778e4b33b65eeb2a2f4bcbfd0c59e9ff031604a68a791c4c"
+  },
+  {
+    "file": "docs/REVISION-SEGURIDAD.md",
+    "bytes": 10910,
+    "sha256": "ac6e3248324c069a2565b65586a284a5b628b2a50ea20f0d43c1eba58e831df3"
+  },
+  {
+    "file": "artifacts/legal-sources.json",
+    "bytes": 1241,
+    "sha256": "a89c02590cdcf06a68abf04815c874767ccd1d2055f1b39c299a9e006e002641"
+  }
+]

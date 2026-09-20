@@ -1,0 +1,23 @@
+[
+  {
+    "source": "C:\\Users\\pc\\Pictures\\privacy-policy.html",
+    "sha256": "833d1dc651c356cf50796f57c36385bdbec308c76c4f7f5bf47e6bae21177c28",
+    "output": "privacy-policy.html",
+    "effectiveDate": "September 10, 2026",
+    "transformation": "Original English section preserved; Spanish duplicate omitted for English website. Presentation, accessibility and link security only; no clause edits."
+  },
+  {
+    "source": "C:\\Users\\pc\\Pictures\\terms-service.html",
+    "sha256": "34050ef1f3d9e9ac4eae9a3285a2e20f24e47d43900905c96f5c1f0466cf5fd9",
+    "output": "terms-service.html",
+    "effectiveDate": "September 10, 2026",
+    "transformation": "Original English section preserved; Spanish duplicate omitted for English website. Presentation, accessibility and link security only; no clause edits."
+  },
+  {
+    "source": "C:\\Users\\pc\\Pictures\\Disclaimer.html",
+    "sha256": "17102e3983f32d59284b35492b304bdb65055737ae9d9c10e382b095face2068",
+    "output": "Disclaimer.html",
+    "effectiveDate": "September 10, 2026",
+    "transformation": "Original English section preserved; Spanish duplicate omitted for English website. Presentation, accessibility and link security only; no clause edits."
+  }
+]
