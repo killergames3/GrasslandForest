@@ -16,7 +16,7 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/grassland-forest-logo.png">
   <link rel="preload" as="font" href="assets/press-start-2p.woff2" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css?v=1.0.1">
   <script src="assets/site.js" defer></script>
 </head>
 <body>
@@ -24,7 +24,7 @@
   <header class="site-header"><div class="header-inner container">
     <a class="brand" href="#inicio" aria-label="Grassland Forest home"><img src="assets/grassland-forest-logo.webp" alt="" width="64" height="64"><span>GRASSLAND<small>FOREST</small></span></a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open menu"><span></span><span></span></button>
-    <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="#universo">The world</a><a href="#aventura">How to play</a><a href="#web3">Web3</a><a href="#comunidad">Community</a></nav>
+    <nav class="main-nav" id="main-nav" aria-label="Main navigation"><a href="#universo">The world</a><a href="#aventura">How to play</a><a href="#downloads">Downloads</a><a href="#web3">Web3</a><a href="#comunidad">Community</a></nav>
     <a class="button button-small header-play" href="https://app.grasslandforest.com/">Play demo <span aria-hidden="true">↗</span></a>
   </div></header>
   <main id="contenido">
@@ -38,12 +38,22 @@
         <h1 id="hero-title">Small pixels.<br><em>Big adventures.</em></h1>
         <p class="hero-description">Follow the trail. Plant something new. Find a little magic in a world made for the adventurer in you.</p>
         <div class="hero-actions"><a class="button" href="https://app.grasslandforest.com/"><span class="play-symbol" aria-hidden="true">▶</span> Play the demo <span aria-hidden="true">↗</span></a><button class="text-button trailer-trigger" type="button"><span class="play-icon" aria-hidden="true">▷</span> Watch trailer</button></div>
-        <p class="hero-note">Farming, crafting &amp; a little bit of the unknown.</p>
+        <p class="hero-note">Farming, crafting &amp; a little bit of the unknown. <a class="hero-download-link" href="#downloads">Download for your device ↓</a></p>
       </div></div>
       <div class="world-caption"><span class="status-dot" aria-hidden="true"></span><div><span>YOUR NEXT CHAPTER</span><small>Somewhere beyond the trees.</small></div></div>
       <div class="hero-bottom container"><a href="#universo"><span class="scroll-icon" aria-hidden="true">↓</span> Discover the world</a><span class="hero-edition">EXPLORATION / RPG / WEB3</span><button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false" hidden><span aria-hidden="true">Ⅱ</span> Pause motion</button></div>
     </section>
     <div class="world-strip" role="group" aria-label="Game activities"><div class="container"><span>PLANT A SEED</span><i aria-hidden="true">✦</i><span>CRAFT YOUR STORY</span><i aria-hidden="true">✦</i><span>TAKE THE TRAIL</span><i aria-hidden="true">✦</i><span>FIND YOUR PEOPLE</span></div></div>
+    <section class="section downloads-section container" id="downloads" aria-labelledby="downloads-title">
+      <div class="section-heading"><div><p class="eyebrow section-label">PLAY WHERE YOU FEEL AT HOME</p><h2 id="downloads-title">Your device.<br><em>Your adventure.</em></h2></div><p>Download Grassland Forest for your platform. Sign in with Google or connect MetaMask in your preferred browser.</p></div>
+      <div class="downloads-grid">
+        <article class="download-card"><span class="download-platform">ANDROID</span><img src="assets/platforms/android.svg" class="platform-icon" alt="" width="80" height="80" loading="lazy"><h3>Take the forest with you.</h3><p>Android 8 or newer. Install a compatible browser inside your phone or emulator.</p><a class="button" href="downloads/Grassland-Forest-1.0.1-Android.apk" download>Download APK <span aria-hidden="true">↓</span></a><small>v1.0.1 · Signed APK</small></article>
+        <article class="download-card"><span class="download-platform">WINDOWS</span><img src="assets/platforms/windows.svg" class="platform-icon" alt="" width="80" height="80" loading="lazy"><h3>A new window to explore.</h3><p>Windows 10 or newer, 64-bit. Choose the browser where you use your wallet.</p><a class="button" href="downloads/Grassland-Forest-1.0.1-Windows-x64.exe" download>Download for Windows <span aria-hidden="true">↓</span></a><small>v1.0.1 · EXE installer</small></article>
+        <article class="download-card"><span class="download-platform">macOS</span><img src="assets/platforms/apple.svg" class="platform-icon" alt="" width="80" height="80" loading="lazy"><h3>Make room for adventure.</h3><p>Portable launcher for Intel and Apple Silicon. Uses your installed browser.</p><a class="button" href="downloads/Grassland-Forest-1.0.1-macOS-portable.zip" download>Download for macOS <span aria-hidden="true">↓</span></a><small>v1.0.1 · Portable app ZIP</small></article>
+        <article class="download-card"><span class="download-platform">LINUX</span><img src="assets/platforms/linux.svg" class="platform-icon" alt="" width="80" height="80" loading="lazy"><h3>Follow your own path.</h3><p>Extract the portable package and run start.sh with your installed browser.</p><a class="button" href="downloads/Grassland-Forest-1.0.1-Linux-portable.tar.gz" download>Download for Linux <span aria-hidden="true">↓</span></a><small>v1.0.1 · Portable TAR.GZ</small></article>
+      </div>
+      <p class="download-note">Internet connection required. Google and MetaMask stay in your browser. These early-access downloads are not signed by Microsoft or Apple. Prefer to play now? <a href="https://app.grasslandforest.com/">Open the web game ↗</a></p>
+    </section>
     <section class="section universe container" id="universo" aria-labelledby="universe-title">
       <div class="section-heading"><div><p class="eyebrow section-label">01 / A WORLD WORTH GETTING LOST IN</p><h2 id="universe-title">Welcome to your<br><em>next adventure.</em></h2></div><p>The joy of a fresh harvest. The mystery of an unexplored path. The thrill of your next battle. Slow down, gear up, and make the forest your own.</p></div>
       <div class="gallery" role="region" aria-roledescription="carousel" aria-label="Gameplay screenshots"><div class="gallery-topbar"><span><i aria-hidden="true"></i> FIELD NOTES / GRASSLAND FOREST</span><span>IN-GAME CAPTURES</span></div><div class="gallery-window">
