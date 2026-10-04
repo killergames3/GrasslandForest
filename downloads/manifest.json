@@ -1,0 +1,25 @@
+{
+  "version": "1.1.1",
+  "files": [
+    {
+      "file": "Grassland-Forest-1.1.1-Android.apk",
+      "bytes": 669781,
+      "sha256": "134be02b98503a51b4346fcd7d3558c0bafccbb0a993425b115a06256c908d9f"
+    },
+    {
+      "file": "Grassland-Forest-1.1.1-Windows-x64.exe",
+      "bytes": 111851069,
+      "sha256": "b3efd2bc86613af6addd97b6bd2876b73f5ec9841fb01cfb11f61ff2c65c145d"
+    },
+    {
+      "file": "Grassland-Forest-1.1.1-macOS-build-kit.zip",
+      "bytes": 4692919,
+      "sha256": "393a89069e17d743457383d1b7b88908f7125489f73c180ea7191687674e9d0e"
+    },
+    {
+      "file": "Grassland-Forest-1.1.1-Linux-x64.tar.gz",
+      "bytes": 122283145,
+      "sha256": "af1221936356b372ac3c220acbd6e7d3aa72908308856aac986b77d3ff4557d3"
+    }
+  ]
+}
