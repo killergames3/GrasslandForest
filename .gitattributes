@@ -1,1 +1,2 @@
 /downloads/Grassland-Forest-1.1.2-Windows-x64.exe filter=lfs diff=lfs merge=lfs -text
+/downloads/Grassland-Forest-1.1.2-Linux-x64.tar.gz filter=lfs diff=lfs merge=lfs -text
