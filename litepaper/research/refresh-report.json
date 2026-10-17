@@ -1,0 +1,99 @@
+{
+  "source": "Current local bin/index.html with isolated test account",
+  "captures": [
+    {
+      "file": "assets/guide-world.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "c64e1189d4fc539f3b0dccf854bd05a56ee936cca9dc86210664c586e99af238"
+    },
+    {
+      "file": "assets/guide-wild-forest.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "cd1cbb4ffe23ca3f475ceadf232c090d385c98db6d157abc035adecc1b7907ed"
+    },
+    {
+      "file": "assets/guide-farming.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "99263c35720dbbb1b435d10e6b0ae281b4f05012684c8552e349dd5f5f349b37"
+    },
+    {
+      "file": "assets/guide-woodcutting.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "63c34c1e4ced6ad69c32dd8147a42adfb395276e477667379b6dbda0b65237e1"
+    },
+    {
+      "file": "assets/guide-surface-mining.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "8dbc52517797750605221a73f2524b94925bbf99537e69bcc5b2ac60a8022333"
+    },
+    {
+      "file": "assets/guide-fishing-shore.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "510b0b0ce3d635f0efd56a445cfb687263159065ecbb4311fa27f4037f1ce130"
+    },
+    {
+      "file": "assets/guide-fishing-game.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "79ebadb0de543d9a2bc704af72ec17883eb0e18ce7f606a241551864e77d6e9a"
+    },
+    {
+      "file": "assets/guide-skills.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "4978c2646501b5a09f9c4b3efcd4ba38be26833d8d5fef3711d5a9b070590909"
+    },
+    {
+      "file": "assets/guide-pet.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "620b3cebd2920b1cca2dbce82751defb7547861589285ab0252fc8db83c484f5"
+    },
+    {
+      "file": "assets/guide-mine-stairs.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "6b5ee2dc4231d62d0bcac6627daf06236959898c773450c48157d909bbdc5767"
+    },
+    {
+      "file": "assets/guide-mine-mage.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "76cb36e37deeb712e95e99d1598d900fe847b852b5a805e14c9654f75d00ddf7"
+    },
+    {
+      "file": "assets/guide-mine-sword.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "c0ce5bcd6c3ce9885f56619ab005713ba6ec3927b432904d08bed94b5019f7e5"
+    },
+    {
+      "file": "assets/guide-mine-mobile-powers.png",
+      "width": 844,
+      "height": 390,
+      "sha256": "7aebf22ae6e52f36b7b3b316ef82bf219f258492754ee6dceb4301341a90bb9b"
+    },
+    {
+      "file": "assets/guide-mine-serpent.png",
+      "width": 1440,
+      "height": 900,
+      "sha256": "62149505f55770d5ce6edf943930b473505e80e7c1c918d957bb4fe1f0162ea7"
+    }
+  ],
+  "fishingPlacement": {
+    "x": 4232,
+    "foot": 2200,
+    "dir": "right",
+    "characterFeetWater": 0,
+    "petFeetWater": 0
+  },
+  "litepaperVerification": [],
+  "indexVerification": true,
+  "originalFolder": "bin/litepaper is empty; Windows holds it open as this chat workspace"
+}

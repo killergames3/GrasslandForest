@@ -1,0 +1,44 @@
+{
+  "mobs": [
+    {
+      "id": 0,
+      "x": 1660,
+      "y": 1514,
+      "mage": false,
+      "texture": "gfm_espectro",
+      "w": 70,
+      "h": 134
+    },
+    {
+      "id": 1,
+      "x": 3956,
+      "y": 3010,
+      "mage": false,
+      "texture": "gfm_espectro",
+      "w": 70,
+      "h": 134
+    },
+    {
+      "id": 2,
+      "x": 4298,
+      "y": 3352,
+      "mage": true,
+      "texture": "gfm_mago",
+      "w": 70,
+      "h": 126
+    },
+    {
+      "id": 3,
+      "x": 3740,
+      "y": 1294,
+      "mage": true,
+      "texture": "gfm_mago",
+      "w": 70,
+      "h": 126
+    }
+  ],
+  "serpent": {
+    "x": 4442.12441047281,
+    "y": 3569.0289112068713
+  }
+}

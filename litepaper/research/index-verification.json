@@ -1,0 +1,149 @@
+{
+  "checkedAt": "2026-10-17T05:05:01.441Z",
+  "browser": "Microsoft Edge (Playwright headless)",
+  "base": "http://127.0.0.1:4173",
+  "scope": "Root index integration, carousel and litepaper navigation; other litepaper assets are being reviewed separately.",
+  "http": {
+    "litepaper/litepaper_espa%C3%B1ol.html": {
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 84280
+    },
+    "litepaper/litepaper_ingles.html": {
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 79375
+    },
+    "spanishDocument": {
+      "lang": "es",
+      "title": "Grassland Forest — Litepaper en español · LitVM",
+      "returnToWebsiteLinks": 0
+    }
+  },
+  "carousel": [
+    {
+      "id": "world-slide-1",
+      "src": "litepaper/assets/guide-farming.png",
+      "loaded": true,
+      "naturalWidth": 1440,
+      "naturalHeight": 900,
+      "displayAspect": 1.6,
+      "naturalAspect": 1.6,
+      "captionOutsideImage": true,
+      "alt": "The player beside planted crop plots, with the current farming interface in Grassland Forest."
+    },
+    {
+      "id": "world-slide-2",
+      "src": "litepaper/assets/guide-wild-forest.png",
+      "loaded": true,
+      "naturalWidth": 1440,
+      "naturalHeight": 900,
+      "displayAspect": 1.6,
+      "naturalAspect": 1.6,
+      "captionOutsideImage": true,
+      "alt": "The player and a companion pet on solid ground in the wild forest, where monsters and wild animals roam."
+    },
+    {
+      "id": "world-slide-3",
+      "src": "litepaper/assets/guide-fishing-shore.png",
+      "loaded": true,
+      "naturalWidth": 1440,
+      "naturalHeight": 900,
+      "displayAspect": 1.6,
+      "naturalAspect": 1.6,
+      "captionOutsideImage": true,
+      "alt": "The player standing on the shore beside the water, positioned to fish in Grassland Forest."
+    }
+  ],
+  "responsive": [
+    {
+      "width": 1440,
+      "documentWidth": 1440,
+      "overflow": false,
+      "menuVisible": false
+    },
+    {
+      "width": 1024,
+      "documentWidth": 1024,
+      "overflow": false,
+      "menuVisible": false
+    },
+    {
+      "width": 900,
+      "documentWidth": 900,
+      "overflow": false,
+      "menuVisible": false
+    },
+    {
+      "width": 820,
+      "documentWidth": 820,
+      "overflow": false,
+      "menuVisible": false
+    },
+    {
+      "width": 768,
+      "documentWidth": 768,
+      "overflow": false,
+      "menuVisible": false
+    },
+    {
+      "width": 680,
+      "documentWidth": 680,
+      "overflow": false,
+      "menuVisible": true
+    },
+    {
+      "width": 390,
+      "documentWidth": 390,
+      "overflow": false,
+      "menuVisible": true
+    },
+    {
+      "width": 320,
+      "documentWidth": 320,
+      "overflow": false,
+      "menuVisible": true
+    }
+  ],
+  "languageTransitions": [
+    {
+      "from": "es",
+      "to": "en",
+      "url": "http://127.0.0.1:4173/litepaper/litepaper_ingles.html",
+      "lang": "en",
+      "current": "EN"
+    },
+    {
+      "from": "en",
+      "to": "es",
+      "url": "http://127.0.0.1:4173/litepaper/litepaper_espa%C3%B1ol.html",
+      "lang": "es",
+      "current": "ES"
+    }
+  ],
+  "fileProtocol": {
+    "index": "file:///C:/Users/pc/Desktop/Proyecto/GrasslandForest%200.1/Grassland%20Forest%20V16.8%20Completo%20(en%20trabajo%20de%20agregar%20comandos%20a%20fully%20onchains)/miweb_Developer/index.html",
+    "wildForestLoaded": true,
+    "spanishOpened": {
+      "url": "file:///C:/Users/pc/Desktop/Proyecto/GrasslandForest%200.1/Grassland%20Forest%20V16.8%20Completo%20(en%20trabajo%20de%20agregar%20comandos%20a%20fully%20onchains)/miweb_Developer/litepaper/litepaper_espa%C3%B1ol.html",
+      "lang": "es"
+    },
+    "englishOpened": {
+      "url": "file:///C:/Users/pc/Desktop/Proyecto/GrasslandForest%200.1/Grassland%20Forest%20V16.8%20Completo%20(en%20trabajo%20de%20agregar%20comandos%20a%20fully%20onchains)/miweb_Developer/litepaper/litepaper_ingles.html",
+      "lang": "en"
+    }
+  },
+  "pageErrors": [],
+  "indexFailedResponses": [],
+  "noBinLitepaperReferences": true,
+  "duplicateIds": [],
+  "nextWrapsToFirst": true,
+  "prevWrapsToLast": true,
+  "keyboardPrevious": true,
+  "mobileMenu": {
+    "opened": true,
+    "languageLinks": 2,
+    "closesAfterNavigation": true
+  },
+  "pass": true
+}

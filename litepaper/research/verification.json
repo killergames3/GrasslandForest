@@ -1,0 +1,149 @@
+{
+  "date": "2026-10-16",
+  "results": [
+    {
+      "language": "es",
+      "chapters": 20,
+      "chapterIds": [
+        "vision",
+        "primeros-pasos",
+        "interfaz",
+        "mapas",
+        "comprar",
+        "cultivar",
+        "recursos",
+        "pescar",
+        "lands",
+        "progreso",
+        "mascotas",
+        "combate",
+        "arena",
+        "comunidad",
+        "bienestar",
+        "economia",
+        "litvm",
+        "roadmap",
+        "preguntas",
+        "fuentes"
+      ],
+      "tocIds": [
+        "vision",
+        "primeros-pasos",
+        "interfaz",
+        "mapas",
+        "comprar",
+        "cultivar",
+        "recursos",
+        "pescar",
+        "lands",
+        "progreso",
+        "mascotas",
+        "combate",
+        "arena",
+        "comunidad",
+        "bienestar",
+        "economia",
+        "litvm",
+        "roadmap",
+        "preguntas",
+        "fuentes"
+      ],
+      "retiredNames": [],
+      "staleCaptureCaptions": [],
+      "images": 31,
+      "brokenImages": [],
+      "duplicateIds": [],
+      "deadAnchors": [],
+      "words": 6305,
+      "links": 115,
+      "overflow": false,
+      "layouts": [
+        {
+          "width": 820,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 320,
+          "overflow": false
+        }
+      ]
+    },
+    {
+      "language": "en",
+      "chapters": 20,
+      "chapterIds": [
+        "vision",
+        "primeros-pasos",
+        "interfaz",
+        "mapas",
+        "comprar",
+        "cultivar",
+        "recursos",
+        "pescar",
+        "lands",
+        "progreso",
+        "mascotas",
+        "combate",
+        "arena",
+        "comunidad",
+        "bienestar",
+        "economia",
+        "litvm",
+        "roadmap",
+        "preguntas",
+        "fuentes"
+      ],
+      "tocIds": [
+        "vision",
+        "primeros-pasos",
+        "interfaz",
+        "mapas",
+        "comprar",
+        "cultivar",
+        "recursos",
+        "pescar",
+        "lands",
+        "progreso",
+        "mascotas",
+        "combate",
+        "arena",
+        "comunidad",
+        "bienestar",
+        "economia",
+        "litvm",
+        "roadmap",
+        "preguntas",
+        "fuentes"
+      ],
+      "retiredNames": [],
+      "staleCaptureCaptions": [],
+      "images": 31,
+      "brokenImages": [],
+      "duplicateIds": [],
+      "deadAnchors": [],
+      "words": 5692,
+      "links": 115,
+      "overflow": false,
+      "layouts": [
+        {
+          "width": 820,
+          "overflow": false
+        },
+        {
+          "width": 390,
+          "overflow": false
+        },
+        {
+          "width": 320,
+          "overflow": false
+        }
+      ]
+    }
+  ],
+  "issues": [],
+  "externalRequests": []
+}

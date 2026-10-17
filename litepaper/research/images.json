@@ -1,0 +1,306 @@
+{
+  "amigos.png": [
+    128,
+    128
+  ],
+  "axe.png": [
+    20,
+    20
+  ],
+  "battle-fog-android.png": [
+    915,
+    412
+  ],
+  "battle-fog-desktop.png": [
+    1280,
+    720
+  ],
+  "capture-debug.png": [
+    1280,
+    800
+  ],
+  "chat.png": [
+    128,
+    128
+  ],
+  "chest.png": [
+    27,
+    27
+  ],
+  "correo.png": [
+    128,
+    128
+  ],
+  "farming.webp": [
+    1280,
+    614
+  ],
+  "forest.webp": [
+    1672,
+    941
+  ],
+  "gold.png": [
+    30,
+    30
+  ],
+  "guide-battle-menu.png": [
+    1280,
+    800
+  ],
+  "guide-battle-mobile.png": [
+    844,
+    390
+  ],
+  "guide-battle.png": [
+    1280,
+    800
+  ],
+  "guide-build.png": [
+    1280,
+    800
+  ],
+  "guide-buy.png": [
+    1280,
+    800
+  ],
+  "guide-chat-detail-en.png": [
+    280,
+    135
+  ],
+  "guide-chat-detail-es.png": [
+    280,
+    135
+  ],
+  "guide-chat-en.png": [
+    1280,
+    800
+  ],
+  "guide-chat-es.png": [
+    1280,
+    800
+  ],
+  "guide-fishing-game.png": [
+    1440,
+    900
+  ],
+  "guide-fishing-shore.png": [
+    1440,
+    900
+  ],
+  "guide-furnace.png": [
+    1280,
+    800
+  ],
+  "guide-inventory.png": [
+    1280,
+    800
+  ],
+  "guide-lands.png": [
+    1280,
+    800
+  ],
+  "guide-nft.png": [
+    1280,
+    800
+  ],
+  "guide-pet.png": [
+    1440,
+    900
+  ],
+  "guide-profile.png": [
+    1280,
+    800
+  ],
+  "guide-purchase-confirm.png": [
+    1280,
+    1120
+  ],
+  "guide-skills.png": [
+    1440,
+    900
+  ],
+  "guide-store-mobile.png": [
+    390,
+    844
+  ],
+  "guide-store.png": [
+    1280,
+    800
+  ],
+  "guide-world.png": [
+    1440,
+    900
+  ],
+  "habilidades.png": [
+    128,
+    128
+  ],
+  "lands.png": [
+    128,
+    128
+  ],
+  "lands_volver.png": [
+    128,
+    128
+  ],
+  "logo.webp": [
+    512,
+    512
+  ],
+  "mine-mage-22.4.png": [
+    1280,
+    800
+  ],
+  "mine-mobile-powers-22.4.png": [
+    844,
+    390
+  ],
+  "mine-serpent-22.4.png": [
+    1280,
+    800
+  ],
+  "mine-stairs-22.4.png": [
+    1280,
+    800
+  ],
+  "mine-sword-22.4.png": [
+    1280,
+    800
+  ],
+  "mochila.png": [
+    128,
+    128
+  ],
+  "musica.png": [
+    128,
+    128
+  ],
+  "nft.png": [
+    128,
+    128
+  ],
+  "ojo.png": [
+    128,
+    128
+  ],
+  "panel.png": [
+    128,
+    128
+  ],
+  "pickaxe.png": [
+    17,
+    18
+  ],
+  "plot.png": [
+    20,
+    20
+  ],
+  "rod.png": [
+    24,
+    24
+  ],
+  "salvaje-preserved-22.4.png": [
+    1280,
+    800
+  ],
+  "scarecrow.png": [
+    38,
+    58
+  ],
+  "seed-carrot.png": [
+    16,
+    20
+  ],
+  "seed-pumpkin.png": [
+    16,
+    20
+  ],
+  "seed-strawberry.png": [
+    16,
+    20
+  ],
+  "seed-tomato.png": [
+    16,
+    20
+  ],
+  "seed-wheat.png": [
+    16,
+    20
+  ],
+  "shears.png": [
+    14,
+    20
+  ],
+  "silver.png": [
+    30,
+    30
+  ],
+  "surface-mining.webp": [
+    1277,
+    611
+  ],
+  "tienda.png": [
+    128,
+    128
+  ],
+  "transacciones.png": [
+    128,
+    128
+  ],
+  "watering-can.png": [
+    23,
+    18
+  ],
+  "windows-launcher.png": [
+    494,
+    576
+  ],
+  "woodcutting.webp": [
+    1280,
+    614
+  ],
+  "current-inspect-world.png": [
+    1280,
+    800
+  ],
+  "guide-farming.png": [
+    1440,
+    900
+  ],
+  "guide-mine-mage.png": [
+    1440,
+    900
+  ],
+  "guide-mine-mobile-powers.png": [
+    844,
+    390
+  ],
+  "guide-mine-serpent.png": [
+    1440,
+    900
+  ],
+  "guide-mine-stairs.png": [
+    1440,
+    900
+  ],
+  "guide-mine-sword.png": [
+    1440,
+    900
+  ],
+  "guide-surface-mining.png": [
+    1440,
+    900
+  ],
+  "guide-wild-forest.png": [
+    1440,
+    900
+  ],
+  "guide-woodcutting.png": [
+    1440,
+    900
+  ],
+  "refresh-debug.png": [
+    1440,
+    900
+  ]
+}

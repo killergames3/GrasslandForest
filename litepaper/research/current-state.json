@@ -1,0 +1,6482 @@
+{
+  "key": "GameScene",
+  "keys": [
+    "otherPlayers",
+    "playerName",
+    "posicionplayerx",
+    "posicionplayery",
+    "aguaPorcentaje",
+    "isWaterCollectionAvailable",
+    "dog",
+    "prevPlayerX",
+    "prevPlayerY",
+    "player",
+    "textoagua",
+    "collisionRectangles",
+    "collisionRectangles1",
+    "collisionRectangles2",
+    "collisionRectangles3",
+    "sprite_jj",
+    "sprite_h",
+    "sprite_p",
+    "sprite_base_portal",
+    "sprite_casa_npc1xc",
+    "sprite_casa_npc2xc",
+    "sprite_casa_npc3xc",
+    "sprite_cabaña",
+    "sprite_arbolformado5_ect6",
+    "sprite_arbolformado6_ect5",
+    "sprite_flor_formado4_ect18",
+    "sprite_flor_formado3_ect19",
+    "sprite_arbolformado6_ect4",
+    "sprite_arbolformado5_ect5",
+    "sprite_flor_formado4_ect17",
+    "sprite_flor_formado4_ect16",
+    "sprite_flor_formado3_ect18",
+    "sprite_flor_formado3_ect17",
+    "sprite_flor_formado3_ect16",
+    "sprite_flor_formado4_ect15",
+    "sprite_flor_formado3_ect15",
+    "sprite_flor_formado3_ect14",
+    "sprite_flor_formado4_ect14",
+    "sprite_flor_formado4_ect13",
+    "sprite_arbusto_ect10x",
+    "sprite_arbusto_ect9x",
+    "sprite_arbusto_ect8x",
+    "sprite_arbusto_ect7x",
+    "sprite_arbolformado_ect4",
+    "sprite_arbolformado_ect3",
+    "sprite_arbolformado_ectx4",
+    "sprite_arbolformado_ectx3",
+    "sprite_arbusto_ect18",
+    "sprite_arbusto_ect17",
+    "sprite_arbusto_ect16",
+    "sprite_arbusto_ect15",
+    "sprite_arbusto_ect14",
+    "sprite_arbusto_ect13",
+    "sprite_arbusto_ect12",
+    "sprite_arbusto_ect11",
+    "sprite_arbusto_ect10",
+    "sprite_arbusto_ect9",
+    "sprite_arbusto_ect8",
+    "sprite_arbusto_ect7",
+    "sprite_arbolformado6_ect3",
+    "sprite_arbolformado5_ect4",
+    "sprite_arbolformado6_ect2",
+    "sprite_arbolformado5_ect3",
+    "sprite_arbolformado6_ect1",
+    "sprite_arbolformado5_ect2",
+    "sprite_arbolformado_ectx2",
+    "sprite_arbolformado_ect2",
+    "sprite_arbolformado_ectx1",
+    "sprite_arbolformado_ect1",
+    "sprite_flor_formado4_ect12",
+    "sprite_flor_formado4_ect11",
+    "sprite_flor_formado3_ect13",
+    "sprite_flor_formado3_ect12",
+    "sprite_arbusto_ect6",
+    "sprite_arbusto_ect5",
+    "sprite_arbusto_ect4",
+    "sprite_arbusto_ect6x",
+    "sprite_arbusto_ect5x",
+    "sprite_arbolformado5_ect1",
+    "sprite_flor_formado2_ect20",
+    "sprite_flor_formado2_ect19",
+    "sprite_flor_formado2_ect18",
+    "sprite_flor_formado2_ect17",
+    "sprite_flor_formado2_ect16",
+    "sprite_flor_formado2_ect15",
+    "sprite_flor_formado2_ect14",
+    "sprite_flor_formado2_ect13",
+    "sprite_flor_formado2_ect12",
+    "sprite_flor_formado2_ect11",
+    "sprite_flor_formado4_ect10",
+    "sprite_flor_formado4_ect9",
+    "sprite_flor_formado4_ect8",
+    "sprite_flor_formado4_ect7",
+    "sprite_flor_formado2_ect10",
+    "sprite_flor_formado3_ect11",
+    "sprite_flor_formado3_ect10",
+    "sprite_flor_formado3_ect9",
+    "sprite_flor_formado3_ect8",
+    "sprite_flor_formado3_ect7",
+    "sprite_flor_formado3_ect6",
+    "sprite_flor_formado3_ect5",
+    "sprite_flor_formado4_ect6",
+    "sprite_flor_formado1_ect19",
+    "sprite_flor_formado1_ect18",
+    "sprite_flor_formado1_ect17",
+    "sprite_flor_formado1_ect16",
+    "sprite_flor_formado1_ect15",
+    "sprite_flor_formado1_ect14",
+    "sprite_flor_formado1_ect13",
+    "sprite_flor_formado1_ect12",
+    "sprite_flor_formado1_ect11",
+    "sprite_flor_formado1_ect10",
+    "sprite_flor_formado1_ect9",
+    "sprite_flor_formado2_ect9",
+    "sprite_flor_formado2_ect8",
+    "sprite_flor_formado2_ect7",
+    "sprite_flor_formado1_ect8",
+    "sprite_flor_formado4_ect5",
+    "sprite_flor_formado2_ect6",
+    "sprite_flor_formado1_ect7",
+    "sprite_flor_formado2_ect5",
+    "sprite_flor_formado1_ect6",
+    "sprite_flor_formado4_ect4",
+    "sprite_flor_formado4_ect3",
+    "sprite_flor_formado3_ect4",
+    "sprite_flor_formado3_ect3",
+    "sprite_flor_formado3_ect2",
+    "sprite_flor_formado1_ect5",
+    "sprite_flor_formado1_ect4",
+    "sprite_flor_formado1_ect3",
+    "sprite_flor_formado2_ect4",
+    "sprite_arbusto_ect3",
+    "sprite_arbusto_ect2",
+    "sprite_flor_formado2_ect3",
+    "sprite_flor_formado4_ect2",
+    "sprite_arbusto_ect4x",
+    "sprite_arbusto_ect3x",
+    "sprite_arbusto_ect2x",
+    "sprite_arbusto_ect1x",
+    "sprite_arbusto_ect1",
+    "sprite_flor_formado2_ect2",
+    "sprite_flor_formado4_ect1",
+    "sprite_flor_formado1_ect2",
+    "sprite_flor_formado3_ect1",
+    "sprite_flor_formado1_ect1",
+    "sprite_flor_formado2_ect1",
+    "sprite_arbusto_ect19",
+    "sprite_arbustos_28",
+    "sprite_arbustos_27",
+    "sprite_arbustos_26",
+    "sprite_arbustos_25",
+    "sprite_arbustos_24",
+    "sprite_arbustos_23",
+    "sprite_arbustos_22",
+    "sprite_arbustos_21",
+    "sprite_arbustos_20",
+    "sprite_arbustos_19",
+    "sprite_arbustos_18",
+    "sprite_arbustos_17",
+    "sprite_arbustos_16",
+    "sprite_arbustos_15",
+    "sprite_arbustos_14",
+    "sprite_arbustos_13",
+    "sprite_arbustos_12",
+    "sprite_arbustos_11",
+    "sprite_arbustos_10",
+    "sprite_arbustos_9",
+    "sprite_arbustos_8",
+    "sprite_arbustos_7",
+    "sprite_arbustos_6",
+    "sprite_arbustos_5",
+    "sprite_arbustos_4",
+    "sprite_arbustos_3",
+    "sprite_arbustos_2",
+    "sprite_arbustos_1",
+    "sprite_tronco_acostado_1png",
+    "sprite_tronco_acostado_2png",
+    "sprite_tronco_acostado_3png",
+    "sprite_tronco_acostado_4png",
+    "sprite_tronco_acostado_5png",
+    "sprite_tronco_acostado_6png",
+    "sprite_tronco_acostado_7png",
+    "sprite_tronco_acostado_8png",
+    "sprite_tronco_acostado_9png",
+    "sprite_tronco_acostado_10png",
+    "sprite_piedras_1",
+    "sprite_piedras_2",
+    "sprite_piedras_3",
+    "sprite_piedras_4",
+    "sprite_piedras_5",
+    "sprite_piedras_6",
+    "sprite_piedras_7",
+    "sprite_piedras_8",
+    "sprite_piedras_9",
+    "sprite_piedras_10",
+    "sprite_piedras_11",
+    "sprite_piedras_12",
+    "sprite_piedras_13",
+    "sprite_piedras_14",
+    "sprite_piedras_15",
+    "sprite_piedras_16",
+    "sprite_piedras_17",
+    "sprite_piedras_18",
+    "sprite_piedras_19",
+    "sprite_piedras_20",
+    "sprite_piedras_21",
+    "sprite_piedras_22",
+    "sprite_piedras_23",
+    "sprite_piedras_24",
+    "sprite_piedras_25",
+    "sprite_piedras_26",
+    "sprite_piedras_27",
+    "sprite_piedras_28",
+    "sprite_piedras_29",
+    "sprite_piedras_30",
+    "sprite_piedras_31",
+    "sprite_piedras_32",
+    "sprite_piedras_33",
+    "sprite_piedras_34",
+    "sprite_casa_comida",
+    "sprite_casa_comida2",
+    "sprite_arbolx18",
+    "sprite_arbolx17",
+    "sprite_arbolx16",
+    "sprite_arbolx15",
+    "sprite_arbolx14",
+    "sprite_arbolx13",
+    "sprite_arbolx12",
+    "sprite_arbolx11",
+    "sprite_arbolx10",
+    "sprite_arbolx9",
+    "sprite_arbolx8",
+    "sprite_arbolx7",
+    "sprite_arbolx6",
+    "sprite_arbolx5",
+    "sprite_arbolx4",
+    "sprite_arbolx3",
+    "sprite_arbolx2",
+    "sprite_arbolx1",
+    "sprite_pinos45",
+    "sprite_pinos44",
+    "sprite_pinos43",
+    "sprite_pinos42",
+    "sprite_pinos41",
+    "sprite_pinos40",
+    "sprite_pinos39",
+    "sprite_pinos38",
+    "sprite_pinos37",
+    "sprite_pinos36",
+    "sprite_pinos35",
+    "sprite_pinos34",
+    "sprite_pinos33",
+    "sprite_pinos32",
+    "sprite_pinos31",
+    "sprite_pinos30",
+    "sprite_pinos29",
+    "sprite_pinos28",
+    "sprite_pinos27",
+    "sprite_pinos26",
+    "sprite_pinos25",
+    "sprite_pinos24",
+    "sprite_pinos23",
+    "sprite_pinos22",
+    "sprite_pinos21",
+    "sprite_pinos20",
+    "sprite_pinos19",
+    "sprite_pinos18",
+    "sprite_pinos17",
+    "sprite_pinos16",
+    "sprite_pinos15",
+    "sprite_pinos14",
+    "sprite_pinos13",
+    "sprite_pinos12",
+    "sprite_pinos11",
+    "sprite_pinos10",
+    "sprite_pinos9",
+    "sprite_pinos8",
+    "sprite_pinos7",
+    "sprite_pinos6",
+    "sprite_pinos5",
+    "sprite_pinos4",
+    "sprite_pinos3",
+    "sprite_pinos2",
+    "sprite_pinos1",
+    "sprite_carteleraxd2",
+    "sprite_cbarril_png2",
+    "sprite_cbarril_png1",
+    "sprite_pozoxd2",
+    "sprite_minar_hierro3",
+    "sprite_minar_hierro2",
+    "sprite_minar_hierro1",
+    "sprite_minar_cobre4",
+    "sprite_minar_cobre3",
+    "sprite_minar_cobre2",
+    "sprite_minar_cobre1",
+    "sprite_minar_piedra5",
+    "sprite_minar_piedra4",
+    "sprite_minar_piedra3",
+    "sprite_minar_piedra2",
+    "sprite_minar_piedra1",
+    "sprite_npc1",
+    "sprite_npc2",
+    "sprite_npc3",
+    "sprite_npc4",
+    "sprite_npc5",
+    "settingsPetInput",
+    "settingsApplyPetBtn",
+    "petName",
+    "dogNameText",
+    "__gfPescaAgua",
+    "__gfAgua",
+    "playerRect",
+    "petLevel",
+    "petExp",
+    "petExpBase",
+    "petExpSiguiente",
+    "plotImages",
+    "plotTexts",
+    "_plotsEnVuelo"
+  ],
+  "player": {
+    "x": 2097,
+    "y": 2359,
+    "originY": 0.5,
+    "width": 23,
+    "height": 51,
+    "body": {
+      "x": 2074,
+      "y": 2308,
+      "right": 2120,
+      "bottom": 2410
+    },
+    "texture": "player_right_1"
+  },
+  "dog": {
+    "x": 2027.2629971488295,
+    "y": 2379
+  },
+  "layers": [
+    {
+      "name": "mapa_principal",
+      "w": 313,
+      "h": 313
+    }
+  ],
+  "objects": [
+    {
+      "name": "mapa_principal_img",
+      "objects": [
+        {
+          "id": 360,
+          "name": "mapa_principalx",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 0.00390625,
+          "y": 5008,
+          "width": 5008.5,
+          "height": 5008,
+          "gid": 2899,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "piedras",
+      "objects": [
+        {
+          "id": 2527,
+          "name": "piedra_a1",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 405.779,
+          "y": 2464.42,
+          "width": 74.2292,
+          "height": 64.1982,
+          "gid": 2938,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2528,
+          "name": "piedra_a2",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 286.704,
+          "y": 4572.9,
+          "width": 74.2292,
+          "height": 64.1982,
+          "gid": 2938,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2529,
+          "name": "piedra_a3",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 860.098,
+          "y": 3542.33,
+          "width": 74.2292,
+          "height": 64.1982,
+          "gid": 2938,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2530,
+          "name": "piedra_a4",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3303.98,
+          "y": 3388.75,
+          "width": 74.2292,
+          "height": 64.1982,
+          "gid": 2938,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2531,
+          "name": "piedra_a5",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3523.13,
+          "y": 716.113,
+          "width": 74.2292,
+          "height": 64.1982,
+          "gid": 2938,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "Objetosxd",
+      "objects": [
+        {
+          "id": 1206,
+          "name": "Cartel_notificacion1",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2764.67,
+          "y": 1659.33,
+          "width": 150.667,
+          "height": 150.667,
+          "gid": 2901,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1207,
+          "name": "barril2",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1880.67,
+          "y": 3269.25,
+          "width": 62,
+          "height": 68.5263,
+          "gid": 2902,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1208,
+          "name": "barril1",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1681.16,
+          "y": 731.07,
+          "width": 62,
+          "height": 68.5263,
+          "gid": 2902,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2422,
+          "name": "pozo1",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2325.58,
+          "y": 743.955,
+          "width": 154.087,
+          "height": 208.471,
+          "gid": 2931,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2444,
+          "name": "roca_hierro3",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 453.25,
+          "y": 2850.31,
+          "width": 69.5,
+          "height": 71.3784,
+          "gid": 2933,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "Portal",
+      "objects": [
+        {
+          "id": 1366,
+          "name": "fuente_estatua",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1982.5,
+          "y": 2334.17,
+          "width": 226.738,
+          "height": 245.899,
+          "gid": 2911,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "NPC",
+      "objects": [
+        {
+          "id": 242,
+          "name": "NPCgranjerox",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1495.75,
+          "y": 3402.92,
+          "width": 54,
+          "height": 96.2609,
+          "gid": 2890,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 243,
+          "name": "NPCherrerox",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3148.17,
+          "y": 2121.03,
+          "width": 43.3333,
+          "height": 90.318,
+          "gid": 2891,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 244,
+          "name": "NPCjoyerox",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2457,
+          "y": 1643.17,
+          "width": 47.33,
+          "height": 90.32,
+          "gid": 2892,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 331,
+          "name": "NPCguardianx",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2857.18,
+          "y": 926.39,
+          "width": 49.33,
+          "height": 100.32,
+          "gid": 2894,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 361,
+          "name": "NPCmagox",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2257.33,
+          "y": 2389,
+          "width": 54.33,
+          "height": 95.6533,
+          "gid": 2900,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "funcion_siembra_1",
+      "objects": [
+        {
+          "id": 135,
+          "name": "cuadro1",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1020.1,
+          "y": 3143.1,
+          "width": 70,
+          "height": 66,
+          "rectangle": true
+        },
+        {
+          "id": 168,
+          "name": "cuadro2",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 948.853,
+          "y": 3144.18,
+          "width": 70,
+          "height": 66,
+          "rectangle": true
+        },
+        {
+          "id": 169,
+          "name": "cuadro3",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 948.513,
+          "y": 3075.84,
+          "width": 70,
+          "height": 66,
+          "rectangle": true
+        },
+        {
+          "id": 170,
+          "name": "cuadro4",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1020.85,
+          "y": 3075.18,
+          "width": 70,
+          "height": 66,
+          "rectangle": true
+        },
+        {
+          "id": 171,
+          "name": "cuadro5",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1092.68,
+          "y": 3075.18,
+          "width": 70,
+          "height": 66,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "Lamparas",
+      "objects": [
+        {
+          "id": 1390,
+          "name": "poste20",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1984,
+          "y": 2831.5,
+          "width": 48.125,
+          "height": 231,
+          "gid": 2912,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1391,
+          "name": "poste19",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2160.44,
+          "y": 2832,
+          "width": 48.125,
+          "height": 231,
+          "gid": 2912,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1392,
+          "name": "poste18",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1983.94,
+          "y": 3423.75,
+          "width": 48.125,
+          "height": 231,
+          "gid": 2912,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1393,
+          "name": "poste17",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2160.19,
+          "y": 3423.5,
+          "width": 48.125,
+          "height": 231,
+          "gid": 2912,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1396,
+          "name": "poste16",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1583.6,
+          "y": 2478.08,
+          "width": 48.125,
+          "height": 231,
+          "gid": 2912,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "arboles",
+      "objects": [
+        {
+          "id": 1718,
+          "name": "arbol_seco18",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3421.5,
+          "y": 1060.67,
+          "width": 192,
+          "height": 256,
+          "gid": 2927,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1719,
+          "name": "arbol_seco17",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2762.67,
+          "y": 1326.67,
+          "width": 192,
+          "height": 256,
+          "gid": 2927,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1721,
+          "name": "arbol_seco16",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 379.877,
+          "y": 2007.76,
+          "width": 192,
+          "height": 256,
+          "gid": 2927,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1723,
+          "name": "arbol_seco15",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3810,
+          "y": 1387.33,
+          "width": 192,
+          "height": 256,
+          "gid": 2927,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1724,
+          "name": "arbol_seco14",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3170,
+          "y": 2674,
+          "width": 192,
+          "height": 256,
+          "gid": 2927,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "Pinos",
+      "objects": [
+        {
+          "id": 1543,
+          "name": "pino45",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1994.73,
+          "y": 3887.47,
+          "width": 170.5,
+          "height": 254.078,
+          "gid": 2921,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1555,
+          "name": "pino44",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1588.08,
+          "y": 4444.29,
+          "width": 170.5,
+          "height": 254.078,
+          "gid": 2921,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1556,
+          "name": "pino43",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2129.66,
+          "y": 4306.78,
+          "width": 170.5,
+          "height": 254.078,
+          "gid": 2921,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1558,
+          "name": "pino42",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 260.204,
+          "y": 3954.78,
+          "width": 170.5,
+          "height": 254.078,
+          "gid": 2921,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1559,
+          "name": "pino41",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 229.902,
+          "y": 2948.72,
+          "width": 170.5,
+          "height": 254.078,
+          "gid": 2921,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "casa_comida",
+      "objects": [
+        {
+          "id": 2808,
+          "name": "casa_dos_pisos3",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2262,
+          "y": 3252,
+          "width": 366.987,
+          "height": 619.667,
+          "gid": 2930,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "casa_comida2",
+      "objects": [
+        {
+          "id": 2809,
+          "name": "casa_dos_pisos2",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2746,
+          "y": 3269,
+          "width": 366.987,
+          "height": 619.667,
+          "gid": 2930,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "casa_posiones",
+      "objects": [
+        {
+          "id": 2802,
+          "name": "casa_dos_pisos1",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2270.33,
+          "y": 1513.67,
+          "width": 366.197,
+          "height": 618.333,
+          "gid": 2930,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "cabaña",
+      "objects": [
+        {
+          "id": 2799,
+          "name": "casa_de_granja_cabaña_1",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 471,
+          "y": 485,
+          "width": 511,
+          "height": 394.773,
+          "gid": 2910,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "molino",
+      "objects": []
+    },
+    {
+      "name": "casa_tienda",
+      "objects": [
+        {
+          "id": 2806,
+          "name": "casa_tienda1",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1178.33,
+          "y": 1512.33,
+          "width": 751,
+          "height": 510.68,
+          "gid": 2925,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "centro_ect",
+      "objects": [
+        {
+          "id": 1443,
+          "name": "arbusto_flores_rosa_6",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2657,
+          "y": 2604.67,
+          "width": 78.5106,
+          "height": 82,
+          "gid": 2913,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1444,
+          "name": "arbusto_flores_blanca5",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2659,
+          "y": 1915.67,
+          "width": 77.5532,
+          "height": 81,
+          "gid": 2914,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1445,
+          "name": "flor_naranja18",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2318.83,
+          "y": 1873.5,
+          "width": 34,
+          "height": 32,
+          "gid": 2915,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1446,
+          "name": "flor_blanca19",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1860.33,
+          "y": 1883.33,
+          "width": 26,
+          "height": 27,
+          "gid": 2916,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1447,
+          "name": "arbusto_flores_blanca4",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1457.89,
+          "y": 2601.5,
+          "width": 77.5532,
+          "height": 81,
+          "gid": 2914,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "casa_herreria",
+      "objects": [
+        {
+          "id": 2805,
+          "name": "casa_de_herreria",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2976.67,
+          "y": 1994.67,
+          "width": 746,
+          "height": 720,
+          "gid": 2926,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "arbusto",
+      "objects": [
+        {
+          "id": 1607,
+          "name": "arbusto28",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1848.67,
+          "y": 4262,
+          "width": 110.847,
+          "height": 145.333,
+          "gid": 2922,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1608,
+          "name": "arbusto27",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2579.24,
+          "y": 4016.67,
+          "width": 110.847,
+          "height": 145.333,
+          "gid": 2922,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1609,
+          "name": "arbusto26",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1320.97,
+          "y": 4901.58,
+          "width": 110.847,
+          "height": 145.333,
+          "gid": 2922,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1610,
+          "name": "arbusto25",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1290.21,
+          "y": 4394.67,
+          "width": 110.847,
+          "height": 145.333,
+          "gid": 2922,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 1611,
+          "name": "arbusto24",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 705.183,
+          "y": 4702.85,
+          "width": 110.847,
+          "height": 145.333,
+          "gid": 2922,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "tronco",
+      "objects": [
+        {
+          "id": 2555,
+          "name": "tronco_a1",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 73.6515,
+          "y": 2819.86,
+          "width": 72.3333,
+          "height": 46.213,
+          "gid": 2944,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2556,
+          "name": "tronco_a2",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 242.985,
+          "y": 4223.68,
+          "width": 72.3333,
+          "height": 46.213,
+          "gid": 2944,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2557,
+          "name": "tronco_a3",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2422.86,
+          "y": 4961.44,
+          "width": 72.3333,
+          "height": 46.213,
+          "gid": 2944,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2558,
+          "name": "tronco_a4",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2801.53,
+          "y": 4284.01,
+          "width": 72.3333,
+          "height": 46.213,
+          "gid": 2944,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2559,
+          "name": "tronco_a5",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3213.38,
+          "y": 2776.92,
+          "width": 72.3333,
+          "height": 46.213,
+          "gid": 2944,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "casa_npc",
+      "objects": [
+        {
+          "id": 2800,
+          "name": "casa_npc1",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1288,
+          "y": 634.333,
+          "width": 366.821,
+          "height": 447,
+          "gid": 2929,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2801,
+          "name": "casa_npc2",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1778,
+          "y": 628.667,
+          "width": 366.821,
+          "height": 447,
+          "gid": 2929,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        },
+        {
+          "id": 2807,
+          "name": "casa_L",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1231.67,
+          "y": 3273,
+          "width": 711,
+          "height": 510.718,
+          "gid": 2928,
+          "flippedHorizontal": false,
+          "flippedVertical": false,
+          "flippedAntiDiagonal": false
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_horno",
+      "objects": [
+        {
+          "id": 2503,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3269.27,
+          "y": 3131.61,
+          "width": 94.583,
+          "height": 40.9507,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_carbon2",
+      "objects": [
+        {
+          "id": 2479,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 4142.8,
+          "y": 2510.79,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_carbon1",
+      "objects": [
+        {
+          "id": 2510,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 299.424,
+          "y": 1409.03,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_piedra5",
+      "objects": [
+        {
+          "id": 2509,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 430.924,
+          "y": 4872.16,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_piedra4",
+      "objects": [
+        {
+          "id": 2482,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3568.26,
+          "y": 3567.94,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_piedra3",
+      "objects": [
+        {
+          "id": 2481,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2401.5,
+          "y": 4243.86,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_piedra2",
+      "objects": [
+        {
+          "id": 2480,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1320.13,
+          "y": 3946.29,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_piedra1",
+      "objects": [
+        {
+          "id": 2483,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3852.15,
+          "y": 1450.35,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_cobre1",
+      "objects": [
+        {
+          "id": 2484,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3619.4,
+          "y": 120.19,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_cobre2",
+      "objects": [
+        {
+          "id": 2485,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3721.61,
+          "y": 3124.62,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_cobre3",
+      "objects": [
+        {
+          "id": 2486,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3096.02,
+          "y": 4832.11,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_cobre4",
+      "objects": [
+        {
+          "id": 2487,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 71.0113,
+          "y": 3760.27,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_hierro3",
+      "objects": [
+        {
+          "id": 2488,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 457.386,
+          "y": 2742.94,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_hierro2",
+      "objects": [
+        {
+          "id": 2489,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2032.87,
+          "y": 4458.06,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_roca_hierro1",
+      "objects": [
+        {
+          "id": 2490,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 4115.98,
+          "y": 3122.85,
+          "width": 61.5603,
+          "height": 5.60979,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto1",
+      "objects": [
+        {
+          "id": 2234,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3086.72,
+          "y": 3651.86,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto2",
+      "objects": [
+        {
+          "id": 2233,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2404.58,
+          "y": 4573.27,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto3",
+      "objects": [
+        {
+          "id": 2252,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3999.9,
+          "y": 1894.79,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto4",
+      "objects": [
+        {
+          "id": 2245,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3911.25,
+          "y": 875.52,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto5",
+      "objects": [
+        {
+          "id": 2235,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3097.4,
+          "y": 4226.53,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto6",
+      "objects": [
+        {
+          "id": 2240,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3474.1,
+          "y": 3801.52,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto7",
+      "objects": [
+        {
+          "id": 2241,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3432.52,
+          "y": 3100.11,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto8",
+      "objects": [
+        {
+          "id": 2242,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 4080.52,
+          "y": 2887.61,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto9",
+      "objects": [
+        {
+          "id": 2244,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3729.42,
+          "y": 2418.36,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto10",
+      "objects": [
+        {
+          "id": 2246,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3371.79,
+          "y": 1213.77,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto11",
+      "objects": [
+        {
+          "id": 2248,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3117.46,
+          "y": 753.896,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto12",
+      "objects": [
+        {
+          "id": 2250,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1096.91,
+          "y": 109.65,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto13",
+      "objects": [
+        {
+          "id": 2251,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 4027.46,
+          "y": 517.118,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto14",
+      "objects": [
+        {
+          "id": 2247,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2562.84,
+          "y": 345.63,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto15",
+      "objects": [
+        {
+          "id": 2253,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 143.583,
+          "y": 1957.29,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto16",
+      "objects": [
+        {
+          "id": 2249,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 943.416,
+          "y": 503.4,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto17",
+      "objects": [
+        {
+          "id": 2255,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 206.705,
+          "y": 1069.52,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto18",
+      "objects": [
+        {
+          "id": 2254,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 662.644,
+          "y": 1418.22,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto19",
+      "objects": [
+        {
+          "id": 2256,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 499.772,
+          "y": 2466.06,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto20",
+      "objects": [
+        {
+          "id": 2257,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 908.231,
+          "y": 2696.72,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto21",
+      "objects": [
+        {
+          "id": 2259,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 764.788,
+          "y": 3879.12,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto22",
+      "objects": [
+        {
+          "id": 2258,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 198.697,
+          "y": 3461.4,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto23",
+      "objects": [
+        {
+          "id": 2238,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 150.536,
+          "y": 4713.56,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto24",
+      "objects": [
+        {
+          "id": 2237,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 705,
+          "y": 4557.46,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto25",
+      "objects": [
+        {
+          "id": 2239,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1290.08,
+          "y": 4249.25,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto26",
+      "objects": [
+        {
+          "id": 2236,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1321.09,
+          "y": 4756.18,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto27",
+      "objects": [
+        {
+          "id": 2232,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2579.08,
+          "y": 3871.4,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbusto28",
+      "objects": [
+        {
+          "id": 1145,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1848.58,
+          "y": 4116.56,
+          "width": 110.833,
+          "height": 56.7007,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx1",
+      "objects": [
+        {
+          "id": 2266,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3017.54,
+          "y": 3272.27,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx2",
+      "objects": [
+        {
+          "id": 2272,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1081.57,
+          "y": 1505.09,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx3",
+      "objects": [
+        {
+          "id": 2271,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1286.11,
+          "y": 1505.18,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx4",
+      "objects": [
+        {
+          "id": 2270,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1623.92,
+          "y": 1504.9,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx5",
+      "objects": [
+        {
+          "id": 2267,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3217.13,
+          "y": 1989.32,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx6",
+      "objects": [
+        {
+          "id": 2269,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2530.77,
+          "y": 1504.87,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx7",
+      "objects": [
+        {
+          "id": 2278,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2461.7,
+          "y": 1843.8,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx8",
+      "objects": [
+        {
+          "id": 2273,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2035.57,
+          "y": 628.091,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx9",
+      "objects": [
+        {
+          "id": 2274,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1188.57,
+          "y": 630.091,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx10",
+      "objects": [
+        {
+          "id": 2260,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1650.45,
+          "y": 3276.52,
+          "width": 194.5,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx11",
+      "objects": [
+        {
+          "id": 2263,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2593.2,
+          "y": 3271.27,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx12",
+      "objects": [
+        {
+          "id": 2275,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1534.57,
+          "y": 1847.09,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx13",
+      "objects": [
+        {
+          "id": 2279,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2462.57,
+          "y": 2439.09,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx14",
+      "objects": [
+        {
+          "id": 2282,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1535.57,
+          "y": 2445.09,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx15",
+      "objects": [
+        {
+          "id": 2277,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2256.07,
+          "y": 1844.09,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx16",
+      "objects": [
+        {
+          "id": 2276,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1738.44,
+          "y": 1847.09,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx17",
+      "objects": [
+        {
+          "id": 2280,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2258.57,
+          "y": 2439.09,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx18",
+      "objects": [
+        {
+          "id": 2281,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1737.57,
+          "y": 2444.09,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_centralx19",
+      "objects": [
+        {
+          "id": 2813,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3529.02,
+          "y": 1991.27,
+          "width": 195.062,
+          "height": 15.7159,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbustoflores_rosa1",
+      "objects": [
+        {
+          "id": 2294,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2958.77,
+          "y": 2000.36,
+          "width": 77.812,
+          "height": 10.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbustoflores_rosa2",
+      "objects": [
+        {
+          "id": 2289,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1307.83,
+          "y": 3278.45,
+          "width": 77.812,
+          "height": 10.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbustoflores_rosa3",
+      "objects": [
+        {
+          "id": 2291,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2276.83,
+          "y": 1521.45,
+          "width": 77.812,
+          "height": 10.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbustoflores_rosa4",
+      "objects": [
+        {
+          "id": 2292,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1774.83,
+          "y": 634.454,
+          "width": 78.187,
+          "height": 9.73863,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbustoflores_rosa5",
+      "objects": [
+        {
+          "id": 2285,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1458.16,
+          "y": 1805.45,
+          "width": 77.812,
+          "height": 10.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbustoflores_rosa6",
+      "objects": [
+        {
+          "id": 2287,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2656.71,
+          "y": 2494.57,
+          "width": 78.562,
+          "height": 10.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbustoflores_blanca1",
+      "objects": [
+        {
+          "id": 2288,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2271.86,
+          "y": 3281.45,
+          "width": 77.4484,
+          "height": 10.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbustoflores_blanca2",
+      "objects": [
+        {
+          "id": 2293,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1570.83,
+          "y": 635.454,
+          "width": 77.812,
+          "height": 10.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbustoflores_blanca3",
+      "objects": [
+        {
+          "id": 2290,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1846.83,
+          "y": 1519.45,
+          "width": 77.2665,
+          "height": 10.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbustoflores_blanca4",
+      "objects": [
+        {
+          "id": 2283,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1457.76,
+          "y": 2491.05,
+          "width": 77.812,
+          "height": 10.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbustoflores_blanca5",
+      "objects": [
+        {
+          "id": 2286,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2659.62,
+          "y": 1806.49,
+          "width": 77.812,
+          "height": 10.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbolflores1",
+      "objects": [
+        {
+          "id": 2318,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1459.72,
+          "y": 1954.84,
+          "width": 60.1453,
+          "height": 67.7386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbolflores2",
+      "objects": [
+        {
+          "id": 2319,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2670.84,
+          "y": 2190.84,
+          "width": 60.1453,
+          "height": 69.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbolflores3",
+      "objects": [
+        {
+          "id": 2298,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1939.01,
+          "y": 2375.42,
+          "width": 60.1453,
+          "height": 71.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbolflores4",
+      "objects": [
+        {
+          "id": 2317,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2190.81,
+          "y": 1791.53,
+          "width": 60.1453,
+          "height": 70.2386,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbolbajo1",
+      "objects": [
+        {
+          "id": 2323,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1464.15,
+          "y": 2185.4,
+          "width": 60.9938,
+          "height": 71.5947,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbolbajo2",
+      "objects": [
+        {
+          "id": 2321,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2672.41,
+          "y": 1955.4,
+          "width": 60.9938,
+          "height": 70.0947,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbolbajo3",
+      "objects": [
+        {
+          "id": 2299,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2193.01,
+          "y": 2371.76,
+          "width": 60.9938,
+          "height": 73.5947,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbolbajo4",
+      "objects": [
+        {
+          "id": 2322,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1938.78,
+          "y": 1790.61,
+          "width": 60.9938,
+          "height": 76.5947,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_central1",
+      "objects": [
+        {
+          "id": 2341,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1187.65,
+          "y": 461.884,
+          "width": 52.4483,
+          "height": 25.7311,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_central2",
+      "objects": [
+        {
+          "id": 2340,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2183.65,
+          "y": 461.884,
+          "width": 52.3233,
+          "height": 25.7311,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_central3",
+      "objects": [
+        {
+          "id": 2342,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3159.75,
+          "y": 3111.65,
+          "width": 52.4483,
+          "height": 25.7311,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_central4",
+      "objects": [
+        {
+          "id": 2343,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3765.34,
+          "y": 1827.63,
+          "width": 52.1983,
+          "height": 25.7311,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_central5",
+      "objects": [
+        {
+          "id": 2403,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1077.32,
+          "y": 1349.37,
+          "width": 52.3233,
+          "height": 25.7311,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_central6",
+      "objects": [
+        {
+          "id": 2339,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2676.78,
+          "y": 1340.83,
+          "width": 52.1756,
+          "height": 25.7311,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_central7",
+      "objects": [
+        {
+          "id": 2333,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2612.03,
+          "y": 1942.6,
+          "width": 52.4483,
+          "height": 25.7311,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_central8",
+      "objects": [
+        {
+          "id": 2338,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1527.53,
+          "y": 1942.51,
+          "width": 52.4483,
+          "height": 25.7311,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_central9",
+      "objects": [
+        {
+          "id": 2337,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1527.5,
+          "y": 2294.19,
+          "width": 52.4483,
+          "height": 25.7311,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_central10",
+      "objects": [
+        {
+          "id": 2334,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2610.08,
+          "y": 2288.08,
+          "width": 52.1358,
+          "height": 25.7311,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_npc1x",
+      "objects": [
+        {
+          "id": 2494,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1494.44,
+          "y": 3284.02,
+          "width": 56.6966,
+          "height": 10.9507,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_npc2x",
+      "objects": [
+        {
+          "id": 2495,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2255.86,
+          "y": 2274.02,
+          "width": 56.6966,
+          "height": 10.9507,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_npc3x",
+      "objects": [
+        {
+          "id": 2496,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3147.13,
+          "y": 2008.41,
+          "width": 45.7875,
+          "height": 10.9507,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_npc4x",
+      "objects": [
+        {
+          "id": 2497,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2455.95,
+          "y": 1528.96,
+          "width": 49.0603,
+          "height": 10.9507,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_npc5x",
+      "objects": [
+        {
+          "id": 2498,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2856.12,
+          "y": 802.001,
+          "width": 50.8103,
+          "height": 10.9507,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_barril2",
+      "objects": [
+        {
+          "id": 2382,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1880.3,
+          "y": 3169.99,
+          "width": 61.9583,
+          "height": 8.4583,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_barril1",
+      "objects": [
+        {
+          "id": 390,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1681.22,
+          "y": 637.424,
+          "width": 61.7083,
+          "height": 11.2083,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_cartelera",
+      "objects": [
+        {
+          "id": 389,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2776.39,
+          "y": 1525.09,
+          "width": 125.833,
+          "height": 13.8333,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_c_npc2",
+      "objects": [
+        {
+          "id": 38,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1776.33,
+          "y": 181.417,
+          "width": 372,
+          "height": 317.788,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_casa_npc1x",
+      "objects": [
+        {
+          "id": 2491,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1287.38,
+          "y": 183.941,
+          "width": 368.833,
+          "height": 323.701,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_casa_L",
+      "objects": [
+        {
+          "id": 36,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1230.34,
+          "y": 2761,
+          "width": 712.546,
+          "height": 269,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_molino",
+      "objects": []
+    },
+    {
+      "name": "area_transparencia_cabaña",
+      "objects": [
+        {
+          "id": 1363,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 470.36,
+          "y": 91.3332,
+          "width": 512.584,
+          "height": 262.334,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_comida",
+      "objects": [
+        {
+          "id": 41,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2260.45,
+          "y": 2629.33,
+          "width": 368.878,
+          "height": 402.209,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_comida2",
+      "objects": [
+        {
+          "id": 1783,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2743.33,
+          "y": 2645.83,
+          "width": 371.333,
+          "height": 401.876,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_posiones",
+      "objects": [
+        {
+          "id": 27,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2268.15,
+          "y": 891.334,
+          "width": 370.849,
+          "height": 401.322,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_herreria",
+      "objects": [
+        {
+          "id": 17,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2972.33,
+          "y": 1275,
+          "width": 325.25,
+          "height": 458.667,
+          "rectangle": true
+        },
+        {
+          "id": 1777,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3270.42,
+          "y": 1583.17,
+          "width": 453,
+          "height": 222.667,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_tienda",
+      "objects": [
+        {
+          "id": 4,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1175.16,
+          "y": 999.97,
+          "width": 756.667,
+          "height": 268.356,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_entrada_batalla",
+      "objects": [
+        {
+          "id": 11,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2750.92,
+          "y": -0.5,
+          "width": 162,
+          "height": 91.5,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_entrada_tienda",
+      "objects": [
+        {
+          "id": 2676,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1518.75,
+          "y": 1395.5,
+          "width": 69,
+          "height": 87,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_colision_general",
+      "objects": [
+        {
+          "id": 7,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1378.75,
+          "y": 1386.33,
+          "width": 139.75,
+          "height": 110.5,
+          "rectangle": true
+        },
+        {
+          "id": 8,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1587.5,
+          "y": 1387.83,
+          "width": 139.455,
+          "height": 111,
+          "rectangle": true
+        },
+        {
+          "id": 10,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1380,
+          "y": 1199.33,
+          "width": 342.5,
+          "height": 188,
+          "rectangle": true
+        },
+        {
+          "id": 28,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2280.66,
+          "y": 1318,
+          "width": 343.666,
+          "height": 181,
+          "rectangle": true
+        },
+        {
+          "id": 33,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1298.83,
+          "y": 2940.83,
+          "width": 373.833,
+          "height": 315.167,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_fuente1",
+      "objects": [
+        {
+          "id": 357,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2033.37,
+          "y": 2087.93,
+          "width": 125.333,
+          "height": 66.9167,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pozo1",
+      "objects": [
+        {
+          "id": 2430,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2327.58,
+          "y": 534.785,
+          "width": 151.75,
+          "height": 93.75,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos1",
+      "objects": [
+        {
+          "id": 2192,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2220.57,
+          "y": 4571.77,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos2",
+      "objects": [
+        {
+          "id": 2206,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 59.8079,
+          "y": 2960.78,
+          "width": 170.167,
+          "height": 164.197,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos3",
+      "objects": [
+        {
+          "id": 2207,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 609.308,
+          "y": 3588.64,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos4",
+      "objects": [
+        {
+          "id": 328,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 10.3557,
+          "y": 4100.22,
+          "width": 170,
+          "height": 163.666,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos5",
+      "objects": [
+        {
+          "id": 2203,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2895.79,
+          "y": 68.872,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos6",
+      "objects": [
+        {
+          "id": 2200,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3840.78,
+          "y": 2939.56,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos7",
+      "objects": [
+        {
+          "id": 2195,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2872.72,
+          "y": 3962.21,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos8",
+      "objects": [
+        {
+          "id": 319,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3402.62,
+          "y": 2467.41,
+          "width": 171,
+          "height": 163,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos9",
+      "objects": [
+        {
+          "id": 2198,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2928.5,
+          "y": 2290.87,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos10",
+      "objects": [
+        {
+          "id": 2190,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1648.85,
+          "y": 3825.86,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos11",
+      "objects": [
+        {
+          "id": 2202,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3024.93,
+          "y": 972.806,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos12",
+      "objects": [
+        {
+          "id": 2191,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 944.103,
+          "y": 4689.38,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos13",
+      "objects": [
+        {
+          "id": 2193,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2676.81,
+          "y": 4736.9,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos14",
+      "objects": [
+        {
+          "id": 318,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3656.95,
+          "y": 524.907,
+          "width": 170.667,
+          "height": 163.333,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos15",
+      "objects": [
+        {
+          "id": 2205,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2545.81,
+          "y": 21.8894,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos16",
+      "objects": [
+        {
+          "id": 325,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 633.273,
+          "y": 2602.14,
+          "width": 170.5,
+          "height": 163.666,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos17",
+      "objects": [
+        {
+          "id": 271,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1448.81,
+          "y": 3688.87,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos18",
+      "objects": [
+        {
+          "id": 2197,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3199.58,
+          "y": 2855.23,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos19",
+      "objects": [
+        {
+          "id": 2204,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3188.95,
+          "y": 109.827,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos20",
+      "objects": [
+        {
+          "id": 313,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 650.318,
+          "y": 2252.66,
+          "width": 170,
+          "height": 163.083,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos21",
+      "objects": [
+        {
+          "id": 2201,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3926.82,
+          "y": 2410.78,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos22",
+      "objects": [
+        {
+          "id": 2196,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3265.57,
+          "y": 4079.83,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos23",
+      "objects": [
+        {
+          "id": 2194,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2551.93,
+          "y": 4080.16,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos24",
+      "objects": [
+        {
+          "id": 311,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 61.0985,
+          "y": 633.212,
+          "width": 169.75,
+          "height": 163.795,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos25",
+      "objects": [
+        {
+          "id": 312,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 77.0143,
+          "y": 1311.32,
+          "width": 170.083,
+          "height": 163.587,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos26",
+      "objects": [
+        {
+          "id": 310,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1064.02,
+          "y": 1687.21,
+          "width": 170.667,
+          "height": 164.041,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos27",
+      "objects": [
+        {
+          "id": 327,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 859.273,
+          "y": 4257.14,
+          "width": 169.75,
+          "height": 164.242,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos28",
+      "objects": [
+        {
+          "id": 324,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2749.11,
+          "y": 3647.63,
+          "width": 169.833,
+          "height": 163.5,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos29",
+      "objects": [
+        {
+          "id": 321,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3102.27,
+          "y": 4453.14,
+          "width": 170,
+          "height": 164.333,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos30",
+      "objects": [
+        {
+          "id": 314,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2205.66,
+          "y": 71.1822,
+          "width": 170.273,
+          "height": 163.447,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos31",
+      "objects": [
+        {
+          "id": 315,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3406.31,
+          "y": 7.98533,
+          "width": 170.25,
+          "height": 164.583,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos32",
+      "objects": [
+        {
+          "id": 330,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 994.061,
+          "y": 3514.27,
+          "width": 170,
+          "height": 164.03,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos33",
+      "objects": [
+        {
+          "id": 308,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3889.67,
+          "y": 1564.33,
+          "width": 170,
+          "height": 163.333,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos34",
+      "objects": [
+        {
+          "id": 307,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 836.633,
+          "y": 1808.92,
+          "width": 169.917,
+          "height": 164.25,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos35",
+      "objects": [
+        {
+          "id": 306,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3629.5,
+          "y": 3711.41,
+          "width": 164,
+          "height": 164.25,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos36",
+      "objects": [
+        {
+          "id": 316,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 4093.56,
+          "y": -9.51533,
+          "width": 169.667,
+          "height": 163.757,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos37",
+      "objects": [
+        {
+          "id": 317,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3556.59,
+          "y": 1217.35,
+          "width": 170.25,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos38",
+      "objects": [
+        {
+          "id": 2199,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3651.35,
+          "y": 2791.5,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos39",
+      "objects": [
+        {
+          "id": 320,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3629.94,
+          "y": 3290.47,
+          "width": 170.333,
+          "height": 164,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos40",
+      "objects": [
+        {
+          "id": 326,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 336.849,
+          "y": 3160.95,
+          "width": 169.818,
+          "height": 164.394,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos41",
+      "objects": [
+        {
+          "id": 309,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 230,
+          "y": 2695.17,
+          "width": 170.5,
+          "height": 163.333,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos42",
+      "objects": [
+        {
+          "id": 329,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 260.022,
+          "y": 3700.72,
+          "width": 170.667,
+          "height": 163.333,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos43",
+      "objects": [
+        {
+          "id": 322,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2129.27,
+          "y": 4052.97,
+          "width": 170.667,
+          "height": 163.333,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos44",
+      "objects": [
+        {
+          "id": 2189,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1588.02,
+          "y": 4190.2,
+          "width": 170.167,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_pinos45",
+      "objects": [
+        {
+          "id": 323,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1993.94,
+          "y": 3633.47,
+          "width": 170.833,
+          "height": 163.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_1",
+      "objects": [
+        {
+          "id": 1767,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1231.47,
+          "y": 2152.02,
+          "width": 48.0692,
+          "height": 118.704,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_2",
+      "objects": [
+        {
+          "id": 1768,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1230.97,
+          "y": 1880.35,
+          "width": 48.0692,
+          "height": 118.878,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_3",
+      "objects": [
+        {
+          "id": 2390,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2160.3,
+          "y": 840.778,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_4",
+      "objects": [
+        {
+          "id": 1796,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1983.3,
+          "y": 840.112,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_5",
+      "objects": [
+        {
+          "id": 1769,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2159.97,
+          "y": 1431.78,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_6",
+      "objects": [
+        {
+          "id": 1770,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1982.63,
+          "y": 1432.15,
+          "width": 48.0692,
+          "height": 118.068,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_7",
+      "objects": [
+        {
+          "id": 1793,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3935.97,
+          "y": 2136.78,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_8",
+      "objects": [
+        {
+          "id": 2396,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1688.5,
+          "y": 404.278,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_9",
+      "objects": [
+        {
+          "id": 1773,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2663.42,
+          "y": 3048.86,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_10",
+      "objects": [
+        {
+          "id": 1766,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2688.97,
+          "y": 406.278,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_11",
+      "objects": [
+        {
+          "id": 1765,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2926.3,
+          "y": 405.778,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_12",
+      "objects": [
+        {
+          "id": 1762,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1022.97,
+          "y": 711.278,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_13",
+      "objects": [
+        {
+          "id": 1761,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1261.97,
+          "y": 3415.45,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_14",
+      "objects": [
+        {
+          "id": 1759,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3231.22,
+          "y": 3415.76,
+          "width": 48.0692,
+          "height": 118.716,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_15",
+      "objects": [
+        {
+          "id": 1794,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2560.33,
+          "y": 2247.51,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_16",
+      "objects": [
+        {
+          "id": 1795,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1584.3,
+          "y": 2247.01,
+          "width": 48.0692,
+          "height": 117.88,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_17",
+      "objects": [
+        {
+          "id": 1763,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2159.47,
+          "y": 3192.78,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_18",
+      "objects": [
+        {
+          "id": 1764,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1982.97,
+          "y": 3192.78,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_19",
+      "objects": [
+        {
+          "id": 1771,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2159.47,
+          "y": 2601.28,
+          "width": 48.0692,
+          "height": 118.443,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_poste_20",
+      "objects": [
+        {
+          "id": 1772,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1983.47,
+          "y": 2600.23,
+          "width": 48.0692,
+          "height": 117.988,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol1",
+      "objects": [
+        {
+          "id": 109,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3382.73,
+          "y": 3298.4,
+          "width": 191.833,
+          "height": 161.833,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol2",
+      "objects": [
+        {
+          "id": 104,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 119.758,
+          "y": 2346.62,
+          "width": 192.666,
+          "height": 162.167,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol3",
+      "objects": [
+        {
+          "id": 102,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 396.073,
+          "y": 4539.95,
+          "width": 191.75,
+          "height": 161.083,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol4",
+      "objects": [
+        {
+          "id": 101,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 4126.06,
+          "y": 263.333,
+          "width": 192.166,
+          "height": 161.917,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol5",
+      "objects": [
+        {
+          "id": 108,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3214.48,
+          "y": 3732.15,
+          "width": 191.333,
+          "height": 161.379,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol6",
+      "objects": [
+        {
+          "id": 111,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 748.397,
+          "y": 1059.13,
+          "width": 192.083,
+          "height": 161.75,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol7",
+      "objects": [
+        {
+          "id": 100,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3687.61,
+          "y": 226.955,
+          "width": 192.075,
+          "height": 161.583,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol8",
+      "objects": [
+        {
+          "id": 96,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 988.833,
+          "y": 2326.66,
+          "width": 191.5,
+          "height": 162,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol9",
+      "objects": [
+        {
+          "id": 103,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 536.167,
+          "y": 3241.5,
+          "width": 191.583,
+          "height": 161.852,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol10",
+      "objects": [
+        {
+          "id": 106,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1031.15,
+          "y": 3817.76,
+          "width": 191.666,
+          "height": 161.644,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol11",
+      "objects": [
+        {
+          "id": 105,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 1815.53,
+          "y": 4690.96,
+          "width": 192.083,
+          "height": 161.25,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol12",
+      "objects": [
+        {
+          "id": 107,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2452.65,
+          "y": 3564.15,
+          "width": 191.666,
+          "height": 161.682,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol13",
+      "objects": [
+        {
+          "id": 98,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3412.48,
+          "y": 2787.36,
+          "width": 191,
+          "height": 161.295,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol14",
+      "objects": [
+        {
+          "id": 110,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3169.73,
+          "y": 2417.48,
+          "width": 192.083,
+          "height": 161.826,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol15",
+      "objects": [
+        {
+          "id": 97,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3809.65,
+          "y": 1130.69,
+          "width": 192.333,
+          "height": 162.212,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol16",
+      "objects": [
+        {
+          "id": 93,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 380.037,
+          "y": 1752.13,
+          "width": 191.833,
+          "height": 161.5,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol17",
+      "objects": [
+        {
+          "id": 99,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 2762.65,
+          "y": 1070.86,
+          "width": 191.833,
+          "height": 161.542,
+          "rectangle": true
+        }
+      ]
+    },
+    {
+      "name": "area_transparencia_arbol18",
+      "objects": [
+        {
+          "id": 94,
+          "name": "",
+          "type": "",
+          "rotation": 0,
+          "visible": true,
+          "x": 3421.5,
+          "y": 804.417,
+          "width": 191.583,
+          "height": 161.917,
+          "rectangle": true
+        }
+      ]
+    }
+  ],
+  "plots": [
+    {
+      "id": "cuadro1",
+      "x": 1055.1,
+      "y": 3176.1,
+      "w": 70,
+      "h": 66
+    },
+    {
+      "id": "cuadro2",
+      "x": 983.853,
+      "y": 3177.18,
+      "w": 70,
+      "h": 66
+    },
+    {
+      "id": "cuadro3",
+      "x": 983.513,
+      "y": 3108.84,
+      "w": 70,
+      "h": 66
+    },
+    {
+      "id": "cuadro4",
+      "x": 1055.85,
+      "y": 3108.18,
+      "w": 70,
+      "h": 66
+    },
+    {
+      "id": "cuadro5",
+      "x": 1127.68,
+      "y": 3108.18,
+      "w": 70,
+      "h": 66
+    },
+    {
+      "id": "cuadro6",
+      "x": 1127.18,
+      "y": 3176.93,
+      "w": 70,
+      "h": 66
+    },
+    {
+      "id": "cuadro7",
+      "x": 910.683,
+      "y": 3108.18,
+      "w": 70,
+      "h": 66
+    },
+    {
+      "id": "cuadro8",
+      "x": 911.183,
+      "y": 3177.18,
+      "w": 70,
+      "h": 66
+    }
+  ],
+  "sprites": [
+    {
+      "key": "tile_hd_r1_c1",
+      "x": 2048,
+      "y": 2048,
+      "w": 2049,
+      "h": 2049,
+      "data": {}
+    },
+    {
+      "key": "__MISSING",
+      "x": 100,
+      "y": 100,
+      "w": 32,
+      "h": 32,
+      "data": {}
+    },
+    {
+      "key": "c7572782-e53f-48d3-a05b-f653a5e142c5",
+      "x": 20,
+      "y": 20,
+      "w": 90,
+      "h": 15,
+      "data": {}
+    },
+    {
+      "key": "b471b99d-44b3-4486-abee-c7483a983eae",
+      "x": 20,
+      "y": 40,
+      "w": 90,
+      "h": 15,
+      "data": {}
+    },
+    {
+      "key": "289d04a9-1db4-438b-8d4b-b52d4b8026fd",
+      "x": 20,
+      "y": 60,
+      "w": 110,
+      "h": 15,
+      "data": {}
+    },
+    {
+      "key": "gallo_2",
+      "x": 1930,
+      "y": 3371,
+      "w": 45,
+      "h": 45,
+      "data": {}
+    },
+    {
+      "key": "__MISSING",
+      "x": 32,
+      "y": 32,
+      "w": 32,
+      "h": 32,
+      "data": {}
+    },
+    {
+      "key": "__MISSING",
+      "x": 4976,
+      "y": 32,
+      "w": 32,
+      "h": 32,
+      "data": {}
+    },
+    {
+      "key": "__MISSING",
+      "x": 32,
+      "y": 4976,
+      "w": 32,
+      "h": 32,
+      "data": {}
+    },
+    {
+      "key": "__MISSING",
+      "x": 4976,
+      "y": 4976,
+      "w": 32,
+      "h": 32,
+      "data": {}
+    },
+    {
+      "key": "tierra_seca",
+      "x": 1055.1,
+      "y": 3176.1,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 983.853,
+      "y": 3177.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 983.513,
+      "y": 3108.84,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 1055.85,
+      "y": 3108.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 1127.68,
+      "y": 3108.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 1127.18,
+      "y": 3176.93,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 910.683,
+      "y": 3108.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 911.183,
+      "y": 3177.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 1128.18,
+      "y": 3040.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 1056.1799999999998,
+      "y": 3040.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 983.683,
+      "y": 3039.68,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 910.683,
+      "y": 3039.68,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 837.68,
+      "y": 3176.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 837.18,
+      "y": 3107.68,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 837.68,
+      "y": 3039.68,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 1128.18,
+      "y": 2971.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 1056.1799999999998,
+      "y": 2971.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 983.513,
+      "y": 2971.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 911.183,
+      "y": 2971.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 838.51,
+      "y": 2972.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 766.512,
+      "y": 2971.51,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 766.222,
+      "y": 3040.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 765.182,
+      "y": 3108.18,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "tierra_seca",
+      "x": 765.852,
+      "y": 3175.85,
+      "w": 70,
+      "h": 66,
+      "data": {
+        "optimized": true,
+        "gfSuelo": true
+      }
+    },
+    {
+      "key": "gfa_pez_sombra",
+      "x": 4677.530949596441,
+      "y": 2738.456292219458,
+      "w": 28.6,
+      "h": 11,
+      "data": {}
+    },
+    {
+      "key": "gfa_pez_sombra",
+      "x": 4174.993941618463,
+      "y": 4277.03785261296,
+      "w": 28.6,
+      "h": 11,
+      "data": {}
+    },
+    {
+      "key": "gfa_pez_sombra",
+      "x": 4722.578297582383,
+      "y": 834.8921999736581,
+      "w": 28.6,
+      "h": 11,
+      "data": {}
+    },
+    {
+      "key": "gfa_pez_sombra",
+      "x": 4452.645011785543,
+      "y": 1813.2858763410804,
+      "w": 28.6,
+      "h": 11,
+      "data": {}
+    },
+    {
+      "key": "gfa_pez_sombra",
+      "x": 4231.170558703477,
+      "y": 3874.3676837878515,
+      "w": 28.6,
+      "h": 11,
+      "data": {}
+    },
+    {
+      "key": "gfa_pez_sombra",
+      "x": 4165.468111257842,
+      "y": 3741.314580099948,
+      "w": 28.6,
+      "h": 11,
+      "data": {}
+    },
+    {
+      "key": "gfa_pez_sombra",
+      "x": 4411.157441335557,
+      "y": 3730.6764328073505,
+      "w": 28.6,
+      "h": 11,
+      "data": {}
+    },
+    {
+      "key": "gfa_pez_sombra",
+      "x": 4369.381995436028,
+      "y": 1345.1886440680248,
+      "w": 28.6,
+      "h": 11,
+      "data": {}
+    },
+    {
+      "key": "gfa_pez_sombra",
+      "x": 4093.542060429316,
+      "y": 3774.7797604230927,
+      "w": 28.6,
+      "h": 11,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4710.129803197458,
+      "y": 3223.172047995031,
+      "w": 79.36,
+      "h": 19.599999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4602.937219684944,
+      "y": 73.13996725156903,
+      "w": 56.31999999999999,
+      "h": 19.599999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4518.23577763699,
+      "y": 1803.737784050405,
+      "w": 67.84,
+      "h": 19.599999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 3716.178476465866,
+      "y": 4810.490990731865,
+      "w": 67.84,
+      "h": 19.599999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4665.98588529788,
+      "y": 877.0698753371835,
+      "w": 79.36,
+      "h": 19.599999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4084.5542581155896,
+      "y": 3608.045529987663,
+      "w": 67.84,
+      "h": 19.599999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4619.828687589616,
+      "y": 3737.370117003098,
+      "w": 67.84,
+      "h": 19.599999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4171.786900702864,
+      "y": 3863.4099346306175,
+      "w": 67.84,
+      "h": 19.599999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4584.8028818089515,
+      "y": 422.58954819478095,
+      "w": 56.31999999999999,
+      "h": 19.599999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4453.131308462471,
+      "y": 1469.019639549777,
+      "w": 67.84,
+      "h": 19.599999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4265.526610646397,
+      "y": 3608.6400006189942,
+      "w": 32.98859999254346,
+      "h": 21.992399995028975,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4232.272588150576,
+      "y": 3616.639749007765,
+      "w": 35.973160141892734,
+      "h": 23.98210676126182,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4337.50367821008,
+      "y": 1764.1080952449702,
+      "w": 30.663972330372783,
+      "h": 20.442648220248522,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4343.256330925971,
+      "y": 1773.5860928283073,
+      "w": 30.398804142326117,
+      "h": 20.265869428217414,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4335.357266951352,
+      "y": 1769.7764185993,
+      "w": 38.46228094222024,
+      "h": 25.641520628146825,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar_flor",
+      "x": 4552.801404345781,
+      "y": 3827.6728372820653,
+      "w": 29.817529586981983,
+      "h": 19.87835305798799,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4531.054739488289,
+      "y": 3837.836480801925,
+      "w": 38.32482573324814,
+      "h": 25.549883822165427,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4552.319383027032,
+      "y": 3836.01515102759,
+      "w": 32.731400598026816,
+      "h": 21.820933732017878,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4265.4218682050705,
+      "y": 4304.385047825053,
+      "w": 37.26422026092187,
+      "h": 24.842813507281246,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4265.4738356508315,
+      "y": 4293.276516698301,
+      "w": 36.473325237259274,
+      "h": 24.315550158172847,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4267.047872949392,
+      "y": 4293.832504613325,
+      "w": 36.095986841898416,
+      "h": 24.063991227932277,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4690.972060117871,
+      "y": 1084.4652374894358,
+      "w": 31.36895932070911,
+      "h": 20.912639547139406,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4520.553246976808,
+      "y": 2768.3393032271415,
+      "w": 30.397033670637757,
+      "h": 20.264689113758507,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 3672.9088028147817,
+      "y": 4339.1179985650815,
+      "w": 36.36721925726161,
+      "h": 24.244812838174404,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4708.196182275191,
+      "y": 1972.5947431270033,
+      "w": 34.67441935893148,
+      "h": 23.11627957262099,
+      "data": {}
+    },
+    {
+      "key": "gfa_nenufar",
+      "x": 4701.231714986265,
+      "y": 1977.4896599608473,
+      "w": 32.7982063033618,
+      "h": 21.86547086890787,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4727.8035486117005,
+      "y": 2214.5317183416337,
+      "w": 28.8,
+      "h": 9.799999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4308.011035917327,
+      "y": 1972.619262073189,
+      "w": 28.8,
+      "h": 9.799999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4298.535085575655,
+      "y": 4473.6628069859,
+      "w": 28.8,
+      "h": 9.799999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4489.471590872854,
+      "y": 2634.9450011570007,
+      "w": 28.8,
+      "h": 9.799999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 3624.524336470291,
+      "y": 4712.193200346082,
+      "w": 28.8,
+      "h": 9.799999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4491.311938595027,
+      "y": 202.75180407054722,
+      "w": 28.8,
+      "h": 9.799999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4745.313753319904,
+      "y": 2451.085626605898,
+      "w": 28.8,
+      "h": 9.799999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfa_onda",
+      "x": 4308.724216291681,
+      "y": 1175.7858883794397,
+      "w": 28.8,
+      "h": 9.799999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfa_tronco",
+      "x": 4523.089272972196,
+      "y": 2422.1308906208724,
+      "w": 60,
+      "h": 24,
+      "data": {}
+    },
+    {
+      "key": "gfa_tronco",
+      "x": 4549.862051924691,
+      "y": 1563.9265833254904,
+      "w": 60,
+      "h": 24,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2431,
+      "y": 63,
+      "w": 34.4,
+      "h": 10.32,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2464,
+      "y": 63,
+      "w": 38,
+      "h": 11.399999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2485,
+      "y": 71,
+      "w": 40,
+      "h": 12,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 332,
+      "y": 73,
+      "w": 37.599999999999994,
+      "h": 11.28,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2508,
+      "y": 74,
+      "w": 36.4,
+      "h": 10.92,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 401,
+      "y": 77,
+      "w": 40.4,
+      "h": 12.120000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1714,
+      "y": 78,
+      "w": 38,
+      "h": 11.399999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1772,
+      "y": 82,
+      "w": 34.8,
+      "h": 10.44,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1752,
+      "y": 88,
+      "w": 37.2,
+      "h": 11.16,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 354,
+      "y": 89,
+      "w": 39.2,
+      "h": 11.76,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1696,
+      "y": 89,
+      "w": 35.2,
+      "h": 10.56,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2496,
+      "y": 92,
+      "w": 47.199999999999996,
+      "h": 14.16,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1726,
+      "y": 96,
+      "w": 37.2,
+      "h": 11.16,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 317,
+      "y": 102,
+      "w": 44,
+      "h": 13.200000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1769,
+      "y": 110,
+      "w": 47.599999999999994,
+      "h": 14.28,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2508,
+      "y": 112,
+      "w": 46.8,
+      "h": 14.04,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1248,
+      "y": 115,
+      "w": 44,
+      "h": 13.200000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1710,
+      "y": 117,
+      "w": 37.2,
+      "h": 11.16,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 360,
+      "y": 119,
+      "w": 44.400000000000006,
+      "h": 13.32,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1736,
+      "y": 120,
+      "w": 47.199999999999996,
+      "h": 14.16,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 381,
+      "y": 136,
+      "w": 47.599999999999994,
+      "h": 14.28,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1294,
+      "y": 138,
+      "w": 39.2,
+      "h": 11.76,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1246,
+      "y": 145,
+      "w": 47.599999999999994,
+      "h": 14.28,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1715,
+      "y": 147,
+      "w": 40.8,
+      "h": 12.24,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1278,
+      "y": 152,
+      "w": 42,
+      "h": 12.600000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1257,
+      "y": 163,
+      "w": 36.800000000000004,
+      "h": 11.040000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1237,
+      "y": 178,
+      "w": 47.199999999999996,
+      "h": 14.16,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1257,
+      "y": 201,
+      "w": 40.8,
+      "h": 12.24,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2528,
+      "y": 437,
+      "w": 36,
+      "h": 10.8,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2450,
+      "y": 451,
+      "w": 42,
+      "h": 12.600000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2425,
+      "y": 457,
+      "w": 43.2,
+      "h": 12.96,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2517,
+      "y": 464,
+      "w": 35.2,
+      "h": 10.56,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2480,
+      "y": 465,
+      "w": 45.599999999999994,
+      "h": 13.68,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2446,
+      "y": 472,
+      "w": 44.800000000000004,
+      "h": 13.440000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2503,
+      "y": 480,
+      "w": 47.599999999999994,
+      "h": 14.28,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2424,
+      "y": 482,
+      "w": 42.400000000000006,
+      "h": 12.72,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2517,
+      "y": 495,
+      "w": 35.2,
+      "h": 10.56,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2475,
+      "y": 499,
+      "w": 45.599999999999994,
+      "h": 13.68,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1117,
+      "y": 536,
+      "w": 44.400000000000006,
+      "h": 13.32,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1091,
+      "y": 547,
+      "w": 42.400000000000006,
+      "h": 12.72,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1150,
+      "y": 552,
+      "w": 34.4,
+      "h": 10.32,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1119,
+      "y": 556,
+      "w": 34.8,
+      "h": 10.44,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1131,
+      "y": 572,
+      "w": 41.2,
+      "h": 12.36,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1097,
+      "y": 585,
+      "w": 44.800000000000004,
+      "h": 13.440000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1147,
+      "y": 591,
+      "w": 34.4,
+      "h": 10.32,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1112,
+      "y": 608,
+      "w": 40.8,
+      "h": 12.24,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1085,
+      "y": 613,
+      "w": 41.2,
+      "h": 12.36,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3376,
+      "y": 786,
+      "w": 42.400000000000006,
+      "h": 12.72,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3335,
+      "y": 798,
+      "w": 45.199999999999996,
+      "h": 13.559999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3366,
+      "y": 819,
+      "w": 45.599999999999994,
+      "h": 13.68,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3392,
+      "y": 823,
+      "w": 36.4,
+      "h": 10.92,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3341,
+      "y": 827,
+      "w": 43.6,
+      "h": 13.080000000000002,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3377,
+      "y": 840,
+      "w": 36.800000000000004,
+      "h": 11.040000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3352,
+      "y": 855,
+      "w": 38.4,
+      "h": 11.52,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3658,
+      "y": 1046,
+      "w": 39.2,
+      "h": 11.76,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3713,
+      "y": 1056,
+      "w": 47.199999999999996,
+      "h": 14.16,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3743,
+      "y": 1066,
+      "w": 39.6,
+      "h": 11.879999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3656,
+      "y": 1069,
+      "w": 45.599999999999994,
+      "h": 13.68,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3677,
+      "y": 1073,
+      "w": 34.4,
+      "h": 10.32,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3720,
+      "y": 1077,
+      "w": 46.8,
+      "h": 14.04,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3700,
+      "y": 1084,
+      "w": 46.8,
+      "h": 14.04,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3654,
+      "y": 1093,
+      "w": 34,
+      "h": 10.2,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3640,
+      "y": 1109,
+      "w": 35.2,
+      "h": 10.56,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3679,
+      "y": 1109,
+      "w": 47.199999999999996,
+      "h": 14.16,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2732,
+      "y": 1182,
+      "w": 43.6,
+      "h": 13.080000000000002,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2728,
+      "y": 1202,
+      "w": 40.4,
+      "h": 12.120000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2724,
+      "y": 1237,
+      "w": 44,
+      "h": 13.200000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2734,
+      "y": 1267,
+      "w": 34.8,
+      "h": 10.44,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 910,
+      "y": 1519,
+      "w": 41.6,
+      "h": 12.48,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 933,
+      "y": 1537,
+      "w": 44.400000000000006,
+      "h": 13.32,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 874,
+      "y": 1542,
+      "w": 36,
+      "h": 10.8,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 895,
+      "y": 1562,
+      "w": 40,
+      "h": 12,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 916,
+      "y": 1579,
+      "w": 42.800000000000004,
+      "h": 12.84,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4909,
+      "y": 1606,
+      "w": 39.6,
+      "h": 11.879999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4933,
+      "y": 1606,
+      "w": 34.8,
+      "h": 10.44,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4936,
+      "y": 1629,
+      "w": 41.2,
+      "h": 12.36,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4897,
+      "y": 1630,
+      "w": 44.800000000000004,
+      "h": 13.440000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4914,
+      "y": 1642,
+      "w": 44.800000000000004,
+      "h": 13.440000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4942,
+      "y": 1651,
+      "w": 43.2,
+      "h": 12.96,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4876,
+      "y": 1656,
+      "w": 37.599999999999994,
+      "h": 11.28,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4927,
+      "y": 1679,
+      "w": 38.4,
+      "h": 11.52,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4901,
+      "y": 1680,
+      "w": 35.2,
+      "h": 10.56,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3978,
+      "y": 1864,
+      "w": 40,
+      "h": 12,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3940,
+      "y": 1873,
+      "w": 44.800000000000004,
+      "h": 13.440000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3963,
+      "y": 1884,
+      "w": 42.800000000000004,
+      "h": 12.84,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3936,
+      "y": 1908,
+      "w": 37.599999999999994,
+      "h": 11.28,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3898,
+      "y": 1916,
+      "w": 43.6,
+      "h": 13.080000000000002,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3968,
+      "y": 1929,
+      "w": 45.599999999999994,
+      "h": 13.68,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3911,
+      "y": 1937,
+      "w": 35.2,
+      "h": 10.56,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 798,
+      "y": 1994,
+      "w": 46.4,
+      "h": 13.919999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 803,
+      "y": 2026,
+      "w": 34.8,
+      "h": 10.44,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 787,
+      "y": 2045,
+      "w": 35.2,
+      "h": 10.56,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 803,
+      "y": 2065,
+      "w": 47.599999999999994,
+      "h": 14.28,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4040,
+      "y": 2326,
+      "w": 34.8,
+      "h": 10.44,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4054,
+      "y": 2345,
+      "w": 40,
+      "h": 12,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4043,
+      "y": 2362,
+      "w": 44.800000000000004,
+      "h": 13.440000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 4064,
+      "y": 2366,
+      "w": 42.800000000000004,
+      "h": 12.84,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 892,
+      "y": 2429,
+      "w": 37.2,
+      "h": 11.16,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 864,
+      "y": 2445,
+      "w": 34,
+      "h": 10.2,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 911,
+      "y": 2446,
+      "w": 41.2,
+      "h": 12.36,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 895,
+      "y": 2461,
+      "w": 45.599999999999994,
+      "h": 13.68,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 852,
+      "y": 2462,
+      "w": 43.2,
+      "h": 12.96,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 946,
+      "y": 2466,
+      "w": 47.199999999999996,
+      "h": 14.16,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 913,
+      "y": 2480,
+      "w": 39.2,
+      "h": 11.76,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 943,
+      "y": 2490,
+      "w": 36,
+      "h": 10.8,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 894,
+      "y": 2495,
+      "w": 42,
+      "h": 12.600000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 933,
+      "y": 2510,
+      "w": 35.2,
+      "h": 10.56,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3002,
+      "y": 2573,
+      "w": 39.6,
+      "h": 11.879999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 2978,
+      "y": 2583,
+      "w": 46,
+      "h": 13.799999999999999,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3022,
+      "y": 2583,
+      "w": 34.4,
+      "h": 10.32,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3018,
+      "y": 2607,
+      "w": 36,
+      "h": 10.8,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 3058,
+      "y": 2614,
+      "w": 42,
+      "h": 12.600000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1161,
+      "y": 2626,
+      "w": 45.599999999999994,
+      "h": 13.68,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1211,
+      "y": 2626,
+      "w": 37.599999999999994,
+      "h": 11.28,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1180,
+      "y": 2640,
+      "w": 47.199999999999996,
+      "h": 14.16,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 543,
+      "y": 2641,
+      "w": 34.4,
+      "h": 10.32,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1207,
+      "y": 2646,
+      "w": 46.4,
+      "h": 13.919999999999998,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 523,
+      "y": 2647,
+      "w": 36,
+      "h": 10.8,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1149,
+      "y": 2654,
+      "w": 44.800000000000004,
+      "h": 13.440000000000001,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 594,
+      "y": 2659,
+      "w": 34,
+      "h": 10.2,
+      "data": {}
+    },
+    {
+      "key": "gfm_sombra",
+      "x": 1214,
+      "y": 2665,
+      "w": 44,
+      "h": 13.200000000000001,
+      "data": {}
+    }
+  ],
+  "water": {
+    "w": 313,
+    "h": 313
+  }
+}

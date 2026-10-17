@@ -1,0 +1,510 @@
+[
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\admin.html",
+    "hash": "f84ab6c2818047ed6bc473f6ba29f281f73981b308f51814b70fa5c0407cd9d5"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\app.js",
+    "hash": "9b0418b680fd058a0602c9b7df9796b668988f278c1d9787483553be70859fa3"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\BlockchainManager.js",
+    "hash": "001946463640bc090ac6df6b60c6165e9639f74fa20dc8bb31e97669b8a66d78"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\climas.html",
+    "hash": "b8f07fed60e413e4002cf8e7273f5f9e12479307d2bb0ffab67749b490682b68"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\consola-reportes.html",
+    "hash": "613526e393ea5726ab569347bcbf7c699c934444ce97797863eb0e9cf8e58060"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\contrato-stats.html",
+    "hash": "1f18568dcaf2d4afcb64429a5173fbf3f34c0b33f65eb4b419388c180e99f348"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\CraftingHub.js",
+    "hash": "0dcb48b508b7dbe8aaff1b705161b9bb2638477d5e96022cdc4e89b2b175fa9b"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\game.html",
+    "hash": "f057d6c69c508d0b755a31bee9410f1fd9be2782cda63c07de9660fc18f69e41"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-agua.js",
+    "hash": "7178720005365b297f536c2e2b9a997e901ca26607c3aacafff4890573ec91b4"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-alquimista.js",
+    "hash": "689fe15d320b6fd3eae4cca51d58b38d6b167fe2a11261c76452bafbfc2ef026"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-amigos.js",
+    "hash": "228a933ae33ffda30bcddf1240cf2d0f207d6b0c32c14680744c332fa3d83a2e"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-animales.js",
+    "hash": "204ed042f6841a2eb26af7cff2082596098b5ed86254493e4af1f1fc4d23c393"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-audio.js",
+    "hash": "40461ad19755d37ee2fda00ee3b802b67380a974f1d8d35d6ae79be4f4a830c6"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-batalla-arte.js",
+    "hash": "7c584c347e6a2eadd6104a610baf0817582b34a2038185daa14dd1e4ace06031"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-brawl-motor.js",
+    "hash": "b386f7f2c32194293f72f42f35e79bfc1a14ba12de032b293dc51e91d77e722d"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-buho.js",
+    "hash": "ebdbabfb6772a1ffed119553b1533b237576a0d9aac85950ab7a8ca0919d6f40"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-canales.js",
+    "hash": "e6ca5b2d41daed35e5ef48b1f7c4b094d03320908f489ea958adb7c643226518"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-casas.js",
+    "hash": "3c3b085a59a6c7c0ab4922be20f29edb02617acd0b8694e1f562491d4ba29ac3"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-character-skills.css",
+    "hash": "44b8c03b2bab3df3edbd6dfc102454f370a9d14528ec975dd9c7fcd4421b010c"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-character-skills.js",
+    "hash": "00b94e2236aac1f0b647bbc2e833d291923ab815021caedf4d343b24b61fa65c"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-chat-social.js",
+    "hash": "757341ea3ce9b3764777faeb563c5a3d70e759c55d3912552736fcb88b221c02"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-ciclo-dia.js",
+    "hash": "7e72a89575d2f9c44584c7ef07903b47b2e977613b4d0fadb4b08bff30a27bc5"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-clima.js",
+    "hash": "e0f2e8a21c94a0d6916f8b294019729ce928b7847901cb8491c4f523010091f8"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-cuervo.js",
+    "hash": "dacd2ac5a382ec9f31c341c28fc585a94888e0e5255e2abac4f7c5d132382898"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-espada-poderes.css",
+    "hash": "a96a965b432ee7ae73f1a5309b0e59b43c9aaacf4ed4137898a1cb653d723ef7"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-espada.js",
+    "hash": "1f08ab985a15cc025ac1554da35e6a4a9bfeae1c1d8b79878f1e918d5f0bea23"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-espantapajaros.js",
+    "hash": "d98675bf19b739ab80a5d595a08b1042232ac146bc9bda2414f3ec1e0802b924"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-graphics-settings.js",
+    "hash": "d441eacb9d65ec67e0096db76eae26e050529e06b188d9854f61bb474b523552"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-hud.css",
+    "hash": "b05dbc9fd348017a3651c2d6ef9a0141478650f6c51fdcd0120bafdbc9263989"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-lands.js",
+    "hash": "22c40db6147fa66cff892b0c3e83606108e212ce196f79fb3f666c152a1a4cea"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-mascota.js",
+    "hash": "a0fcbdc4b2a73439fc6c449a88e7db5beaae99ce51844e276fcc7ef9bcc29a2d"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-mina-espectros.js",
+    "hash": "5fbbdbb63b8186b46ca91fc09ce4ded80ba74b527ae59ab1fbfcbf64b6aca874"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-mina-serpiente.js",
+    "hash": "d7fe7ef2d97dd50c6a550b169458f67cf82525753f3b46bacc1d2892e9d70c67"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-mina-zombis.js",
+    "hash": "bb92dc54eabe3886c764c848a8571eeee90dc78c47b2382a5b7caf8adc921012"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-monte.js",
+    "hash": "b80fd76defb897411e46205f2bce07c790d6370d84e222f4e9f669a9490943b5"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-muerte.js",
+    "hash": "d630f7261de83577fb6ec82bc47ee0fea675395542883ed087a071eb519481e7"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-nft.js",
+    "hash": "b846103481f9d6e8c062dc35f5f9ec1494dd24690a30200f2d9f2d83de84e0ec"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-nieve.js",
+    "hash": "e7df07e16c1c3a045e15ec31436d2bb71e4fcbadb2b300397de82aff1a32b2bd"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-nombre-color.js",
+    "hash": "0e52a1cdd4f811813e70949b74e382051abb5db6429fdaaf9dca3fa1782f8bc7"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-pesca.js",
+    "hash": "bfad974173ae3f6d97835edde22d3bb2dc72a5f1dbb11231bc2047c9aed1fd78"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-pisadas.js",
+    "hash": "b82f4405255e02f703d2325961356def607ade2bf28df1c3f7a3f1eaa36233d5"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-postproceso.js",
+    "hash": "1eeda233c8e0a075a3389324a553cc7302bdcdbcea2e328c504b52c722ec95ca"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-profundidad.js",
+    "hash": "ac6ad4766b40461197abbd0fcf4dbc7537936f7e03f630aa774ca46990f3d6a2"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-redirect.js",
+    "hash": "28a72baf56454b5c9504823a0c8f34d511d7f324b9fe2b2c39d4b8c68fbaebe9"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-reposo.js",
+    "hash": "e8822b0982ae08d2b96f233d1c1f7ae18be68534bc92b4a9f026cf18ba21b682"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-rutas.js",
+    "hash": "debe71b9e433f967dfb09e4139d928bf9a6f4b2f68910477ef724bd0c7b70466"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-sesion-unica.js",
+    "hash": "c086cd86e19595c672eda1e76de34eff8a91effd89419551c62a7a1732ca2d1c"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-session-api.js",
+    "hash": "862892e658256f31f0b43e60873ddac837a1785dfb1d692847ebda01ea9ef590"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-sombras.js",
+    "hash": "c7c5c25a33b827353901cc9b0a9b96ff8569aeb0f834eb9faf4988d13ea503aa"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-soulbound.js",
+    "hash": "fc4a5017b648e3382f7507985a45c3264121eae0290c25b9ba51208f3082cd26"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-suelo.js",
+    "hash": "235d787efedfe21cdd70aac2dc00865b47cc60954c60f0a38ba807b7eb90472e"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-tirones.js",
+    "hash": "ced6b880bc88026fef0666d8b8230700a2c8ab44450f2f356b17f31337891df3"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-traductor.js",
+    "hash": "8948d4a1c3d3e954d40789aba8799005ceb9949f9100bf3323ef42b9325de5d7"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-viento.js",
+    "hash": "5a0e5c8b01d10778740db8ab435879e8e492e6fba1777d0e6fd996864cf0f39e"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-wallet-boot.js",
+    "hash": "3e44e0fa00c6c92ffec52d9a3e61f2b6c3bbb2d847fac219c6ee7ab03c240c20"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\gf-wallet-dashboard.js",
+    "hash": "e364f5804d43993220bfefdd982d1901a3a2bc3bc09f6cc8ee6d64ce87a2ad29"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\hub.js",
+    "hash": "aace3a86dd0ad735ffab104293e704225a038872a4ae3a10bab87e5725cc0b2a"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\index.html",
+    "hash": "d9a5cedddd31e16b20fd3a97f582f2ec4a02535da0c512479063a4dae08b108c"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\keycode.json",
+    "hash": "1b29bfad5d783e492c6af7b0782cdf6d3a087a5446905bb6063245b45f162b87"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\LoadingSystem.js",
+    "hash": "27a64b35d9ac59763b70cc97c1ec0c2ef117a472a8dc43e88eb910ae30e295d0"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\market.html",
+    "hash": "e9cb3baeb269f7a4eb8645e9a6928093f18851b6086c060bf42aba70c9ceffd9"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\marketplace-routes.js",
+    "hash": "d805d035c9b9b2d7bcf547e971ffcf070ed08fb9cac8260b4e5a20fe41aa51fd"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\memory-fix.js",
+    "hash": "fee9136a55a98a6d9eb400a8eb65a3fff8f07321253e33477429d17ed424fab9"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\misiones.html",
+    "hash": "1be3413ae6fd9d8a3d645d9c0be27529fb9676109d7c7f8796164d61f482f4d7"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\missionspanel.js",
+    "hash": "8346fb61ee0a48e88328503ff7c718f5de315ea5c2a15c472a8d04739ad93ba4"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\NotificationHub.js",
+    "hash": "4820ef058ac08f2e20009005cdae40f9c5d2e61660204eda19ae5540a0e62ece"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\obfuscator-config.json",
+    "hash": "7bb765f17aa16192a4502a2c340a2b3da979cc67dd11738c46afb013c6758465"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\package-lock.json",
+    "hash": "53580a028415a1daa203fc2cedd6e5f8d3d47f7ea351f9f4033f11a0f749a0ef"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\package.json",
+    "hash": "1b4e36cfb3e33080843ac0811cfecd1ada7bc53c975ba15292bbe935757a924d"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Phaser-camera.js",
+    "hash": "85fe422bf49448dab723464a5e7df617c0194b1fa199f66df03c9d853aa5907a"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\phaser-canvas-scaler.js",
+    "hash": "9ab20330a3d458e6fd0840b29831cb52fe7217550b87bfb1143a28f93389bc20"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\phaser-memory-cleaner.js",
+    "hash": "1d68e3ae9a2d47dd2332cd3994ce9b81c1135eb0516669d9bf69d18cef6ee0c6"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\phaser-memory-reporter.js",
+    "hash": "b53ce4f5d91d6e3eb3e60eba47b09c827b6ef1e81c674836704d3244c4e742f1"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\phaser-relay-library.js",
+    "hash": "6b7076403d2057fc97dbb5b818bc8f9c06349eeda1400325f6271917892562c5"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\phaser-rpg-perf.js",
+    "hash": "2ab933167846d3dd06157c57143e8e8614129784e6cd3bfb93a33b44060ef4d0"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\puerta_login.html",
+    "hash": "a55e40e41051d247c929656ed8aef6a080ce726a06769b631c3ed9750bf1799b"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\register-scenes.js",
+    "hash": "cc710d3dd014ecbfa5da371f5a7e8ec6c543397a750bc022bdd2fec6b8b33879"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\reporter.html",
+    "hash": "953a9999b66b190f883d0a08dab8352f75aba6ef06da9704cfc47ec6e76ff05c"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\reporter.js",
+    "hash": "54cccfed5b6f21c31d530452e530e846a021ddd182048cade0eb7abc07950844"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\styless.css",
+    "hash": "bc4a712f73442052c5482a81e131b0edc353185560db3a8a616fbd5d42d5a16a"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\SystemaTransaccion.js",
+    "hash": "862adc1707cfcddb1c9fab4d4204b60d59088eb21cfdf7eeb6015d7f293311b9"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\tienda_sistema.js",
+    "hash": "30874a78f1a26d874b195d5dc59402a2cbb43e394654f929f3078c02a4390989"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\TransactionHub.js",
+    "hash": "f630a89c32e6ed6c3d9ac8f7aafbe3b2d91be8180767d060f3c91016d5adf263"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\tx-gate.js",
+    "hash": "26790c01814f0b7cc3f03653ebdf4f4f39be9c43fcae1f52f85dee40749625e2"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\ui-image-fallbacks.js",
+    "hash": "a4b8188cfde42f888c7f0520f4248e249610c93eddf8d406159e3bb25c02a0f4"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\viewport-fix.js",
+    "hash": "a4e37828640e4ddbf50c7887790de55c8aa81df172c59f62beafa1e8c0b855d9"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_audio_memoria.html",
+    "hash": "4485b09f639fc7b1a2e0089efb64a26412c96aae9e7091c665d6f35943bae836"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_batalla.html",
+    "hash": "15340ebf26ade12d7d3e9dee4033189cdaf45db52304814bd7ca638081fed74e"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_chunks.html",
+    "hash": "cbd0bbf56c58e3b2c05f0e9c5b37f2c3bb904ff3fa8a6be81b6079516d94cc1d"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_clima2.html",
+    "hash": "85d8d2f4b47120e92acf11f71c19bf5aa1e78a9c90b13da128c0182d864b85d9"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_combate.html",
+    "hash": "8673c77cdca0b95b7c542387bb44cfe4604cebd4c17ffcdee1efc0013cb81620"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_fauna_clima.html",
+    "hash": "11078d98114a0bfeb08ecd512b65f2cc50e1e02fa9c9dae13c7fb6c54cbcc331"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_franjas.html",
+    "hash": "33638408589c60b28deaeea330e96f573ace32aa1b108c176bf63825ec63c6b4"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_horno.html",
+    "hash": "7c65e0423c649f9eab435cc6e127766a717bf8d54d637861843606323f4325a1"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_memoria_ciclos.html",
+    "hash": "97a409ca278d43200250d73e4f559f344611796f7c325f93f9844a2452ba8fd6"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_mina.html",
+    "hash": "e42d7b2c66519b6ef212e00e079d2023aea747597385e223120b9c924b85138c"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_nublado.html",
+    "hash": "19f7399ac5a300917ab3606a35339c6e81a1875250af691615113ddb3c373a3e"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_nublado.js",
+    "hash": "8dd1ebe0ca7637d24d7b828acb44401fd0841b87138815360bf8bae90c7354b0"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_offline.html",
+    "hash": "3d0c857c0f13a899c8bb6f973bc419db32127af83ed9fe325d36d2326a7cac17"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_offline_mock.js",
+    "hash": "671276ee854530d114fb2e52b65241c3ef50da2b594163c43a15e575c67dcc34"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_pisadas.html",
+    "hash": "cb6459f84fa0c5c4e41ef740fba7f812b13c189c7361366c1a01ea4a5727214f"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_post.html",
+    "hash": "26764ff4cc8e3f6114d3cbddb8df02f2dd52144e4497c3845d4eb54da2aebb9f"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_relay.js",
+    "hash": "beefc25d29d2280f446369d4602416e32b54086e3864b9a330e8924f723afb4e"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_rendirse.html",
+    "hash": "cf06523c3bb70e09e92580673d50c7131ea1e8f065f6a4e2ad3fcb4cf276dfff"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_social.html",
+    "hash": "04b9fdd3e335bd663c0cb23d17c460270d51c72f069ba55464356811d390bdb3"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_social.js",
+    "hash": "130eb58a38b788b0185f47f71395e728bf8a56eb6117c8f3460e9e81e3072dc1"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_sol_nieve.html",
+    "hash": "3605151472d999a7fec68540db145faa8d8910bbb3a09cb9d361c6ec2aac0bba"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_sombras.html",
+    "hash": "a32c4324bc54d3596a8e026f98286754b05c4501b3b4c22781bbe9fbe2a5d47b"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_sonido.html",
+    "hash": "2b3a31ebb9ee13056fe2606e9ecca0f1bb20cd03dbc41214fba25a90bb1f1707"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_viento.html",
+    "hash": "78b11acb68225cf0e5bd3bda78917385579fbf9e041cc34d58a10692742d9285"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\_prueba_vram_pantalla.html",
+    "hash": "cb913ea12c0d967b74f5fe19963af518495ca4d038aa767a5abda28850ea1194"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\.eslintrc.json",
+    "hash": "785a1239baa0ca019652d0b85fe21df8c4d50ef4cf1be34a2758cfe6a377663b"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\BattleScene.js",
+    "hash": "2e8773ed2281c2e33d279e3278478b6daff43cc42e81c5786fd1853cd819f86a"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\BattleScene.js.bak-rival",
+    "hash": "e61a0c625bb42b4275fbb947dcc2b072e045e86beae25cd889e54952dd1f36e8"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\GameScene.js",
+    "hash": "e78deb4b9c17517f0883b10c9847994d1c5e60d43c8975faecef59dbf4552151"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\GameScene.js.bak-sockets",
+    "hash": "14075c455e43c07a4efdecb15f25d92f8144aaa9205087ccf8a5c3f699b01627"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\InteriorScene.js",
+    "hash": "3539faf65781579169528f769c5534082783f96540ec44e3cc146a5b90e8001d"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\LandsScene.js",
+    "hash": "38e9ee08feed814175b4fd20f43a3182b2db4b7dae6e844c6408d2548d8361b3"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\LoadingScenegame.js",
+    "hash": "749609aab8d176b14c1e7603893d257b3d4adc01b9ea15c2ad119d2d9fe1fa59"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\LoadingSceneshop.js",
+    "hash": "d43a774e9db6a15a4629981131d86cc4896bec2ea6758ba470539b3a26469955"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\MenuScene.js",
+    "hash": "0dffc33fdc77961d4d074e877decc37ad86661af5e7db03e8a99c31858056979"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\MinaScene.js",
+    "hash": "fe8620518996543920f1d40e1d4d67f184c7a5166edc5229ca94f19fb6be1366"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\sacar_mapa.js",
+    "hash": "1acca924eb2e7f2fd575986ed65fa9e8ab8e18ef45a951d85fb327037037b1e6"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\SalvajeScene.js",
+    "hash": "b262124e3d1b69ea9b9af4b058c39107baa1945db43459b6ac4ecd9c92e21e29"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\ShopScene.js",
+    "hash": "4385704c3485c3c8664bffd53cfbd469c6fec4212095118eb7556aa654c90af9"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\tiendajuego.js",
+    "hash": "0bee6debb2a8a933c3087d41d9bb970f98c678c6b220c3862b1335d82607cd10"
+  },
+  {
+    "file": "C:\\Users\\pc\\Desktop\\Proyecto\\GrasslandForest 0.1\\Grassland Forest V16.8 Completo (en trabajo de agregar comandos a fully onchains)\\miweb_Developer\\bin\\Scenes\\tiendajuego.js.bak-sockets",
+    "hash": "074a73c53ddb9793dc380d774a2ea437fb0dba546042710ae5da95955418e859"
+  }
+]
