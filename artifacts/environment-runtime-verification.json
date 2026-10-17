@@ -1,0 +1,71 @@
+{
+  "cycles": [
+    {
+      "cycle": 1,
+      "renderer": 2,
+      "activeListeners": 7,
+      "windowListeners": 3,
+      "containerListeners": 0,
+      "heapBytes": 5486520
+    },
+    {
+      "cycle": 2,
+      "renderer": 2,
+      "activeListeners": 7,
+      "windowListeners": 3,
+      "containerListeners": 0,
+      "heapBytes": 5667304
+    },
+    {
+      "cycle": 3,
+      "renderer": 2,
+      "activeListeners": 7,
+      "windowListeners": 3,
+      "containerListeners": 0,
+      "heapBytes": 5811948
+    },
+    {
+      "cycle": 4,
+      "renderer": 2,
+      "activeListeners": 7,
+      "windowListeners": 3,
+      "containerListeners": 0,
+      "heapBytes": 5847576
+    },
+    {
+      "cycle": 5,
+      "renderer": 2,
+      "activeListeners": 7,
+      "windowListeners": 3,
+      "containerListeners": 0,
+      "heapBytes": 6022516
+    },
+    {
+      "cycle": 6,
+      "renderer": 2,
+      "activeListeners": 7,
+      "windowListeners": 3,
+      "containerListeners": 0,
+      "heapBytes": 6042780
+    },
+    {
+      "cycle": 7,
+      "renderer": 2,
+      "activeListeners": 7,
+      "windowListeners": 3,
+      "containerListeners": 0,
+      "heapBytes": 6054412
+    },
+    {
+      "cycle": 8,
+      "renderer": 2,
+      "activeListeners": 7,
+      "windowListeners": 3,
+      "containerListeners": 0,
+      "heapBytes": 6067092
+    }
+  ],
+  "browserErrors": [],
+  "externalRequests": [],
+  "scope": "8 real WebGL boot/destroy cycles, 48 environment mounts, actual weather/animal assets, night zoom, mocked local world APIs, display-object/timer/listener cleanup. Synthetic map; no authenticated gameplay."
+}

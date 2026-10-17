@@ -1,0 +1,103 @@
+{
+  "cycles": [
+    {
+      "cycle": 1,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 4348300
+    },
+    {
+      "cycle": 2,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 4455380
+    },
+    {
+      "cycle": 3,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 4551976
+    },
+    {
+      "cycle": 4,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 4664056
+    },
+    {
+      "cycle": 5,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 4830192
+    },
+    {
+      "cycle": 6,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 4858660
+    },
+    {
+      "cycle": 7,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 4875384
+    },
+    {
+      "cycle": 8,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 4878104
+    },
+    {
+      "cycle": 9,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 5292972
+    },
+    {
+      "cycle": 10,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 5316836
+    },
+    {
+      "cycle": 11,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 5352532
+    },
+    {
+      "cycle": 12,
+      "renderer": 2,
+      "activeListeners": 5,
+      "windowListeners": 1,
+      "containerListeners": 0,
+      "heapBytes": 5365240
+    }
+  ],
+  "browserErrors": [],
+  "externalRequests": [],
+  "scope": "12 real Phaser boot/destroy cycles with app, performance helper, physics, borrowed textures, real tilemap cache refresh, culling, particles and camera lifecycle. Synthetic scene, no authenticated gameplay."
+}
